@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
 import {
   CommissionCardModel
@@ -52,7 +52,9 @@ export class LandingPageComponenentComponent implements OnInit {
 
 
   constructor(private currentRoute: ActivatedRoute, private http: HttpClient,private authHandelService: AuthenticationHandleService,
-              private requestService: UserRequestsService) { }
+              private requestService: UserRequestsService,
+  private router: Router,
+  ) { }
 
   testButton () {
     console.log(this.currentCommsisonCardLayout,
@@ -204,5 +206,8 @@ export class LandingPageComponenentComponent implements OnInit {
   }
 
 
+  onGoToCommissionChat(commissionId: string) {
+    this.router.navigate(['commissionChat/'+ commissionId]);
 
+  }
 }

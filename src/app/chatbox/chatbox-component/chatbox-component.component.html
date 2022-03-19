@@ -11,3 +11,10 @@
   </div>
 </div>
 
+<div class="row" style="height: 300px">
+
+</div>
+<h3>Send Message</h3>
+<textarea  #message type="text" class="form-control" id="exampleFormControlTextarea1" rows="3" ></textarea>
+
+<button type="button" class="btn btn-outline-secondary" (click)="onPostANewMessage(message.value)" >Send message</button>
