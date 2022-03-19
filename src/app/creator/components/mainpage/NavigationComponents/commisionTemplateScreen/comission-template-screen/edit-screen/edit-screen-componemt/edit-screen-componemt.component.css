@@ -1,0 +1,10 @@
+.isHovering {
+  background-color: lightgrey;
+  transition: background-color .2s linear;
+
+}
+
+.isNotHovering {
+  transition: background-color .2s linear;
+
+}

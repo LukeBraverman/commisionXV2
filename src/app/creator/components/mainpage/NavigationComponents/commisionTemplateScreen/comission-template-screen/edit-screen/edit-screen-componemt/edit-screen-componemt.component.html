@@ -1,0 +1,59 @@
+
+<div class="row justify-content-center" style="  min-height: 650px   " >
+
+  <div class="row  justify-content-around "  >
+
+    <div class="col-6 text-center  " style=" border: 2px black solid;" [ngClass]="isUserHovering ? 'isHovering' : 'isNotHovering'" (mouseenter)="onHoverOver()" (mouseleave)="onMouseLeave()" *ngIf="!uploadedHighlightImage"
+    >
+      <button type="button" class="btn btn-outline-secondary" (click)="saveCurrentLayoutToFirebase()">Save Layout</button>
+
+      <h3>Insert highlight image</h3>
+      <input class="form-control form-control-lg" id="formFileLg" type="file" (change)="onFileChanged($event)">
+
+
+    </div>
+
+    <div *ngIf="uploadedHighlightImage">
+      <img style="height: 280px;min-width: 400px; margin-top: 7px; "  src="{{url}}"  class="img-fluid " >
+      <button type="button" class="btn btn-outline-secondary" (click)="onRemoveHighlightPicture()"*ngIf="uploadedHighlightImage">Remove picture</button>
+
+    </div>
+
+  </div>
+
+  <div class="row justify-content-around" style=" border: 2px black dotted;" >
+      <div *ngIf="!uploadedTextForHighlightImage" class="col-6 " style=" border: 2px black dotted;" [ngClass]="isUserHoveringOverDescription ? 'isHovering' : 'isNotHovering'" (mouseenter)="onHoverOverDesc()" (mouseleave)="onMouseLeaveDesc()">
+        <h3>Insert Highlight description</h3>
+        <textarea  #highlightDesc type="text" class="form-control" id="exampleFormControlTextarea1" rows="3" ></textarea>
+
+        <button type="button" class="btn btn-outline-secondary" (click)="onAddHighlightDescription(highlightDesc.value)" *ngIf="!uploadedTextForHighlightImage">Add description</button>
+
+      </div>
+
+    <div *ngIf="uploadedTextForHighlightImage" class="col-6 " style=" border: 2px black dotted;" [ngClass]="isUserHoveringOverDescription ? 'isHovering' : 'isNotHovering'" (mouseenter)="onHoverOverDesc()" (mouseleave)="onMouseLeaveDesc()">
+      <button type="button" class="btn btn-outline-secondary" (click)="onClearDescription()">clear description</button>
+      {{highlightImageText}}
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<div class="row" style="height: 20px;  ">
+  <div class="col-12 text-center">
+    <button type="button" class="btn btn-outline-secondary btn-lg px-4 me-md-2 fw-bold " style="margin-top: 15px" (click)="onSeePortfolio()">
+      Set Portfolio
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
+        <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+      </svg>
+    </button>
+    <button type="button" class="btn btn-outline-secondary btn-lg px-4 me-md-2 fw-bold " style="margin-top: 15px" (click)="onSetPrice()">
+      Set Price
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
+        <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+      </svg>
+    </button>
+  </div>
+</div>

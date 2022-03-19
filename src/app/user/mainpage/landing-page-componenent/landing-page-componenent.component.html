@@ -1,0 +1,86 @@
+<div *ngIf="!onSeeRequestCommissionsScreen">
+  <p>landing-page-componenent works!</p>
+  <div *ngIf="!dataIsLoaded">
+    {{currentCommsisonCardLayout.highlightImageExists}}
+    <hr>
+    {{currentCommsisonCardLayout.highlightImageUrl}}
+    <hr>
+
+    {{currentCommsisonCardLayout.highlightDescriptionExists}}
+    <hr>
+
+    {{currentCommsisonCardLayout.highlightDescription}}
+    <hr>
+
+    {{currentCommsisonCardLayout.imagePortfolioListOrder}}
+    <hr>
+
+    {{currentCommsisonCardLayout.priceForCommissionDescription}}
+    <hr>
+
+    {{currentCommsisonCardLayout.priceForCommission}}
+  </div>
+
+  <div *ngIf="dataIsLoaded">
+    {{commissionCardFromFirebase.highlightImageExists}}
+    <hr>
+    {{commissionCardFromFirebase.highlightImageUrl}}
+    <hr>
+
+    {{commissionCardFromFirebase.highlightDescriptionExists}}
+    <hr>
+
+    {{commissionCardFromFirebase.highlightDescription}}
+    <hr>
+
+    {{commissionCardFromFirebase.imagePortfolioListOrder.length}} <- length
+    <hr>
+
+    {{commissionCardFromFirebase.priceForCommissionDescription}}
+    <hr>
+
+    {{commissionCardFromFirebase.priceForCommission}}
+  </div>
+  <button type="button" class="btn btn-outline-secondary" (click)="testButton()">log</button>
+
+
+  <h3>Insert commission description</h3>
+  <textarea  #commissionDesc type="text" class="form-control" id="exampleFormControlTextarea1" rows="3" ></textarea>
+
+  <button type="button" class="btn btn-outline-secondary" (click)="onRequestCommission(commissionDesc.value)" >Ask for Comission</button>
+  <button type="button" class="btn btn-outline-secondary" (click)="switchToRequestedCommissions()" >See requested commissions</button>
+
+</div>
+
+<div *ngIf="onSeeRequestCommissionsScreen">
+  <button type="button" class="btn btn-outline-secondary" (click)="switchToRequestedCommissions()" >See requested commissions</button>
+
+  <button type="button" class="btn btn-outline-secondary" (click)="onSendFakeRequestData()" >Save fake data</button>
+
+  <button type="button" class="btn btn-outline-secondary" (click)="onGetAllSyncedCommissions()" >On Get all commissions</button>
+
+  <button type="button" class="btn btn-outline-secondary" (click)="toggleSeeCommissions()" >On see commissisons</button>
+
+
+</div>
+
+
+  commissions:
+  <div *ngFor="let requeste of requestedCommisions.listOfRequestedCommissions ; let i = index">
+    {{requeste.lastKnowCommissionState.commissionUniqueId}}
+    <hr>
+    pending: {{requeste.lastKnowCommissionState.commissionPending}}
+    <hr>
+    active: {{requeste.lastKnowCommissionState.commissionActive}}
+    <hr>
+    completed: {{requeste.lastKnowCommissionState.commissionCompleted}}
+    <hr>
+    rejected: {{requeste.lastKnowCommissionState.commissionRejected}}
+    <hr>
+    desc: {{requeste.lastKnowCommissionState.imageDescription}}
+  </div>
+
+{{requestedCommisions.listOfRequestedCommissions}}
+
+
+

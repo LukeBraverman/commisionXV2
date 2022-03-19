@@ -1,0 +1,241 @@
+<div class="row " style="height: 50px">
+
+</div>
+<div class="row " *ngIf="onManageCommissionScreen">
+  <div class="col-1">
+
+  </div>
+  <div class="col-4 " *ngIf="onActiveCommissionsScreen">
+    <div class="row" >
+      RECEIVED COMMISSIONS
+    </div>
+    <div class="row " style="border: solid black 2px">
+
+    </div>
+    <div class="row" style="border: solid red 2px" *ngFor="let pendingCom of pendingCommissions ; let i = index">
+        {{pendingCom.userIdForRequest}}
+      <hr>
+      {{pendingCom.usernameOfRequest}}
+      <hr>
+      {{pendingCom.priceOffering}}
+      <hr>
+      {{pendingCom.imageDescription}}
+      <hr>
+      {{pendingCom.howLongForCommissionToComplete}}
+      <hr>
+      {{pendingCom.commissionReceivedDate}}
+      <hr>
+      {{pendingCom.commissionAcceptedDate}}
+      <hr>
+      {{pendingCom.commissionDueDate}}
+      <hr>
+      {{pendingCom.commissionCompletedDate}}
+      <hr>
+      {{pendingCom.commissionCompleted}}
+      <hr>
+      {{pendingCom.commissionActive}}
+      <hr>
+      {{pendingCom.commissionRejected}}
+      <hr>
+      {{pendingCom.commissionPending}}
+      <hr>
+      <button type="button" class="btn btn-outline-secondary" (click)="onGoToAcceptAPendingCommission(i)"  >
+        Accept Commission
+      </button>
+      <button type="button" class="btn btn-outline-secondary" (click)="onGoToRejectAPendingCommission(i)" >
+        Reject Commission
+      </button>
+      <button type="button" class="btn btn-outline-secondary"  (click)="onViewMoreInformationForACCommission(pendingCom)">
+        See more information Commission
+      </button>
+
+    </div>
+
+
+
+
+  </div>
+  <div class="col-4 " *ngIf="!onActiveCommissionsScreen">
+    <div class="row" >
+      Completed COMMISSIONS
+    </div>
+    <div class="row " style="border: solid black 2px">
+
+    </div>
+    <div class="row" style="border: solid red 2px" *ngFor="let completedCom of completedCommissions ; let i = index">
+      {{completedCom.userIdForRequest}}
+      <hr>
+      {{completedCom.usernameOfRequest}}
+      <hr>
+      {{completedCom.priceOffering}}
+      <hr>
+      {{completedCom.imageDescription}}
+      <hr>
+      {{completedCom.howLongForCommissionToComplete}}
+      <hr>
+      {{completedCom.commissionReceivedDate}}
+      <hr>
+      {{completedCom.commissionAcceptedDate}}
+      <hr>
+      {{completedCom.commissionDueDate}}
+      <hr>
+      {{completedCom.commissionCompletedDate}}
+      <hr>
+      {{completedCom.commissionCompleted}}
+      <hr>
+      {{completedCom.commissionActive}}
+      <hr>
+      {{completedCom.commissionRejected}}
+      <hr>
+      {{completedCom.commissionPending}}
+      <hr>
+      <button type="button" class="btn btn-outline-secondary"   (click)="onViewMoreInformationForACCommission(completedCom)">
+        See more information
+      </button>
+
+
+    </div>
+
+
+
+
+  </div>
+  <div class="col-1">
+
+  </div>
+  <div class="col-4 " *ngIf="onActiveCommissionsScreen">
+    ACTIVE COMMISSIONS
+    <div class="row " style="border: solid black 2px">
+
+    </div>
+
+
+
+    <div class="row" style="border: solid red 2px" *ngFor="let activeCom of activeCommissions ; let i = index">
+      {{activeCom.userIdForRequest}}
+      <hr>
+      {{activeCom.usernameOfRequest}}
+      <hr>
+      {{activeCom.priceOffering}}
+      <hr>
+      {{activeCom.imageDescription}}
+      <hr>
+      {{activeCom.howLongForCommissionToComplete}}
+      <hr>
+      {{activeCom.commissionReceivedDate}}
+      <hr>
+      {{activeCom.commissionAcceptedDate}}
+      <hr>
+      {{activeCom.commissionDueDate}}
+      <hr>
+      {{activeCom.commissionCompletedDate}}
+      <hr>
+      {{activeCom.commissionCompleted}}
+      <hr>
+      {{activeCom.commissionActive}}
+      <hr>
+      {{activeCom.commissionRejected}}
+      <hr>
+      {{activeCom.commissionPending}}
+      <hr>
+      <button type="button" class="btn btn-outline-secondary" (click)="onGoToCompleteACCommission(i)"  >
+        Complete Commission
+      </button>
+      <button type="button" class="btn btn-outline-secondary" (click)="onGoToStopActiveCommission(i)" >
+        Stop  Commission
+      </button>
+      <button type="button" class="btn btn-outline-secondary"  (click)="onViewMoreInformationForACCommission(activeCom)" >
+        See more information
+      </button>
+    </div>
+
+
+
+
+
+
+
+  </div>
+
+  <div class="col-4 " *ngIf="!onActiveCommissionsScreen">
+    <div class="row" >
+      Canceled COMMISSIONS
+    </div>
+    <div class="row " style="border: solid black 2px">
+
+    </div>
+    <div class="row" style="border: solid red 2px" *ngFor="let rejectedCom of rejectedCommissions ; let i = index">
+      {{rejectedCom.userIdForRequest}}
+      <hr>
+      {{rejectedCom.usernameOfRequest}}
+      <hr>
+      {{rejectedCom.priceOffering}}
+      <hr>
+      {{rejectedCom.imageDescription}}
+      <hr>
+      {{rejectedCom.howLongForCommissionToComplete}}
+      <hr>
+      {{rejectedCom.commissionReceivedDate}}
+      <hr>
+      {{rejectedCom.commissionAcceptedDate}}
+      <hr>
+      {{rejectedCom.commissionDueDate}}
+      <hr>
+      {{rejectedCom.commissionCompletedDate}}
+      <hr>
+      {{rejectedCom.commissionCompleted}}
+      <hr>
+      {{rejectedCom.commissionActive}}
+      <hr>
+      {{rejectedCom.commissionRejected}}
+      <hr>
+      {{rejectedCom.commissionPending}}
+      <hr>
+      <button type="button" class="btn btn-outline-secondary"  (click)="onViewMoreInformationForACCommission(rejectedCom)" >
+        See more information
+      </button>
+    </div>
+
+
+
+
+  </div>
+  <div class="col-1">
+
+  </div>
+  <div class="col-1 ">
+    <button type="button" class="btn btn-outline-secondary"  (click)="onGetCommissions()">
+      get commissions
+
+    </button>
+    <button type="button" class="btn btn-outline-secondary"  (click)="onSaveFakeCommissions()">
+      save commissions
+
+    </button>
+    <button type="button" class="btn btn-outline-secondary" *ngIf="onActiveCommissionsScreen" (click)="onSwitchScreens()">
+      See history
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
+        <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+      </svg>
+    </button>
+
+    <button type="button" class="btn btn-outline-secondary" *ngIf="!onActiveCommissionsScreen" (click)="onSwitchScreens()">
+      See Active and Pending commissions
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
+        <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
+      </svg>
+    </button>
+
+
+  </div>
+</div>
+
+<app-reject-pending-component [commissionCardToReject]="this.pendingCommissions[indexOfCommissionToReject]" *ngIf="onRejectAPendingCommissionScreen"></app-reject-pending-component>
+
+<app-accept-pending-component [commissionCardToAccept]="this.pendingCommissions[indexOfCommissionToAccept]" *ngIf="onAcceptAPendingCommissionScreen"></app-accept-pending-component>
+
+<app-complete-active-screen [commissionCardToComplete]="this.activeCommissions[indexOfCommissionToComplete]" *ngIf="onCompleteAActiveCommissionScreen"></app-complete-active-screen>
+
+<app-stop-active-component [commissionCardToStop]="this.activeCommissions[indexOfCommissionToStop]" *ngIf="onStopAActiveCommissionScreen"></app-stop-active-component>
+
+<app-more-infomation-component [commissionCardToView]="cardToViewInMoreInformation" *ngIf="onViewMoreInformationOfComponentScreen"></app-more-infomation-component>

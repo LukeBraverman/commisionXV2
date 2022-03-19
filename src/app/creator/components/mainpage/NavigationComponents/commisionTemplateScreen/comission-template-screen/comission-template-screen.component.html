@@ -1,0 +1,28 @@
+<div class="row justify-content-around" >
+
+    <div class="col-12 text-center">
+      <ul class="nav justify-content-center">
+        <li class="nav-item">
+          <a class="nav-link active"  aria-current="page" (click)="onActiveCommissionCard()">Active Commission Card</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="onEditCommissionCard()">Edit Commission Card</a>
+        </li>
+      </ul>
+    </div>
+
+
+</div>
+
+<div class="row" style="height: 20px; ">
+
+</div>
+
+<div *ngIf="activeCommissionCardScreen">
+  <app-active-screen-componemt></app-active-screen-componemt>
+</div>
+
+<div *ngIf="editCommissionCardScreen">
+  <app-edit-screen-componemt></app-edit-screen-componemt>
+</div>
+

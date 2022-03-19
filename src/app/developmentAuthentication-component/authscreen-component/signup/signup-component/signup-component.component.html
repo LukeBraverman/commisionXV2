@@ -1,0 +1,30 @@
+<div class="container">
+<div class="row">
+  <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+
+
+          <label for="email">Enter email to sign up with</label>
+          <input
+            type="text"
+            id="email"
+            formControlName="email"
+            class="form-control">
+
+
+
+        <label for="password">Enter password with a minimum length 6 characters</label>
+        <input
+          type="password"
+          id="password"
+          formControlName="password"
+          class="form-control">
+
+
+
+      <hr>
+      <button class="btn btn-primary" type="submit">Submit</button>
+    </form>
+  </div>
+</div>
+</div>
