@@ -29,6 +29,7 @@ import {
   LandingPageComponenentComponent
 } from "./app/user/mainpage/landing-page-componenent/landing-page-componenent.component";
 import {ChatboxComponentComponent} from "./app/chatbox/chatbox-component/chatbox-component.component";
+import {ChatComponent} from "./app/chatboxFireship/chat/chat.component";
 
 
 const appRoutes: Routes = [
@@ -61,7 +62,7 @@ const appRoutes: Routes = [
   },
   { path: ':id', component: LandingPageComponenentComponent,canActivate: [AuthGuard],  },
   { path: 'commissionChat/:id', component: ChatboxComponentComponent,canActivate: [AuthGuard],  },
-
+  {path:'chats/:id', component: ChatComponent ,canActivate: [AuthGuard],}
 
 ]
 

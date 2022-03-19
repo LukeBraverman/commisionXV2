@@ -26,7 +26,7 @@ export class AuthenticationHandleService {
   private _autoLoggedIn: boolean = false;
   logoutEvent = new EventEmitter<boolean>();
 
-  constructor(private http: HttpClient, private router: Router,) {}
+  constructor(private http: HttpClient, private router: Router, ) {}
 
   get getLogoutEventObservable(): EventEmitter<boolean> {
     return this.logoutEvent;
@@ -86,6 +86,7 @@ export class AuthenticationHandleService {
         })
       );
   }
+
 
   //Check to see if can auto login
   autoLogin() {

@@ -74,6 +74,12 @@ import {
 import {
   LandingPageComponenentComponent
 } from "./user/mainpage/landing-page-componenent/landing-page-componenent.component";
+import {AngularFireModule} from "@angular/fire/compat";
+import {environment} from "../environments/environment.prod";
+import {AngularFireAuthModule} from "@angular/fire/compat/auth";
+import {AngularFireStorageModule} from "@angular/fire/compat/storage";
+import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
+import { ChatComponent } from './chatboxFireship/chat/chat.component';
 
 @NgModule({
   declarations: [
@@ -99,12 +105,27 @@ import {
     MoreInfomationComponentComponent,
     RejectPendingComponentComponent,
     StopActiveComponentComponent,
-    LandingPageComponenentComponent
+    LandingPageComponenentComponent,
+    ChatComponent
 
   ],
   imports: [
     BrowserModule,
+// 3. Initialize
+    AngularFireModule.initializeApp({
 
+      apiKey: "AIzaSyCvIK8qj3DV7O3nqkoTk6DHjA0IGFF4DJo",
+      authDomain: "angulartest-c5bbf.firebaseapp.com",
+      databaseURL: "https://angulartest-c5bbf-default-rtdb.firebaseio.com",
+      projectId: "angulartest-c5bbf",
+      storageBucket: "angulartest-c5bbf.appspot.com",
+      messagingSenderId: "554027875032",
+      appId: "1:554027875032:web:3019803b8d1a0c070935ad"
+
+    }),
+    AngularFirestoreModule, // firestore
+    AngularFireAuthModule, // auth
+    AngularFireStorageModule, // storage
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,

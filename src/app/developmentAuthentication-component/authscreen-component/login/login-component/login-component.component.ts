@@ -3,6 +3,7 @@ import {FormControl, FormGroup} from "@angular/forms";
 import {AuthenticationHandleService, AuthResponseData} from "../../service/authentication-handle.service";
 import {Observable} from "rxjs";
 import {Router} from "@angular/router";
+import {AngularFirestore, AngularFirestoreDocument} from "@angular/fire/compat/firestore";
 
 
 @Component({
@@ -18,6 +19,7 @@ export class LoginComponentComponent implements OnInit {
   constructor(
     private authenticatinoHandleService: AuthenticationHandleService,
     private router: Router,
+    private afs: AngularFirestore,
     ) {
 
   }
@@ -45,7 +47,16 @@ export class LoginComponentComponent implements OnInit {
     authObs = this.authenticatinoHandleService.login(email, password);
     authObs.subscribe(
       resData => {
+        // this.updateUserData({
+        //   id: this.authenticatinoHandleService.getCurrentActiveUser.id,
+        //   email: "test@plswork.com",
+        //   displayName: this.authenticatinoHandleService.getCurrentActiveUser.id,
+        //   photoURL: "yesy"
+        //
+        // })
         this.router.navigate([this.returnNavigationRouteOnSuccesfullLogin()]);
+       //  this.router.navigate(['/chats/' + this.authenticatinoHandleService.getCurrentActiveUser.id]);
+
       },
       errorMessage => {
         this.error = errorMessage;
@@ -53,6 +64,20 @@ export class LoginComponentComponent implements OnInit {
     );
     this.logInForm.reset();
   }
+
+  // private updateUserData({ id, email, displayName, photoURL }) {
+  //   const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${id}`);
+  //
+  //   const data = {
+  //     id,
+  //     email,
+  //     displayName,
+  //     photoURL
+  //   };
+  //
+  //   return userRef.set(data, { merge: true });
+  // }
+
 
   private returnNavigationRouteOnSuccesfullLogin() {
      return this.authenticatinoHandleService.returnNavigationRouteOnSuccessfulAuthentication();
