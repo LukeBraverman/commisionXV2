@@ -12,6 +12,9 @@ import {
   CommissionObject
 } from "../../creator/components/mainpage/NavigationComponents/manage-commisions/model/commissionObject";
 import {RequestedCommissionMetaDataModel} from "../model/requestedCommissionMetaDataModel";
+import {ChatMessageModel} from "../../chatbox/model/chatMessage.model";
+import {CommissionChatMetadata} from "../../chatbox/model/commissionChatMetadata";
+import {CommissionChatDataHolderModel} from "../../chatbox/model/commissionChatDataHolder.model";
 
 @Injectable({providedIn: 'root'})
 export class UserRequestsService {
@@ -195,6 +198,7 @@ export class UserRequestsService {
           requestData
         ).subscribe(responceData => {
           console.log("Posted new commission data")
+          this.addChatForCommission(commissionToAdd.lastKnowCommissionState.commissionUniqueId, commissionToAdd.lastKnowCommissionState.userIdForCommissioner);
         });
       } else {
         this.requestOverviewFromFirebase.listOfRequestedCommissions.push(commissionToAdd);
@@ -205,12 +209,48 @@ export class UserRequestsService {
           this.requestOverviewFromFirebase
         ).subscribe(responceData => {
           console.log("Patched new commissison data")
+          this.addChatForCommission(commissionToAdd.lastKnowCommissionState.commissionUniqueId,  commissionToAdd.lastKnowCommissionState.userIdForCommissioner);
 
         });
       }
 
 
     });
+
+
+  }
+
+  addChatForCommission(idOfCommission: number, idOfCommissioner: string) {
+    let chatMessage: ChatMessageModel = {
+      dateOfMessage: new Date(),
+      idOfSender: this.authHandelService.getCurrentActiveUser.id,
+      message: this.authHandelService.getCurrentActiveUser.id + " has requested a commission"
+
+    }
+
+    let chatMessageMetadata: CommissionChatMetadata = {
+      chat: [chatMessage],
+      commissionId: idOfCommission,
+      commissionerId: idOfCommissioner,
+      requesterId: this.authHandelService.getCurrentActiveUser.id
+
+    }
+
+    let chatMessageOverview: CommissionChatDataHolderModel = {
+      listOfCommissionChatMetadata: [
+        chatMessageMetadata
+      ]
+
+    }
+
+
+
+        this.http.post(
+          this.getRealTimeDatabaseURL() + '/chats/'+idOfCommission+ '.json',
+          chatMessageOverview
+        ).subscribe(responceData => {
+          console.log("Posted new CHAT!")
+        });
 
 
   }

@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {CommissionObject} from "../../../model/commissionObject";
 import {MiddleScreenServiceService} from "../../../service/middleScreenService.service";
 import {ChatterboxServiceService} from "../../../service/chatterboxServiceService";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-more-infomation-component',
@@ -30,7 +31,9 @@ export class MoreInfomationComponentComponent implements OnInit {
   };
 
   constructor(private middleScreenService: MiddleScreenServiceService,
-              private chatBoxService: ChatterboxServiceService) { }
+              private chatBoxService: ChatterboxServiceService,
+              private router: Router,
+  ) { }
 
   ngOnInit(): void {
   }
@@ -45,6 +48,7 @@ export class MoreInfomationComponentComponent implements OnInit {
   }
 
   onOpenChat() {
+    this.router.navigate(['commissionChat/'+ this.commissionCardToView.commissionUniqueId]);
 
   }
 }

@@ -52,7 +52,7 @@ import {
 } from "./creator/components/mainpage/NavigationComponents/help-page/help-page-component/help-page-component.component";
 import {
   ChatboxComponentComponent
-} from "./creator/components/mainpage/NavigationComponents/manage-commisions/chatbox/chatbox-component/chatbox-component.component";
+} from "./chatbox/chatbox-component/chatbox-component.component";
 import {
   ManageCommisionsComponentComponent
 } from "./creator/components/mainpage/NavigationComponents/manage-commisions/manage-commisions-component/manage-commisions-component.component";
