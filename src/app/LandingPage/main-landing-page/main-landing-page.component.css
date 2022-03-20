@@ -1,0 +1,39 @@
+.bodyOfSite {
+  background-color: #ede8db;
+  height: 100vh;
+}
+
+.testBorder {
+  border: 2px dotted black;
+}
+
+.header {
+  position: fixed;
+  width: 100%;
+  /*border: solid black 3px;*/
+  height: 100px;
+  background-color: #ede8db;
+}
+
+.loginSignupButton {
+  background-color: #9143da;
+  /*border: 2px solid black;*/
+  padding: 5px 20px;
+  border-radius: 20px;
+  font-size: 18px;
+  border: #9143da 3px solid;
+  color: white;
+  /*border: black 1px solid;*/
+
+}
+
+.headerLinkColor {
+  color: black;
+  font-size: 18px;
+}
+
+.vl {
+  border-left: 1px solid black;
+  height: 20px;
+  margin-top: 10px;
+}

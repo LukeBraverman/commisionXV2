@@ -28,12 +28,14 @@ import {
 import {
   LandingPageComponenentComponent
 } from "./app/user/mainpage/landing-page-componenent/landing-page-componenent.component";
-import {ChatboxComponentComponent} from "./app/chatbox/chatbox-component/chatbox-component.component";
-import {ChatComponent} from "./app/chatboxFireship/chat/chat.component";
+import {ChatboxComponentComponent} from "./app/chatFeature/chatbox/chatbox-component/chatbox-component.component";
+import {ChatComponent} from "./app/chatFeature/chatboxFireship/chat/chat.component";
+import {MainLandingPageComponent} from "./app/LandingPage/main-landing-page/main-landing-page.component";
 
 
 const appRoutes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '', redirectTo: '/headScreen', pathMatch: 'full' },
+  {path:'headScreen', component: MainLandingPageComponent},
   { path: 'home', component: HomeComponentComponent },
   {
     path: 'creatorHomePage',
@@ -62,7 +64,7 @@ const appRoutes: Routes = [
   },
   { path: ':id', component: LandingPageComponenentComponent,canActivate: [AuthGuard],  },
   { path: 'commissionChat/:id', component: ChatboxComponentComponent,canActivate: [AuthGuard],  },
-  {path:'chats/:id', component: ChatComponent ,canActivate: [AuthGuard],}
+  // {path:'chats/:id', component: ChatComponent ,canActivate: [AuthGuard],}
 
 ]
 

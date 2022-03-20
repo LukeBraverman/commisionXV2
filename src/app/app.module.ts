@@ -52,7 +52,7 @@ import {
 } from "./creator/components/mainpage/NavigationComponents/help-page/help-page-component/help-page-component.component";
 import {
   ChatboxComponentComponent
-} from "./chatbox/chatbox-component/chatbox-component.component";
+} from "./chatFeature/chatbox/chatbox-component/chatbox-component.component";
 import {
   ManageCommisionsComponentComponent
 } from "./creator/components/mainpage/NavigationComponents/manage-commisions/manage-commisions-component/manage-commisions-component.component";
@@ -79,7 +79,8 @@ import {environment} from "../environments/environment.prod";
 import {AngularFireAuthModule} from "@angular/fire/compat/auth";
 import {AngularFireStorageModule} from "@angular/fire/compat/storage";
 import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
-import { ChatComponent } from './chatboxFireship/chat/chat.component';
+import { ChatComponent } from './chatFeature/chatboxFireship/chat/chat.component';
+import { MainLandingPageComponent } from './LandingPage/main-landing-page/main-landing-page.component';
 
 @NgModule({
   declarations: [
@@ -106,7 +107,8 @@ import { ChatComponent } from './chatboxFireship/chat/chat.component';
     RejectPendingComponentComponent,
     StopActiveComponentComponent,
     LandingPageComponenentComponent,
-    ChatComponent
+    ChatComponent,
+    MainLandingPageComponent
 
   ],
   imports: [

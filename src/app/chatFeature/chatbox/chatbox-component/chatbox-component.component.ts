@@ -6,7 +6,7 @@ import {CommissionChatMetadata} from "../model/commissionChatMetadata";
 import {ChatMessageModel} from "../model/chatMessage.model";
 import {
   AuthenticationHandleService
-} from "../../developmentAuthentication-component/authscreen-component/service/authentication-handle.service";
+} from "../../../developmentAuthentication-component/authscreen-component/service/authentication-handle.service";
 
 @Component({
   selector: 'app-chatbox-component',

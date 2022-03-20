@@ -12,9 +12,9 @@ import {
   CommissionObject
 } from "../../creator/components/mainpage/NavigationComponents/manage-commisions/model/commissionObject";
 import {RequestedCommissionMetaDataModel} from "../model/requestedCommissionMetaDataModel";
-import {ChatMessageModel} from "../../chatbox/model/chatMessage.model";
-import {CommissionChatMetadata} from "../../chatbox/model/commissionChatMetadata";
-import {CommissionChatDataHolderModel} from "../../chatbox/model/commissionChatDataHolder.model";
+import {ChatMessageModel} from "../../chatFeature/chatbox/model/chatMessage.model";
+import {CommissionChatMetadata} from "../../chatFeature/chatbox/model/commissionChatMetadata";
+import {CommissionChatDataHolderModel} from "../../chatFeature/chatbox/model/commissionChatDataHolder.model";
 
 @Injectable({providedIn: 'root'})
 export class UserRequestsService {
