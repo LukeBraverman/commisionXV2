@@ -3,6 +3,10 @@
   height: 100vh;
 }
 
+.justtifyAroundOnXSmallScreen {
+  justify-content: space-around;
+}
+
 .testBorder {
   border: 2px dotted black;
 }
@@ -18,9 +22,10 @@
 .loginSignupButton {
   background-color: #9143da;
   /*border: 2px solid black;*/
+  margin-top: 2px;
   padding: 5px 20px;
   border-radius: 20px;
-  font-size: 18px;
+  font-size: 16px;
   border: #9143da 3px solid;
   color: white;
   /*border: black 1px solid;*/
@@ -37,3 +42,194 @@
   height: 20px;
   margin-top: 10px;
 }
+
+.headerLogo {
+  height: 50px;
+  width: 50px;
+  border-radius: 6px;
+}
+.headerLogoText {
+  margin-left: 20px;
+  margin-top: 10px;
+  font-size: 18px;
+
+}
+.container {
+}
+/*// X-Small devices (portrait phones, less than 576px)*/
+/*// No media query for `xs` since this is the default in Bootstrap*/
+
+/*// Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) {
+  .headerLogo {
+    height: 50px;
+    width: 50px;
+    border-radius: 6px;
+  }
+  .headerLogoText {
+    margin-left: 20px;
+    margin-top: 10px;
+    font-size: 18px;
+
+  }
+  .container {
+    background-color: white;
+  }
+
+  .loginSignupButton {
+    background-color: #9143da;
+    /*border: 2px solid black;*/
+    padding: 5px 20px;
+    border-radius: 20px;
+    font-size: 16px;
+    border: #9143da 3px solid;
+    color: white;
+    /*border: black 1px solid;*/
+
+  }
+
+
+}
+
+@media only screen and (max-width: 768px) {
+  #fadeshow1 {
+    display: none;
+  }
+  #fadeshow2 {
+    display: none;
+  }
+  #fadeshow3
+  {
+    display: none;
+  }
+}
+
+/*// Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) {
+  .headerLogo {
+    height: 50px;
+    width: 50px;
+    border-radius: 6px;
+  }
+  .headerLogoText {
+    margin-left: 20px;
+    margin-top: 10px;
+    font-size: 18px;
+
+  }
+  .container {
+    background-color: plum;
+  }
+
+  .loginSignupButton {
+    background-color: #9143da;
+    /*border: 2px solid black;*/
+    padding: 5px 20px;
+    border-radius: 20px;
+    font-size: 16px;
+    border: #9143da 3px solid;
+    color: white;
+    /*border: black 1px solid;*/
+
+  }
+
+  .textSizeForNavElements {
+    font-size: 15px;
+  }
+
+}
+
+/*// Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) {
+  .headerLogo {
+    height: 50px;
+    width: 50px;
+    border-radius: 6px;
+  }
+  .headerLogoText {
+    margin-left: 20px;
+    margin-top: 10px;
+    font-size: 18px;
+
+  }
+  .container {
+  background-color:red;
+}
+  .loginSignupButton {
+    background-color: #9143da;
+    /*border: 2px solid black;*/
+    padding: 5px 20px;
+    border-radius: 20px;
+    font-size: 18px;
+    border: #9143da 3px solid;
+    color: white;
+    /*border: black 1px solid;*/
+
+  }
+
+  .textSizeForNavElements {
+    font-size: 18px;
+  }
+
+}
+
+/*// X-Large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {
+  .headerLogo {
+    height: 50px;
+    width: 50px;
+    border-radius: 6px;
+  }
+  .headerLogoText {
+    margin-left: 20px;
+    margin-top: 10px;
+    font-size: 18px;
+
+  }
+  .container {
+  background-color:yellow;
+}
+
+  .loginSignupButton {
+    background-color: #9143da;
+    /*border: 2px solid black;*/
+    padding: 5px 20px;
+    border-radius: 20px;
+    font-size: 18px;
+    border: #9143da 3px solid;
+    color: white;
+    /*border: black 1px solid;*/
+
+  }
+}
+
+/*// XX-Large devices (larger desktops, 1400px and up)*/
+@media (min-width: 1400px) {
+  .headerLogo {
+    height: 50px;
+    width: 50px;
+    border-radius: 6px;
+  }
+  .headerLogoText {
+    margin-left: 20px;
+    margin-top: 10px;
+    font-size: 18px;
+
+  }
+  .container {
+  background-color: orange;
+}
+
+
+  .loginSignupButton {
+    background-color: #9143da;
+    /*border: 2px solid black;*/
+    padding: 5px 20px;
+    border-radius: 20px;
+    font-size: 18px;
+    border: #9143da 3px solid;
+    color: white;
+    /*border: black 1px solid;*/
+
+  }}
+
