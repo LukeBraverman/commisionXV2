@@ -12,6 +12,7 @@ export class MainLandingPageComponent implements OnInit {
   isHoveringExploreNavText: boolean = false;
   isHoveringLoginNavTest: boolean = false;
   isHoveringOverSignUpButton: boolean = false;
+  isHoveringClaimButton: boolean = false;
   constructor(private landingPageService: MainLandingPageService) { }
 
   ngOnInit(): void {
@@ -65,4 +66,15 @@ export class MainLandingPageComponent implements OnInit {
     this.isHoveringOverSignUpButton = false;
 
   }
+
+  onHoverClaimButtonText() {
+    this.isHoveringClaimButton = true;
+  }
+
+  onMouseLeaveClaimButtonText() {
+    this.isHoveringClaimButton = false;
+
+  }
+
+
 }
