@@ -73,6 +73,10 @@
   color: orange;
 
 }
+
+.uspCardForText {
+  background-color: white; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
 /*// X-Small devices (portrait phones, less than 576px)*/
 /*// No media query for `xs` since this is the default in Bootstrap*/
 
@@ -137,6 +141,17 @@
     background-position:center;
   }
 
+  .startButtonInHeroCard {
+    background-color: #9143da;
+    /*border: 2px solid black;*/
+    padding: 5px 20px;
+    border-radius: 20px;
+    font-size: 18px;
+    border: #9143da 3px solid;
+    color: white;
+    /*border: black 1px solid;*/
+
+  }
 
 }
 @media only screen and (min-width: 0px) and (max-width: 575px) {
@@ -173,6 +188,17 @@
   .uspText {
     font-size: 18px;
     font-weight: bold;
+  }
+  .startButtonInHeroCard {
+    background-color: #9143da;
+    /*border: 2px solid black;*/
+    padding: 5px 20px;
+    border-radius: 20px;
+    font-size: 18px;
+    border: #9143da 3px solid;
+    color: white;
+    /*border: black 1px solid;*/
+
   }
 
 }
@@ -226,6 +252,17 @@
   .uspText {
     font-size: 18px;
     font-weight: bold;
+  }
+  .startButtonInHeroCard {
+    background-color: #9143da;
+    /*border: 2px solid black;*/
+    padding: 5px 20px;
+    border-radius: 20px;
+    font-size: 18px;
+    border: #9143da 3px solid;
+    color: white;
+    /*border: black 1px solid;*/
+
   }
 }
 
@@ -298,7 +335,17 @@
     font-size: 18px;
     font-weight: bold;
   }
+  .startButtonInHeroCard {
+    background-color: #9143da;
+    /*border: 2px solid black;*/
+    padding: 5px 20px;
+    border-radius: 20px;
+    font-size: 18px;
+    border: #9143da 3px solid;
+    color: white;
+    /*border: black 1px solid;*/
 
+  }
 }
 
 /*// Large devices (desktops, 992px and up)*/
@@ -370,6 +417,18 @@
     font-weight: bold;
   }
 
+  .startButtonInHeroCard {
+    background-color: #9143da;
+    /*border: 2px solid black;*/
+    padding: 5px 20px;
+    border-radius: 20px;
+    font-size: 18px;
+    border: #9143da 3px solid;
+    color: white;
+    /*border: black 1px solid;*/
+
+  }
+
 }
 
 /*// X-Large devices (large desktops, 1200px and up)*/
@@ -434,6 +493,18 @@
     font-size: 18px;
     font-weight: bold;
   }
+
+  .startButtonInHeroCard {
+    background-color: #9143da;
+    /*border: 2px solid black;*/
+    padding: 5px 20px;
+    border-radius: 20px;
+    font-size: 18px;
+    border: #9143da 3px solid;
+    color: white;
+    /*border: black 1px solid;*/
+
+  }
 }
 
 /*// XX-Large devices (larger desktops, 1400px and up)*/
@@ -486,6 +557,17 @@
     background-repeat:no-repeat;
     background-size:contain;
     background-position:center;
+  }
+  .startButtonInHeroCard {
+    background-color: #9143da;
+    /*border: 2px solid black;*/
+    padding: 5px 20px;
+    border-radius: 20px;
+    font-size: 18px;
+    border: #9143da 3px solid;
+    color: white;
+    /*border: black 1px solid;*/
+
   }
 }
 
@@ -555,6 +637,14 @@
 .isNotHoveringClaimButton {
   color: white;
 
+}
+
+.isHoveringOverStartButtonFromExampleLayout {
+  color: orange;
+}
+
+.isLeavingOverStartButtonFromExampleLayout {
+  color: white;
 }
 
 /* -----------------------------------Drop Down Nav Menu in Header----------------------------------- */
