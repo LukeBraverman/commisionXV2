@@ -1,0 +1,101 @@
+<!--<p>chat-v3 works!</p>-->
+
+<!--<h3>Insert commission description</h3>-->
+<!--<textarea  #commissionDesc type="text" class="form-control" id="exampleFormControlTextarea1" rows="3" ></textarea>-->
+
+<!--<button type="button" class="btn btn-outline-secondary" (click)="chatterboxService.saveMessage(commissionDesc.value)" >Send A CHAT!</button>-->
+<!--<button (click)="chatterboxService.loadMessages()">-->
+<!--  test get message-->
+<!--</button>-->
+<!--<div *ngIf="chatterboxService.toDisplay" >-->
+<!--  <div  *ngFor="let message of chatterboxService?.toDisplay ; let i = index">-->
+<!--    {{message}}-->
+<!--  </div>-->
+<!--</div>-->
+<app-header-v2></app-header-v2>
+
+<div class="container-fluid" style="">
+
+  <div class="row " style="height: 110px; ">
+
+    </div>
+  <div class="row "  style="height: 850px;    ">
+    <div class="col-md-3 " style="border-right: 2px solid black ">
+        <div class="row justify-content-around">
+          <div class="col-ms-4 text-center ">
+            Commission Id: {{this.routeId}}
+
+          </div>
+        </div>
+      <div class="row" style="height: 60px">
+
+      </div>
+      <div class="row justify-content-around">
+        <div class="col-md-4 text-center">
+          <div>
+            <button type="button" class="btn btn-outline-secondary">
+              Return:
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
+              </svg>
+
+            </button>
+
+
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+
+      </div>
+    </div>
+    <div class="col-md-1 " style="width: 70px">
+
+    </div>
+    <div class="col-md-8 ">
+        <div class="row  h-75">
+          <div class="col-md-12 ">
+            <div *ngIf="chatterboxService.toDisplay" >
+
+
+              <div  *ngFor="let message of chatterboxService?.toDisplay ; let i = index">
+                <div *ngIf="message['name'] === this.authServiceV3.userData.uid" class="row justify-content-start" style="height: 60px; background-color: red">
+                  <div  class="col-md-6">
+                    NAME: {{message['name'] }}
+                    <br>
+
+                    Text: {{message['text'] }}
+                    </div>
+                </div>
+
+                <div *ngIf="message['name'] !== this.authServiceV3.userData.uid" class="row justify-content-end" style="height: 60px;  background-color: blueviolet">
+
+                  <div  class="col-md-6">
+                   NAME: {{message['name'] }}
+                    <br>
+
+                    Text: {{message['text'] }}
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+        <div class="row  h-25">
+          <hr>
+            <div class="col-md-12">
+              <h3>Send A chat</h3>
+              <textarea  #commissionDesc type="text" class="form-control" id="exampleFormControlTextarea1" rows="3" ></textarea>
+
+              <button type="button" class="btn btn-outline-secondary" (click)="chatterboxService.saveMessage(commissionDesc.value)" >Send A CHAT!</button>
+              <button (click)="chatterboxService.loadMessages()">
+                test get message
+              </button>
+            </div>
+         </div>
+    </div>
+  </div>
+</div>

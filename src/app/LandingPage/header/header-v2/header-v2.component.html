@@ -1,0 +1,120 @@
+<div class="header" style="background-color: #ede8db ">
+<!--  was lightcyan-->
+  <div class="container-fluid ">
+    <div class="row" style="height: 25px">
+
+    </div>
+
+    <div class="row justtifyAroundOnXSmallScreen " id="fadeshow1" >
+      <div class="col-md-4 col-sm-4 col-5 text-center  ">
+        <ul class="nav justify-content-center">
+          <li class="nav-item">
+            <img src="http://cdn.shopify.com/s/files/1/0513/1226/3362/products/Asset2_grande.jpg?v=1619802039" class="headerLogo" >
+
+          </li>
+          <li class="nav-item">
+            <p class="headerLogoText">Spotlight</p>
+          </li>
+
+        </ul>
+      </div>
+      <div class="col-md-1 ">
+
+      </div>
+      <div class="col-md-7 col-sm-8 col-12 align-self-end justify-content-end increaseWidthOnSmall" style="" >
+        <ul class="nav justify-content-center">
+          <li class="nav-item"
+
+          >
+            <a class="nav-link active headerLinkColor textSizeForNavElements" aria-current="page" href="#"
+               (mouseenter)="onHoverAboutUsNavText()" (mouseleave)="onMouseLeaveAboutUsNavText()"
+               [ngClass]="isHoveringAboutUsNavText ? 'isHoveringOverAboutUsNavText' : 'isNotHoveringOverAboutUsNavText'"
+            >
+              About Us
+            </a>
+          </li>
+
+
+
+          <li class="nav-item" id="fadeshow2">
+            <a class="nav-link headerLinkColor textSizeForNavElements"
+               (mouseenter)="onHoverNewsNavText()" (mouseleave)="onMouseLeaveNewsNavText()"
+               [ngClass]="isHoveringNewsNavText ? 'isHoveringOverNewsNavText' : 'isNotHoveringOverNewsNavText'"
+               href="#" >
+              News
+            </a>
+          </li>
+
+          <li class="nav-item" id="fadeshow3">
+            <a class="nav-link headerLinkColor textSizeForNavElements" href="#"
+               (mouseenter)="onHoverExploreNavText()" (mouseleave)="onMouseExploreNavText()"
+               [ngClass]="isHoveringExploreNavText ? 'isHoveringExploreNavText' : 'isNotHoveringOverExploreNavText'"
+
+            >Explore</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link headerLinkColor textSizeForNavElements"
+               (mouseenter)="onHoverLoginNavText()" (mouseleave)="onMouseLeaveLoginNavText()"
+               [ngClass]="isHoveringLoginNavTest ? 'isHoveringLoginNavText' : 'isNotHoveringOverLoginNavText'"
+
+            >LogIn</a>
+          </li>
+
+          <li class="nav-item">
+            <button (click)="onGoToAuthenticateScreen()" class="loginSignupButton"
+                    (mouseenter)="onHoverSignUpButton()" (mouseleave)="onMouseLeaveSignUpButton()"
+                    [ngClass]="isHoveringOverSignUpButton ? 'isHoveringSignUpButton' : 'isNotHoveringOverSignUpButton'"
+
+
+            >Sign Up</button>
+          </li>
+        </ul>
+
+      </div>
+
+
+    </div>
+
+    <div class="row justtifyAroundOnXSmallScreen  " id="showSmallScreenHeading" >
+      <div class="col-md-4 col-sm-8 col-12 text-center  " style="min-width: 250px">
+        <ul class="nav justify-content-center">
+          <li class="nav-item">
+            <img src="http://cdn.shopify.com/s/files/1/0513/1226/3362/products/Asset2_grande.jpg?v=1619802039" class="headerLogo" >
+
+          </li>
+          <li class="nav-item">
+
+            <p class="headerLogoText" style="margin-right: 20px; margin-top:9px">Spotlight</p>
+          </li>
+          <span style="width: 70px"></span>
+          <li>
+            <div class="dropdownMenuLocation">
+              <div class="dropdown">
+                <button class="dropbtn"><i class="bi bi-list"></i>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                  </svg>
+                </button>
+                <div class="dropdown-content">
+                  <a href="#">LogIn</a>
+                  <a href="#">Explore</a>
+                  <a href="#">News</a>
+                  <a href="#">About Us</a>
+
+                </div>
+              </div>
+            </div>
+          </li>
+
+
+        </ul>
+      </div>
+
+
+
+    </div>
+
+
+  </div>
+</div>

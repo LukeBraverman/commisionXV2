@@ -87,6 +87,7 @@ import { ForgotPasswordComponent } from './AuthV3/component/forgot-password/forg
 import { VerifyEmailComponent } from './AuthV3/component/verify-email/verify-email.component';
 import { DashboardComponent } from './AuthV3/component/dashboard/dashboard.component';
 import { ChatV3Component } from './chat/chat-v3/chat-v3.component';
+import { HeaderV2Component } from './LandingPage/header/header-v2/header-v2.component';
 
 @NgModule({
   declarations: [
@@ -121,7 +122,8 @@ import { ChatV3Component } from './chat/chat-v3/chat-v3.component';
     ForgotPasswordComponent,
     VerifyEmailComponent,
     DashboardComponent,
-    ChatV3Component
+    ChatV3Component,
+    HeaderV2Component
 
   ],
   imports: [
