@@ -81,6 +81,8 @@ import {AngularFireStorageModule} from "@angular/fire/compat/storage";
 import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
 import { ChatComponent } from './chatFeature/chatboxFireship/chat/chat.component';
 import { MainLandingPageComponent } from './LandingPage/main-landing-page/main-landing-page.component';
+import { AuthVTwoComponent } from './AuthV2/auth-vtwo/auth-vtwo.component';
+import { SuperSecretComponent } from './AuthV2/super-secret/super-secret.component';
 
 @NgModule({
   declarations: [
@@ -108,7 +110,9 @@ import { MainLandingPageComponent } from './LandingPage/main-landing-page/main-l
     StopActiveComponentComponent,
     LandingPageComponenentComponent,
     ChatComponent,
-    MainLandingPageComponent
+    MainLandingPageComponent,
+    AuthVTwoComponent,
+    SuperSecretComponent
 
   ],
   imports: [

@@ -1,0 +1,33 @@
+<h2>working</h2><!--  <pre>-->
+<!--    {{ user | json }}-->
+<!--  </pre>-->
+
+<!--  <hr>-->
+<!--  <button class="button" (click)="auth.signOut()">Sign Out</button>-->
+
+<!--</div>-->
+
+<!--<ng-template #login>-->
+<!--  <button class="button" (click)="auth.googleSignIn();">Login with Google</button>-->
+<!--</ng-template>-->
+
+
+<!--  <hr>-->
+<!--  <button class="button" (click)="signOut()">Sign Out</button>-->
+
+
+<!--  <button class="button" (click)="auth.googleSignIn();">Login with Google</button>-->
+<p>
+  <a routerLink="/secret">Secret</a>
+</p>
+<div *ngIf="!loggedIn">
+  <button class="button" (click)="auth.googleSignIn();">Login with Google</button>
+</div>
+
+<div *ngIf="loggedIn">
+
+  <button class="button" (click)="signOut()">Sign Out</button>
+</div>
+
+
+<router-outlet></router-outlet>
