@@ -28,19 +28,35 @@ import {
 import {
   LandingPageComponenentComponent
 } from "./app/user/mainpage/landing-page-componenent/landing-page-componenent.component";
-import {ChatboxComponentComponent} from "./app/chatFeature/chatbox/chatbox-component/chatbox-component.component";
-import {ChatComponent} from "./app/chatFeature/chatboxFireship/chat/chat.component";
 import {MainLandingPageComponent} from "./app/LandingPage/main-landing-page/main-landing-page.component";
 import {AuthVTwoComponent} from "./app/AuthV2/auth-vtwo/auth-vtwo.component";
 import {SuperSecretComponent} from "./app/AuthV2/super-secret/super-secret.component";
 import {AuthGuardV2} from "./app/AuthV2/services/authV2.guard";
+import {HomeVTwoComponent} from "./app/AuthV2/homeV2/home-vtwo/home-vtwo.component";
+import {AuthGuardV3} from "./app/AuthV3/guard/AuthGuardV3.guard";
+import {SignUpComponent} from "./app/AuthV3/component/sign-up/sign-up.component";
+import {SignInV3Component} from "./app/AuthV3/component/sign-in-v3/sign-in-v3.component";
+import {ForgotPasswordComponent} from "./app/AuthV3/component/forgot-password/forgot-password.component";
+import {VerifyEmailComponent} from "./app/AuthV3/component/verify-email/verify-email.component";
+import {DashboardComponent} from "./app/AuthV3/component/dashboard/dashboard.component";
+import {ChatV3Component} from "./app/chat/chat-v3/chat-v3.component";
 
 
 const appRoutes: Routes = [
-  { path: '', redirectTo: '/test', pathMatch: 'full' },
-  {path:'test', component: AuthVTwoComponent},
-  {path:'secret', component: SuperSecretComponent, canActivate: [AuthGuardV2]},
+  { path: '', redirectTo: '/sign-in', pathMatch: 'full' },
+  { path: 'chat', component: ChatV3Component },
+  { path: 'sign-in', component: SignInV3Component },
+  { path: 'register-user', component: SignUpComponent },
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuardV3] },
+  { path: 'forgot-password', component: ForgotPasswordComponent },
+  { path: 'verify-email-address', component: VerifyEmailComponent },
 
+  //----------v2
+  // { path: '', redirectTo: '/homeV2', pathMatch: 'full' },
+  { path: 'homeV2', component: HomeVTwoComponent },
+  // {path:'test', component: AuthVTwoComponent},
+  // {path:'secret', component: SuperSecretComponent, canActivate: [AuthGuardV2]},
+  //-----------------
   // {path:'headScreen', component: MainLandingPageComponent},
   // { path: 'home', component: HomeComponentComponent },
   // {
@@ -69,8 +85,7 @@ const appRoutes: Routes = [
   //   ]
   // },
   // { path: ':id', component: LandingPageComponenentComponent,canActivate: [AuthGuard],  },
-  // { path: 'commissionChat/:id', component: ChatboxComponentComponent,canActivate: [AuthGuard],  },
-  // {path:'chats/:id', component: ChatComponent ,canActivate: [AuthGuard],}
+
 
 ]
 

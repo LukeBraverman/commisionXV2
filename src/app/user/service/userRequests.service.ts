@@ -12,9 +12,7 @@ import {
   CommissionObject
 } from "../../creator/components/mainpage/NavigationComponents/manage-commisions/model/commissionObject";
 import {RequestedCommissionMetaDataModel} from "../model/requestedCommissionMetaDataModel";
-import {ChatMessageModel} from "../../chatFeature/chatbox/model/chatMessage.model";
-import {CommissionChatMetadata} from "../../chatFeature/chatbox/model/commissionChatMetadata";
-import {CommissionChatDataHolderModel} from "../../chatFeature/chatbox/model/commissionChatDataHolder.model";
+
 
 @Injectable({providedIn: 'root'})
 export class UserRequestsService {
@@ -221,38 +219,40 @@ export class UserRequestsService {
   }
 
   addChatForCommission(idOfCommission: number, idOfCommissioner: string) {
-    let chatMessage: ChatMessageModel = {
-      dateOfMessage: new Date(),
-      idOfSender: this.authHandelService.getCurrentActiveUser.id,
-      message: this.authHandelService.getCurrentActiveUser.id + " has requested a commission"
+    // let chatMessage: ChatMessageModel = {
+    //   dateOfMessage: new Date(),
+    //   idOfSender: this.authHandelService.getCurrentActiveUser.id,
+    //   message: this.authHandelService.getCurrentActiveUser.id + " has requested a commission"
+    //
+    // }
+    //
+    // let chatMessageMetadata: CommissionChatMetadata = {
+    //   chat: [chatMessage],
+    //   commissionId: idOfCommission,
+    //   commissionerId: idOfCommissioner,
+    //   requesterId: this.authHandelService.getCurrentActiveUser.id
+    //
+    // }
+    //
+    // let chatMessageOverview: CommissionChatDataHolderModel = {
+    //   listOfCommissionChatMetadata: [
+    //     chatMessageMetadata
+    //   ]
+    //
+    // }
 
-    }
+        //
+        //
+        // this.http.post(
+        //   this.getRealTimeDatabaseURL() + '/chats/'+idOfCommission+ '.json',
+        //   chatMessageOverview
+        // ).subscribe(responceData => {
+        //   console.log("Posted new CHAT!")
+        // });
 
-    let chatMessageMetadata: CommissionChatMetadata = {
-      chat: [chatMessage],
-      commissionId: idOfCommission,
-      commissionerId: idOfCommissioner,
-      requesterId: this.authHandelService.getCurrentActiveUser.id
-
-    }
-
-    let chatMessageOverview: CommissionChatDataHolderModel = {
-      listOfCommissionChatMetadata: [
-        chatMessageMetadata
-      ]
-
-    }
-
-
-
-        this.http.post(
-          this.getRealTimeDatabaseURL() + '/chats/'+idOfCommission+ '.json',
-          chatMessageOverview
-        ).subscribe(responceData => {
-          console.log("Posted new CHAT!")
-        });
-
-
+/*
+Logic for old post a mmessage that did not work
+ */
   }
 
   private getRealTimeDatabaseURL()

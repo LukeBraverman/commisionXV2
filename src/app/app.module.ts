@@ -50,9 +50,7 @@ import {
 import {
   HelpPageComponentComponent
 } from "./creator/components/mainpage/NavigationComponents/help-page/help-page-component/help-page-component.component";
-import {
-  ChatboxComponentComponent
-} from "./chatFeature/chatbox/chatbox-component/chatbox-component.component";
+
 import {
   ManageCommisionsComponentComponent
 } from "./creator/components/mainpage/NavigationComponents/manage-commisions/manage-commisions-component/manage-commisions-component.component";
@@ -79,10 +77,16 @@ import {environment} from "../environments/environment.prod";
 import {AngularFireAuthModule} from "@angular/fire/compat/auth";
 import {AngularFireStorageModule} from "@angular/fire/compat/storage";
 import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
-import { ChatComponent } from './chatFeature/chatboxFireship/chat/chat.component';
 import { MainLandingPageComponent } from './LandingPage/main-landing-page/main-landing-page.component';
 import { AuthVTwoComponent } from './AuthV2/auth-vtwo/auth-vtwo.component';
 import { SuperSecretComponent } from './AuthV2/super-secret/super-secret.component';
+import { HomeVTwoComponent } from './AuthV2/homeV2/home-vtwo/home-vtwo.component';
+import { SignInV3Component } from './AuthV3/component/sign-in-v3/sign-in-v3.component';
+import { SignUpComponent } from './AuthV3/component/sign-up/sign-up.component';
+import { ForgotPasswordComponent } from './AuthV3/component/forgot-password/forgot-password.component';
+import { VerifyEmailComponent } from './AuthV3/component/verify-email/verify-email.component';
+import { DashboardComponent } from './AuthV3/component/dashboard/dashboard.component';
+import { ChatV3Component } from './chat/chat-v3/chat-v3.component';
 
 @NgModule({
   declarations: [
@@ -101,7 +105,6 @@ import { SuperSecretComponent } from './AuthV2/super-secret/super-secret.compone
     Price,
     ComissionTemplateScreenComponent,
     HelpPageComponentComponent,
-    ChatboxComponentComponent,
     ManageCommisionsComponentComponent,
     AcceptPendingComponentComponent,
     CompleteActiveScreenComponent,
@@ -109,10 +112,16 @@ import { SuperSecretComponent } from './AuthV2/super-secret/super-secret.compone
     RejectPendingComponentComponent,
     StopActiveComponentComponent,
     LandingPageComponenentComponent,
-    ChatComponent,
     MainLandingPageComponent,
     AuthVTwoComponent,
-    SuperSecretComponent
+    SuperSecretComponent,
+    HomeVTwoComponent,
+    SignInV3Component,
+    SignUpComponent,
+    ForgotPasswordComponent,
+    VerifyEmailComponent,
+    DashboardComponent,
+    ChatV3Component
 
   ],
   imports: [

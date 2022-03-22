@@ -14,7 +14,7 @@ export class AppComponent {
   title = 'MigratingAngularProject';
 
   constructor(private authenticationHandleService: AuthenticationHandleService) {
-    //firebase.initializeApp(environment.firebase);
+    firebase.initializeApp(environment.firebase);
 
   }
 
