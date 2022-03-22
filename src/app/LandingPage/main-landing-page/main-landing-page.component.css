@@ -16,7 +16,7 @@
   width: 100%;
   /*border: solid black 3px;*/
   height: 100px;
-  background-color: #ede8db;
+  /*background-color: #ede8db;*/
 }
 
 .loginSignupButton {
@@ -94,7 +94,7 @@
 
   }
   .container {
-    background-color: white;
+    /*background-color: white;*/
   }
 
   .loginSignupButton {
@@ -288,7 +288,7 @@
 
   }
   .container {
-    background-color: plum;
+    /*background-color: plum;*/
   }
 
   .loginSignupButton {
@@ -370,7 +370,7 @@
 
   }
   .container {
-  background-color:red;
+  /*background-color:red;*/
 }
   .loginSignupButton {
     background-color: #9143da;
@@ -453,7 +453,7 @@
 
   }
   .container {
-  background-color:yellow;
+  /*background-color:yellow;*/
 }
 
   .loginSignupButton {
@@ -529,7 +529,7 @@
 
   }
   .container {
-  background-color: orange;
+  /*background-color: orange;*/
 }
 
 
