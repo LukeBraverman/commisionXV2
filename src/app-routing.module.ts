@@ -20,11 +20,11 @@ import {
   HelpPageComponentComponent
 } from "./app/creator/components/mainpage/NavigationComponents/help-page/help-page-component/help-page-component.component";
 import {
-  PortfolioScreenComponentComponent
-} from "./app/creator/components/mainpage/NavigationComponents/commisionTemplateScreen/comission-template-screen/portfolio-screen/portfolio-screen-component/portfolio-screen-component.component";
+  PortfolioScreen
+} from "./app/creator/portfolio-screen/portfolio-screen-component/portfolio-screen.component";
 import {
-  PriceScreenComponentComponent
-} from "./app/creator/components/mainpage/NavigationComponents/commisionTemplateScreen/comission-template-screen/price-screen/price-screen-component/price-screen-component.component";
+  Price
+} from "./app/creator/price-screen/price-screen-component/price-screen.component";
 import {
   LandingPageComponenentComponent
 } from "./app/user/mainpage/landing-page-componenent/landing-page-componenent.component";
@@ -55,10 +55,10 @@ const appRoutes: Routes = [
         path: 'helpPage', component: HelpPageComponentComponent
       },
       {
-        path: 'editPortfolio', component: PortfolioScreenComponentComponent
+        path: 'editPortfolio', component: PortfolioScreen
       },
       {
-        path: 'setPrices', component: PriceScreenComponentComponent
+        path: 'setPrices', component: Price
       },
     ]
   },

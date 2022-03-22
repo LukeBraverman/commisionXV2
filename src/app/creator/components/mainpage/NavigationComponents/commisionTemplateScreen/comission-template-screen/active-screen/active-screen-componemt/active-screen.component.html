@@ -1,0 +1,73 @@
+<div class="row justify-content-start bg-light" style=" border: 2px black dotted; min-height: 650px   " *ngIf="cardOverviewScreen">
+  <div class="col-1">
+
+  </div>
+  <div class="col-5  bg-light  " style=" border: 2px black solid;  box-shadow: 5px 10px #888888;" >
+    <img style="height: 280px;min-width: 400px; margin-top: 7px; "  src="{{userCommissionCard.highlightImageUrl}}"
+         class="img-fluid "
+         style="width:500px;height:600px; padding-top: 30px;"
+    >
+  </div>
+  <div class="col-1">
+
+  </div>
+  <div class="col-4" >
+    <div class="row" style=" height: 15px">
+      <div class="col-12">
+
+      </div>
+    </div>
+    <div class="row" style="border: 2px black solid; height: 300px; border-radius: 10px">
+      <div class="col-12 text-center align-self-center">
+            {{userCommissionCard.highlightDescription}}
+      </div>
+    </div>
+    <div class="row" style=" height: 50px">
+      <div class="col-12">
+
+      </div>
+    </div>
+    <div class="row" style="border: 2px black solid; height: 300px; border-radius: 15px">
+      <div class="col-12">
+        <button type="button" class="btn btn-outline-secondary" (click)="moveToPortfolioScreen()">See portfolio</button>
+        <button type="button" class="btn btn-outline-secondary" (click)="moveToPriceScreen()">See prices</button>
+
+      </div>
+    </div>
+  </div>
+  <div class="col-1">
+
+  </div>
+</div>
+
+<div class="row" style="min-height: 650px" *ngIf="priceScreen">
+  <div class="col-12">
+    <button type="button" class="btn btn-outline-secondary" (click)="moveToCardOverviewScreen()">Return</button>
+    {{userCommissionCard.priceForCommission}}
+    {{userCommissionCard.priceForCommissionDescription}}
+  </div>
+</div>
+
+<div class="row" style="min-height: 650px" *ngIf="portfolioScreen">
+  <div class="col-12">
+    <button type="button" class="btn btn-outline-secondary" (click)="moveToCardOverviewScreen()">Return</button>
+    <div *ngFor="let imagePosition of userCommissionCard.imagePortfolioListOrder ; let i = index">
+      {{imagePosition.imageDescription}}
+      {{imagePosition.imageUrl}}
+      {{imagePosition.position}}
+    </div>
+  </div>
+</div>
+
+<div class="row" style="height: 20px; ">
+  <div class="col-12 bg-light">
+    <h1 >Webpage Link: /{{webpageLinkFromUserId}} </h1>
+  </div>
+</div>
+
+<!--    Template Infomation Below!-->
+<!--    {{userCommissionCard.highlightImageUrl}}-->
+<!--    {{userCommissionCard.highlightDescription}}-->
+<!--    {{userCommissionCard.imagePortfolioListOrder}}-->
+<!--    {{userCommissionCard.priceForCommission}}-->
+<!--    {{userCommissionCard.priceForCommissionDescription}}-->

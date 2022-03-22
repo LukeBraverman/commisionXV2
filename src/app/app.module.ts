@@ -33,17 +33,17 @@ import {
   AccountDetailsComponentComponent
 } from "./creator/components/mainpage/NavigationComponents/account-detail/account-details-component/account-details-component.component";
 import {
-  ActiveScreenComponemtComponent
-} from "./creator/components/mainpage/NavigationComponents/commisionTemplateScreen/comission-template-screen/active-screen/active-screen-componemt/active-screen-componemt.component";
+  ActiveScreen
+} from "./creator/components/mainpage/NavigationComponents/commisionTemplateScreen/comission-template-screen/active-screen/active-screen-componemt/active-screen.component";
 import {
   EditScreenComponemtComponent
 } from "./creator/components/mainpage/NavigationComponents/commisionTemplateScreen/comission-template-screen/edit-screen/edit-screen-componemt/edit-screen-componemt.component";
 import {
-  PortfolioScreenComponentComponent
-} from "./creator/components/mainpage/NavigationComponents/commisionTemplateScreen/comission-template-screen/portfolio-screen/portfolio-screen-component/portfolio-screen-component.component";
+  PortfolioScreen
+} from "./creator/portfolio-screen/portfolio-screen-component/portfolio-screen.component";
 import {
-  PriceScreenComponentComponent
-} from "./creator/components/mainpage/NavigationComponents/commisionTemplateScreen/comission-template-screen/price-screen/price-screen-component/price-screen-component.component";
+  Price
+} from "./creator/price-screen/price-screen-component/price-screen.component";
 import {
   ComissionTemplateScreenComponent
 } from "./creator/components/mainpage/NavigationComponents/commisionTemplateScreen/comission-template-screen/comission-template-screen.component";
@@ -93,10 +93,10 @@ import { MainLandingPageComponent } from './LandingPage/main-landing-page/main-l
     CreatorHeaderComponentComponent,
     MainPageComponentComponent,
     AccountDetailsComponentComponent,
-    ActiveScreenComponemtComponent,
+    ActiveScreen,
     EditScreenComponemtComponent,
-    PortfolioScreenComponentComponent,
-    PriceScreenComponentComponent,
+    PortfolioScreen,
+    Price,
     ComissionTemplateScreenComponent,
     HelpPageComponentComponent,
     ChatboxComponentComponent,
