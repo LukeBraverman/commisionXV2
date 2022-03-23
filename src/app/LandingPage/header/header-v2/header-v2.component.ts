@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from "@angular/router";
+import {AuthServicev3} from "../../../AuthV3/service/AuthServiceV3.service";
 
 @Component({
   selector: 'app-header-v2',
@@ -11,10 +13,38 @@ export class HeaderV2Component implements OnInit {
   isHoveringExploreNavText: boolean = false;
   isHoveringLoginNavTest: boolean = false;
   isHoveringOverSignUpButton: boolean = false;
-  constructor() { }
+
+  isUserLoggedIn = false;
+  constructor(    public router: Router,
+                  private authService:AuthServicev3
+  ) { }
 
   ngOnInit(): void {
+    this.authService.afAuth.authState.subscribe( change => {
+      if(this.authService.isLoggedIn === true) {
+        this.isUserLoggedIn = true;
+      } else {
+        this.isUserLoggedIn = false;
+      }
+    })
   }
+
+
+  changeRouteWithSidebar(newRoute: string) {
+    this.router.navigate(['dashboard/' + newRoute]);
+
+  }
+
+
+
+
+
+
+
+
+
+
+  ////
   onHoverAboutUsNavText() {
     this.isHoveringAboutUsNavText = true;
   }
@@ -63,4 +93,7 @@ export class HeaderV2Component implements OnInit {
 
   }
 
+  onLogout() {
+    this.authService.SignOut();
+  }
 }

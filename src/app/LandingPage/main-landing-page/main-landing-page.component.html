@@ -56,12 +56,12 @@
             <a class="nav-link headerLinkColor textSizeForNavElements"
                (mouseenter)="onHoverLoginNavText()" (mouseleave)="onMouseLeaveLoginNavText()"
                [ngClass]="isHoveringLoginNavTest ? 'isHoveringLoginNavText' : 'isNotHoveringOverLoginNavText'"
-
+                (click)="goToLogInPage()"
             >LogIn</a>
           </li>
 
           <li class="nav-item">
-            <button (click)="onGoToAuthenticateScreen()" class="loginSignupButton"
+            <button (click)="goToSignUpPage()" class="loginSignupButton"
                     (mouseenter)="onHoverSignUpButton()" (mouseleave)="onMouseLeaveSignUpButton()"
                     [ngClass]="isHoveringOverSignUpButton ? 'isHoveringSignUpButton' : 'isNotHoveringOverSignUpButton'"
 
@@ -143,6 +143,7 @@
                class="landingPageClaimButton align-self-center text-center "
                (mouseenter)="onHoverClaimButtonText()" (mouseleave)="onMouseLeaveClaimButtonText()"
                [ngClass]="isHoveringClaimButton ? 'isHoveringClaimButton' : 'isNotHoveringClaimButton'"
+               (click)="goToSignUpPage()"
              >Sign Up!</button>
            </div>
          </div>
@@ -268,6 +269,7 @@
                 <span style="width: 150px"></span>
               <button
                 type="button" class="btn btn-lg px-4 me-md-2 startButtonInHeroCard"
+                (click)="goToSignUpPage()"
                 (mouseenter)="onHoverStartFromExampleLayout()" (mouseleave)="onMouseLeaveStartFromExampleLayout()"
                 [ngClass]="isHoveringStartButtonFromExampleLayout ? 'isHoveringOverStartButtonFromExampleLayout' : 'isLeavingOverStartButtonFromExampleLayout'"
               >Start!</button>

@@ -50,8 +50,18 @@ const appRoutes: Routes = [
   { path: 'chat', component: ChatV3Component },
   { path: 'login', component: LoginV2Component },
   { path: 'signup', component: SignUpV2Component },
+  {path:'headScreen', component: MainLandingPageComponent},
   //--
-  { path: 'dashboard', component: HomeV2Component, canActivate: [AuthGuardV3] },
+  { path: 'dashboard', component: HomeV2Component, canActivate: [AuthGuardV3], children: [
+      { path: 'YourPage', component: ComissionTemplateScreenComponent, canActivate: [AuthGuardV3] },
+      { path: 'EditPage', component: ComissionTemplateScreenComponent, canActivate: [AuthGuardV3] },
+      { path: 'ManageCommissions', component: ManageCommisionsComponentComponent, canActivate: [AuthGuardV3] },
+      { path: 'AccountDetails', component: AccountDetailsComponentComponent, canActivate: [AuthGuardV3] },
+      { path: 'HelpPage', component: HelpPageComponentComponent, canActivate: [AuthGuardV3] },
+
+
+
+    ] },
 
 
   //---------------
@@ -66,7 +76,6 @@ const appRoutes: Routes = [
   // {path:'test', component: AuthVTwoComponent},
   // {path:'secret', component: SuperSecretComponent, canActivate: [AuthGuardV2]},
   //-----------------
-  // {path:'headScreen', component: MainLandingPageComponent},
   // { path: 'home', component: HomeComponentComponent },
   // {
   //   path: 'creatorHomePage',

@@ -24,6 +24,11 @@ export class LoginV2Component implements OnInit {
   ngOnInit(): void {
     this.logInForm = this.returnReactiveLogInForm();
 
+    this.authenticatinoHandleService.afAuth.authState.subscribe( change => {
+      if(this.authenticatinoHandleService.isLoggedIn === true) {
+        this.router.navigate(['dashboard/YourPage' ]);
+      }
+    })
   }
 
   private returnReactiveLogInForm() {
@@ -44,4 +49,6 @@ export class LoginV2Component implements OnInit {
   googleSignIn() {
     this.authenticatinoHandleService.GoogleAuth();
   }
+
+
 }

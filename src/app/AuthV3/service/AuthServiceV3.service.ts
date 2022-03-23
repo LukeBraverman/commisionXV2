@@ -59,7 +59,7 @@ export class AuthServicev3 {
       .signInWithEmailAndPassword(email, password)
       .then((result) => {
         this.ngZone.run(() => {
-          this.router.navigate(['dashboard']);
+          this.router.navigate(['dashboard/YourPage']);
         });
         this.SetUserData(result.user);
       })
@@ -111,8 +111,9 @@ export class AuthServicev3 {
   GoogleAuth() {
     return this.AuthLogin(new auth.GoogleAuthProvider()).then((res: any) => {
       if (res) {
-        this.router.navigate(['dashboard']);
+        this.router.navigate(['dashboard/YourPage']);
       }
+//todo router not navigating on successful auth
     });
   }
   // Auth logic to run auth providers
@@ -121,7 +122,7 @@ export class AuthServicev3 {
       .signInWithPopup(provider)
       .then((result) => {
         this.ngZone.run(() => {
-          this.router.navigate(['dashboard']);
+          this.router.navigate(['dashboard/YourPage']);
         });
         this.SetUserData(result.user);
       })
@@ -151,7 +152,7 @@ export class AuthServicev3 {
   SignOut() {
     return this.afAuth.signOut().then(() => {
       localStorage.removeItem('user');
-      this.router.navigate(['sign-in']);
+      this.router.navigate(['login']);
     });
   }
 

@@ -6,15 +6,24 @@
     </div>
 
     <div class="row justtifyAroundOnXSmallScreen " id="fadeshow1" >
-      <div class="col-md-4 col-sm-4 col-5 text-center  ">
+
+      <div class="col-md-1 col-sm-1 col-1  ">
+        <button *ngIf="isUserLoggedIn" style="margin-left: 40px" class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-square-fill" viewBox="0 0 16 16">
+            <path d="M0 14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v12zm4.5-6.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5a.5.5 0 0 1 0-1z"/>
+          </svg>
+
+          Sidebar
+        </button>
+      </div>
+      <div class="col-md-2 col-sm-2 col-3 text-center  ">
         <ul class="nav justify-content-center">
+
           <li class="nav-item">
             <img src="http://cdn.shopify.com/s/files/1/0513/1226/3362/products/Asset2_grande.jpg?v=1619802039" class="headerLogo" >
 
           </li>
-          <li class="nav-item">
-            <p class="headerLogoText">Spotlight</p>
-          </li>
+
 
         </ul>
       </div>
@@ -115,6 +124,72 @@
 
     </div>
 
+
+  </div>
+</div>
+
+
+
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+  <div class="offcanvas-header">
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px;">
+      <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+        <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+        <span class="fs-4">Navigation</span>
+      </a>
+      <hr>
+
+      <ul class="nav nav-pills flex-column mb-auto ">
+        <li class="nav-item">
+
+          <button type="button" class="btn btn-outline-secondary text-center"
+          (click)="changeRouteWithSidebar('YourPage')"
+          >Your Page</button>
+
+
+        </li>
+        <li>
+          <button type="button" class="btn btn-outline-secondary text-center"
+                  (click)="changeRouteWithSidebar('EditPage')"
+          >Edit Page</button>
+
+        </li>
+        <li>
+          <button type="button" class="btn btn-outline-secondary text-center"
+                  (click)="changeRouteWithSidebar('ManageCommissions')"
+          >Manage commissions</button>
+
+        </li>
+        <li>
+          <button type="button" class="btn btn-outline-secondary text-center"
+                  (click)="changeRouteWithSidebar('AccountDetails')"
+
+          >Account details</button>
+
+        </li>
+        <li>
+          <button type="button" class="btn btn-outline-secondary text-center"
+                  (click)="changeRouteWithSidebar('HelpPage')"
+
+          >Get help</button>
+
+        </li>
+        <li>
+          <button type="button" class="btn btn-outline-secondary text-center"
+                  (click)="onLogout()"
+
+          >LogOut</button>
+
+        </li>
+      </ul>
+
+
+      <hr>
+
+    </div>
 
   </div>
 </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MainLandingPageService} from "../service/mainLandingPage.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-main-landing-page',
@@ -14,9 +15,19 @@ export class MainLandingPageComponent implements OnInit {
   isHoveringOverSignUpButton: boolean = false;
   isHoveringClaimButton: boolean = false;
   isHoveringStartButtonFromExampleLayout: boolean = false;
-  constructor(private landingPageService: MainLandingPageService) { }
+  constructor(private landingPageService: MainLandingPageService,
+              public router: Router,) { }
 
   ngOnInit(): void {
+  }
+
+  goToLogInPage() {
+    this.router.navigate(['login' ]);
+  }
+
+  goToSignUpPage() {
+    this.router.navigate(['signup' ]);
+
   }
 
   onGoToAuthenticateScreen() {
