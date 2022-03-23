@@ -12,6 +12,8 @@
 }
 
 .header {
+  z-index: 9;
+
   position: fixed;
   width: 100%;
   /*border: solid black 3px;*/

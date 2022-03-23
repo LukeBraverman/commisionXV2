@@ -1,0 +1,61 @@
+.testBorder {
+  border: 3px solid green;
+}
+
+@media only screen and (min-width: 0px) and (max-width: 575px) {
+  .container {
+    /*background-color: pink;*/
+  }
+}
+
+/*// Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) {
+  .container {
+    /*background-color: green;*/
+  }
+}
+
+
+@media only screen and (max-width: 768px) {
+  #fadeshow1 {
+    display: none;
+  }
+}
+
+/*// Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) {
+  .container {
+    /*background-color: #5bc0de;*/
+  }
+}
+
+/*// Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) {
+  .container {
+    /*background-color: red;*/
+  }
+
+
+}
+
+/*// X-Large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {
+  .container {
+    /*background-color: yellow;*/
+  }
+}
+
+/*// XX-Large devices (larger desktops, 1400px and up)*/
+@media (min-width: 1400px) {
+  .container {
+    /*background-color: orange;*/
+  }
+
+  .heightOfSecondRowInContainer {
+    height: 700px;
+  }
+
+  rowHeightInSecondRowContainer {
+    height: 200px;
+  }
+}

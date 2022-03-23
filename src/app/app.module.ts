@@ -88,6 +88,10 @@ import { VerifyEmailComponent } from './AuthV3/component/verify-email/verify-ema
 import { DashboardComponent } from './AuthV3/component/dashboard/dashboard.component';
 import { ChatV3Component } from './chat/chat-v3/chat-v3.component';
 import { HeaderV2Component } from './LandingPage/header/header-v2/header-v2.component';
+import { LoginV2Component } from './creatorV2/authscreens/login-v2/login-v2.component';
+import { SignUpV2Component } from './creatorV2/authscreens/sign-up-v2/sign-up-v2.component';
+import { HomeV2Component } from './creatorV2/homeV2/home-v2/home-v2.component';
+import { TestHolderComponent } from './creatorV2/homeV2/test-holder/test-holder.component';
 
 @NgModule({
   declarations: [
@@ -123,7 +127,11 @@ import { HeaderV2Component } from './LandingPage/header/header-v2/header-v2.comp
     VerifyEmailComponent,
     DashboardComponent,
     ChatV3Component,
-    HeaderV2Component
+    HeaderV2Component,
+    LoginV2Component,
+    SignUpV2Component,
+    HomeV2Component,
+    TestHolderComponent
 
   ],
   imports: [

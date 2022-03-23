@@ -1,4 +1,114 @@
+::-webkit-scrollbar {
+  display: none;
+}
+
+:focus:not(.focus-visible) {
+  outline: 0;
+  box-shadow: none;
+}
 
 .testBorder {
   border: 3px solid green;
 }
+.testBorder2 {
+  border: 3px solid red;
+}
+
+.chatBoxUserPov {
+  border: 1px solid black;
+  border-radius: 6px;
+  background-color: lightcyan;
+}
+
+.chatBoxOtherUser {
+  border: 1px solid black;
+  border-radius: 6px;
+  background-color: whitesmoke;
+}
+
+@media only screen and (max-width: 768px) {
+
+  #fadeColOnSmallScreen {
+    display: none;
+  }
+  #fadeColOnSmallScreenTwo {
+    display: none;
+  }
+  #showSmallScreenMiniHeader {
+    display: block;
+  }
+}
+
+@media only screen and (min-width: 0px) and (max-width: 768px) {
+
+
+}
+@media only screen and (min-width: 769px)  {
+  #showSmallScreenMiniHeader {
+    display: none;
+  }
+
+  #fadeColOnSmallScreen {
+    display: block;
+  }
+  #fadeColOnSmallScreenTwo {
+    display: block;
+  }
+
+}
+
+
+/* -----------------------------------Drop Down Nav Menu in Header----------------------------------- */
+
+/* Drop Down Menu Location*/
+.dropdownMenuLocation {
+  float: left;
+}
+.dropbtn {
+  background-color: #9143da;
+  /*border: 2px solid black;*/
+  padding: 5px 20px;
+  border-radius: 20px;
+  font-size: 16px;
+  border: #9143da 3px solid;
+  color: white;
+  /*border: black 1px solid;*/
+
+}
+.dropdownMenuButton {
+  background-color: black;
+  color: white;
+  padding: 32px;
+  font-size: 20px;
+  font-family: "Times New Roman";
+  border: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 0;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display:block}
+
+.dropdown:hover .dropdownMenuButton {background-color: #8f63f5;}
+

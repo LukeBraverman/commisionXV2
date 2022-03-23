@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnInit, QueryList, ViewChildren} from '@angular/core';
 import {ChatBoxService} from "../service/chatBox.service";
 import {ActivatedRoute} from "@angular/router";
 import {AuthServicev3} from "../../AuthV3/service/AuthServiceV3.service";
@@ -8,8 +8,9 @@ import {AuthServicev3} from "../../AuthV3/service/AuthServiceV3.service";
   templateUrl: './chat-v3.component.html',
   styleUrls: ['./chat-v3.component.css']
 })
-export class ChatV3Component implements OnInit {
+export class ChatV3Component implements OnInit, AfterViewInit {
   routeId: string;
+  @ViewChildren("commentDiv") commentDivs: QueryList<ElementRef>;
 
   constructor(public chatterboxService: ChatBoxService,
     private currentRoute: ActivatedRoute,
@@ -23,8 +24,19 @@ export class ChatV3Component implements OnInit {
 
     }
     this.chatterboxService.commissionId = "AcommisisonID";
+    this.chatterboxService.loadMessages();
 
   }
+
+  ngAfterViewInit() {
+    this.commentDivs.changes.subscribe(() => {
+      if (this.commentDivs && this.commentDivs.last) {
+        this.commentDivs.last.nativeElement.focus();
+      }
+    });
+  }
+
+
 
 
 

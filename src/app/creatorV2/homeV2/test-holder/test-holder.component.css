@@ -1,0 +1,15 @@
+.bodyOfSite {
+  background-color: lightcyan;
+  height: 120vh;
+}
+@media only screen and (max-width: 768px) {
+  #fadeshow1 {
+    display: none;
+
+}}
+
+@media only screen and (max-width: 992px) {
+  #fadeshow2 {
+    display: none;
+
+  }}

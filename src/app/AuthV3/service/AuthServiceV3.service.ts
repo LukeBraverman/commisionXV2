@@ -74,8 +74,10 @@ export class AuthServicev3 {
       .then((result) => {
         /* Call the SendVerificaitonMail() function when new user sign
         up and returns promise */
-        this.SendVerificationMail();
+         this.SendVerificationMail();
         this.SetUserData(result.user);
+        this.router.navigate(['verify-email-address']);
+
       })
       .catch((error) => {
         window.alert(error.message);

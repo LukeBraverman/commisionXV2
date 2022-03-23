@@ -3,6 +3,7 @@ import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
 import {Observable} from "rxjs";
 import {AuthenticationHandleService, AuthResponseData} from "../../service/authentication-handle.service";
 import {Router} from "@angular/router";
+import {AuthServicev3} from "../../../../AuthV3/service/AuthServiceV3.service";
 
 @Component({
   selector: 'app-signup-component',
@@ -14,10 +15,13 @@ export class SignupComponentComponent implements OnInit {
   // @ts-ignore
   error: string = null;
   constructor(private authenticatinoHandleService: AuthenticationHandleService,
-              private router: Router) {
+              private router: Router
+
+  ) {
   }
   ngOnInit(): void {
     this.signupForm = this.returnReactiveSignUpForm();
+
   }
   private returnReactiveSignUpForm() {
     let signUpForm = new FormGroup({

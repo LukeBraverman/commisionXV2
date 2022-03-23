@@ -40,14 +40,23 @@ import {ForgotPasswordComponent} from "./app/AuthV3/component/forgot-password/fo
 import {VerifyEmailComponent} from "./app/AuthV3/component/verify-email/verify-email.component";
 import {DashboardComponent} from "./app/AuthV3/component/dashboard/dashboard.component";
 import {ChatV3Component} from "./app/chat/chat-v3/chat-v3.component";
+import {LoginV2Component} from "./app/creatorV2/authscreens/login-v2/login-v2.component";
+import {SignUpV2Component} from "./app/creatorV2/authscreens/sign-up-v2/sign-up-v2.component";
+import {HomeV2Component} from "./app/creatorV2/homeV2/home-v2/home-v2.component";
 
 
 const appRoutes: Routes = [
-  { path: '', redirectTo: '/sign-in', pathMatch: 'full' },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'chat', component: ChatV3Component },
+  { path: 'login', component: LoginV2Component },
+  { path: 'signup', component: SignUpV2Component },
+  //--
+  { path: 'dashboard', component: HomeV2Component, canActivate: [AuthGuardV3] },
+
+
+  //---------------
   { path: 'sign-in', component: SignInV3Component },
   { path: 'register-user', component: SignUpComponent },
-  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuardV3] },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'verify-email-address', component: VerifyEmailComponent },
 

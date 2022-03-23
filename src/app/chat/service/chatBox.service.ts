@@ -27,6 +27,7 @@ export class ChatBoxService {
 
   saveMessage(messageText) {
   // Add a new message entry to the database.
+    console.log("savingRGWEQAGR")
   return firebase.firestore().collection('messages')
     .doc(this.commissionId)
     .collection('chat')
@@ -61,9 +62,8 @@ export class ChatBoxService {
           //   message.text, message.profilePicUrl, message.imageUrl);
           console.log(message)
           console.log(message["text"])
-          this.toDisplay.push(message)
-         //  this.toDisplay.push((message["name"]))
-         // this.toDisplay.push((message["text"]))
+          this.pushItemToArray(message);
+
 
         }
       }
@@ -72,6 +72,12 @@ export class ChatBoxService {
 
 
     });
+  }
+
+  pushItemToArray(message:  firebase.firestore.DocumentData) {
+    if(this.toDisplay.indexOf(message) === -1 && message["timestamp"]) {
+      this.toDisplay.push(message);
+    }
   }
 
 
