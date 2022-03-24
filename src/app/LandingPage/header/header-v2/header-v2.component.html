@@ -5,17 +5,9 @@
 
     </div>
 
-    <div class="row justtifyAroundOnXSmallScreen " id="fadeshow1" >
+    <div class="row justtifyAroundOnXSmallScreen justify-content-around" id="fadeshow1" >
 
-      <div class="col-md-1 col-sm-1 col-1  ">
-        <button *ngIf="isUserLoggedIn" style="margin-left: 40px" class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-square-fill" viewBox="0 0 16 16">
-            <path d="M0 14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v12zm4.5-6.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5a.5.5 0 0 1 0-1z"/>
-          </svg>
 
-          Sidebar
-        </button>
-      </div>
       <div class="col-md-2 col-sm-2 col-3 text-center  ">
         <ul class="nav justify-content-center">
 
@@ -27,11 +19,9 @@
 
         </ul>
       </div>
-      <div class="col-md-1 ">
 
-      </div>
-      <div class="col-md-7 col-sm-8 col-12 align-self-end justify-content-end increaseWidthOnSmall" style="" >
-        <ul class="nav justify-content-center">
+      <div class="col-md-7  col-sm-8 col-12 align-self-end justify-content-end increaseWidthOnSmall" style="" >
+        <ul class="nav justify-content-end">
           <li class="nav-item"
 
           >
@@ -66,6 +56,7 @@
             <a class="nav-link headerLinkColor textSizeForNavElements"
                (mouseenter)="onHoverLoginNavText()" (mouseleave)="onMouseLeaveLoginNavText()"
                [ngClass]="isHoveringLoginNavTest ? 'isHoveringLoginNavText' : 'isNotHoveringOverLoginNavText'"
+               *ngIf="!isUserLoggedIn"
 
             >LogIn</a>
           </li>
@@ -74,11 +65,24 @@
             <button (click)="onGoToAuthenticateScreen()" class="loginSignupButton"
                     (mouseenter)="onHoverSignUpButton()" (mouseleave)="onMouseLeaveSignUpButton()"
                     [ngClass]="isHoveringOverSignUpButton ? 'isHoveringSignUpButton' : 'isNotHoveringOverSignUpButton'"
-
+                    *ngIf="!isUserLoggedIn"
 
             >Sign Up</button>
           </li>
+          <li class="nav-item">
+            <button *ngIf="isUserLoggedIn" class="btn " style="background-color: #9143da; color: white" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+              </svg>
+
+              Menu
+            </button>
+          </li>
         </ul>
+
+      </div>
+
+      <div class="col-md-1 " style="width: 20px">
 
       </div>
 
@@ -130,23 +134,30 @@
 
 
 
-<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+<div class="offcanvas offcanvas-end "  data-bs-backdrop="false" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel" style="width: 355px">
   <div class="offcanvas-header">
+    <div class="row " >
+      <div class="row   " style="height: 18px">
+
+      </div>
+      <div class="row " style="height: 20px">
+        <h3 id="offcanvasRightLabel">Navigation</h3>
+
+      </div>
+    </div>
+
     <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div class="offcanvas-body">
-    <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px;">
-      <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-        <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
-        <span class="fs-4">Navigation</span>
-      </a>
-      <hr>
 
-      <ul class="nav nav-pills flex-column mb-auto ">
+    <div class="d-flex flex-column flex-shrink-0 p-3 " style="width: 280px;">
+
+
+      <ul class="nav nav-pills flex-column mb-auto " >
         <li class="nav-item">
 
           <button type="button" class="btn btn-outline-secondary text-center"
-          (click)="changeRouteWithSidebar('YourPage')"
+                  (click)="changeRouteWithSidebar('YourPage')"
           >Your Page</button>
 
 
@@ -187,9 +198,9 @@
       </ul>
 
 
-      <hr>
 
     </div>
 
   </div>
 </div>
+

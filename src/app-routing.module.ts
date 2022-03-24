@@ -46,7 +46,7 @@ import {HomeV2Component} from "./app/creatorV2/homeV2/home-v2/home-v2.component"
 
 
 const appRoutes: Routes = [
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: '', redirectTo: '/headScreen', pathMatch: 'full' },
   { path: 'chat', component: ChatV3Component },
   { path: 'login', component: LoginV2Component },
   { path: 'signup', component: SignUpV2Component },
