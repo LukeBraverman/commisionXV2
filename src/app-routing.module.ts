@@ -12,13 +12,13 @@ import {
 } from "./app/creator/components/mainpage/NavigationComponents/commisionTemplateScreen/comission-template-screen/comission-template-screen.component";
 import {
   AccountDetailsComponentComponent
-} from "./app/creator/components/mainpage/NavigationComponents/account-detail/account-details-component/account-details-component.component";
+} from "./app/creatorV2/navigationComponents/account-detail/account-details-component/account-details-component.component";
 import {
   ManageCommisionsComponentComponent
 } from "./app/creator/components/mainpage/NavigationComponents/manage-commisions/manage-commisions-component/manage-commisions-component.component";
 import {
   HelpPageComponentComponent
-} from "./app/creator/components/mainpage/NavigationComponents/help-page/help-page-component/help-page-component.component";
+} from "./app/creatorV2/navigationComponents/help-page/help-page-component/help-page-component.component";
 import {
   PortfolioScreen
 } from "./app/creator/portfolio-screen/portfolio-screen-component/portfolio-screen.component";
@@ -43,6 +43,38 @@ import {ChatV3Component} from "./app/chat/chat-v3/chat-v3.component";
 import {LoginV2Component} from "./app/creatorV2/authscreens/login-v2/login-v2.component";
 import {SignUpV2Component} from "./app/creatorV2/authscreens/sign-up-v2/sign-up-v2.component";
 import {HomeV2Component} from "./app/creatorV2/homeV2/home-v2/home-v2.component";
+import {YourpageComponent} from "./app/creatorV2/navigationComponents/yourpage/yourpage.component";
+import {
+  YourpageLandingPageComponent
+} from "./app/creatorV2/navigationComponents/yourpage/yourpage-landing-page/yourpage-landing-page.component";
+import {
+  YourpageGalleryComponent
+} from "./app/creatorV2/navigationComponents/yourpage/yourpage-gallery/yourpage-gallery.component";
+import {EditpageComponent} from "./app/creatorV2/navigationComponents/editpage/editpage.component";
+import {EditProfileComponent} from "./app/creatorV2/navigationComponents/editpage/edit-profile/edit-profile.component";
+import {
+  EditHighlightCardComponent
+} from "./app/creatorV2/navigationComponents/editpage/edit-highlight-card/edit-highlight-card.component";
+import {EditPriceComponent} from "./app/creatorV2/navigationComponents/editpage/edit-price/edit-price.component";
+import {EditGallaryComponent} from "./app/creatorV2/navigationComponents/editpage/edit-gallary/edit-gallary.component";
+import {
+  ManageCommissionsComponent
+} from "./app/creatorV2/navigationComponents/manage-commissions/manage-commissions.component";
+import {
+  PendingCommissionsComponent
+} from "./app/creatorV2/navigationComponents/manage-commissions/pending-commissions/pending-commissions.component";
+import {
+  ActiveCommissionsComponent
+} from "./app/creatorV2/navigationComponents/manage-commissions/active-commissions/active-commissions.component";
+import {
+  CompletedCommissionsComponent
+} from "./app/creatorV2/navigationComponents/manage-commissions/completed-commissions/completed-commissions.component";
+import {
+  RejectedCommissionsComponent
+} from "./app/creatorV2/navigationComponents/manage-commissions/rejected-commissions/rejected-commissions.component";
+import {
+  StoppedCommissionsComponent
+} from "./app/creatorV2/navigationComponents/manage-commissions/stopped-commissions/stopped-commissions.component";
 
 
 const appRoutes: Routes = [
@@ -52,10 +84,31 @@ const appRoutes: Routes = [
   { path: 'signup', component: SignUpV2Component },
   {path:'headScreen', component: MainLandingPageComponent},
   //--
-  { path: 'dashboard', component: HomeV2Component, canActivate: [AuthGuardV3], children: [
-      { path: 'YourPage', component: ComissionTemplateScreenComponent, canActivate: [AuthGuardV3] },
-      { path: 'EditPage', component: ComissionTemplateScreenComponent, canActivate: [AuthGuardV3] },
-      { path: 'ManageCommissions', component: ManageCommisionsComponentComponent, canActivate: [AuthGuardV3] },
+
+
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuardV3], children: [
+      { path: 'YourPage', component: YourpageComponent, canActivate: [AuthGuardV3], children: [
+          { path: 'landingpage', component: YourpageLandingPageComponent, canActivate: [AuthGuardV3]},
+          { path: 'galllery', component: YourpageGalleryComponent, canActivate: [AuthGuardV3]},
+        ]                  },
+
+      { path: 'EditPage', component: EditpageComponent, canActivate: [AuthGuardV3],children: [
+          { path: 'EditProfile', component: EditProfileComponent, canActivate: [AuthGuardV3]},
+          { path: 'EditHighlightCard', component: EditHighlightCardComponent, canActivate: [AuthGuardV3]},
+          { path: 'EditPrice', component: EditPriceComponent, canActivate: [AuthGuardV3]},
+          { path: 'EditGallery', component: EditGallaryComponent, canActivate: [AuthGuardV3]},
+
+
+        ] },
+      { path: 'ManageCommissions', component: ManageCommissionsComponent, canActivate: [AuthGuardV3], children: [
+          { path: 'Pending', component: PendingCommissionsComponent, canActivate: [AuthGuardV3]},
+          { path: 'active', component: ActiveCommissionsComponent, canActivate: [AuthGuardV3]},
+          { path: 'completed', component: CompletedCommissionsComponent, canActivate: [AuthGuardV3]},
+          { path: 'rejected', component: RejectedCommissionsComponent, canActivate: [AuthGuardV3]},
+          { path: 'stopped', component: StoppedCommissionsComponent, canActivate: [AuthGuardV3]},
+
+
+        ] },
       { path: 'AccountDetails', component: AccountDetailsComponentComponent, canActivate: [AuthGuardV3] },
       { path: 'HelpPage', component: HelpPageComponentComponent, canActivate: [AuthGuardV3] },
 

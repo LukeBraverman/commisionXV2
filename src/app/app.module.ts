@@ -31,7 +31,7 @@ import {
 } from "./creator/components/mainpage/main-page-component/main-page-component.component";
 import {
   AccountDetailsComponentComponent
-} from "./creator/components/mainpage/NavigationComponents/account-detail/account-details-component/account-details-component.component";
+} from "./creatorV2/navigationComponents/account-detail/account-details-component/account-details-component.component";
 import {
   ActiveScreen
 } from "./creator/components/mainpage/NavigationComponents/commisionTemplateScreen/comission-template-screen/active-screen/active-screen-componemt/active-screen.component";
@@ -49,7 +49,7 @@ import {
 } from "./creator/components/mainpage/NavigationComponents/commisionTemplateScreen/comission-template-screen/comission-template-screen.component";
 import {
   HelpPageComponentComponent
-} from "./creator/components/mainpage/NavigationComponents/help-page/help-page-component/help-page-component.component";
+} from "./creatorV2/navigationComponents/help-page/help-page-component/help-page-component.component";
 
 import {
   ManageCommisionsComponentComponent
@@ -92,6 +92,20 @@ import { LoginV2Component } from './creatorV2/authscreens/login-v2/login-v2.comp
 import { SignUpV2Component } from './creatorV2/authscreens/sign-up-v2/sign-up-v2.component';
 import { HomeV2Component } from './creatorV2/homeV2/home-v2/home-v2.component';
 import { TestHolderComponent } from './creatorV2/homeV2/test-holder/test-holder.component';
+import { YourpageComponent } from './creatorV2/navigationComponents/yourpage/yourpage.component';
+import { YourpageLandingPageComponent } from './creatorV2/navigationComponents/yourpage/yourpage-landing-page/yourpage-landing-page.component';
+import { YourpageGalleryComponent } from './creatorV2/navigationComponents/yourpage/yourpage-gallery/yourpage-gallery.component';
+import { EditpageComponent } from './creatorV2/navigationComponents/editpage/editpage.component';
+import { EditProfileComponent } from './creatorV2/navigationComponents/editpage/edit-profile/edit-profile.component';
+import { EditHighlightCardComponent } from './creatorV2/navigationComponents/editpage/edit-highlight-card/edit-highlight-card.component';
+import { EditPriceComponent } from './creatorV2/navigationComponents/editpage/edit-price/edit-price.component';
+import { EditGallaryComponent } from './creatorV2/navigationComponents/editpage/edit-gallary/edit-gallary.component';
+import { ManageCommissionsComponent } from './creatorV2/navigationComponents/manage-commissions/manage-commissions.component';
+import { PendingCommissionsComponent } from './creatorV2/navigationComponents/manage-commissions/pending-commissions/pending-commissions.component';
+import { ActiveCommissionsComponent } from './creatorV2/navigationComponents/manage-commissions/active-commissions/active-commissions.component';
+import { CompletedCommissionsComponent } from './creatorV2/navigationComponents/manage-commissions/completed-commissions/completed-commissions.component';
+import { RejectedCommissionsComponent } from './creatorV2/navigationComponents/manage-commissions/rejected-commissions/rejected-commissions.component';
+import { StoppedCommissionsComponent } from './creatorV2/navigationComponents/manage-commissions/stopped-commissions/stopped-commissions.component';
 
 @NgModule({
   declarations: [
@@ -131,7 +145,21 @@ import { TestHolderComponent } from './creatorV2/homeV2/test-holder/test-holder.
     LoginV2Component,
     SignUpV2Component,
     HomeV2Component,
-    TestHolderComponent
+    TestHolderComponent,
+    YourpageComponent,
+    YourpageLandingPageComponent,
+    YourpageGalleryComponent,
+    EditpageComponent,
+    EditProfileComponent,
+    EditHighlightCardComponent,
+    EditPriceComponent,
+    EditGallaryComponent,
+    ManageCommissionsComponent,
+    PendingCommissionsComponent,
+    ActiveCommissionsComponent,
+    CompletedCommissionsComponent,
+    RejectedCommissionsComponent,
+    StoppedCommissionsComponent
 
   ],
   imports: [

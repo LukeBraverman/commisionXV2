@@ -2,7 +2,10 @@
   background-color: #ede8db;
   height: 100vh;
 }
-
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
 .justtifyAroundOnXSmallScreen {
   justify-content: space-around;
 }
@@ -14,7 +17,7 @@
 .header {
   z-index: 9;
 
-  position: fixed;
+  position: absolute;
   width: 100%;
   /*border: solid black 3px;*/
   height: 100px;

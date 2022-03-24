@@ -151,7 +151,7 @@ z-index: 100;
     /*background-image:url("https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/15886d38-9717-42d5-aa4f-9281e9d91b7d/01-layout-shift-after-image-loads.png") ;*/
 
     width: 100%;
-    height: 400px;
+    max-height: 150px;
     background-size: 100% 100%;
     border: 1px solid red;
   }
