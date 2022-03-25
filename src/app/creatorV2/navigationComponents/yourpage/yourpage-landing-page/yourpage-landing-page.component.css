@@ -1,0 +1,10 @@
+.testBorder {
+  border: 3px solid green;
+}
+.testBorder3 {
+  border: 3px solid yellow;
+}
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}

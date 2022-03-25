@@ -1,0 +1,36 @@
+<div class="row" style="height: 20px">
+
+</div>
+<div class="container testBorder" >
+  <div class="row" style="height: 800px">
+    <div class="col-3 testBorder">
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link active" (click)="onGoToPendingCommissions()">Pending Commissions</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="onGoToActiveCommissions()">Active commissions</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="onGoToCompletedCommissions()">Completed commissions</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="onGoToRejectedCommissions()">Rejected commissions</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="onGoToStoppedCommisssions()">Stopped commissions</a>
+        </li>
+      </ul>
+    </div>
+    <div class="col-1">
+
+    </div>
+    <div class="col-7 testBorder3">
+      <router-outlet></router-outlet>
+    </div>
+    <div class="col-1">
+
+    </div>
+
+  </div>
+</div>

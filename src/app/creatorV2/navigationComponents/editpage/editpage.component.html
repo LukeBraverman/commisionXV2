@@ -1,0 +1,33 @@
+<div class="row" style="height: 20px">
+
+</div>
+<div class="container testBorder" >
+    <div class="row" style="height: 800px">
+      <div class="col-3 testBorder">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link active" (click)="onGoToEditProfile()">Edit Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="onGoToHighlightCard()">Edit Landing Page Highlight Card</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="onGoToPrice()">Edit prices</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="onGoToGallery()">Edit Gallery</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-1">
+
+      </div>
+      <div class="col-7 testBorder3">
+        <router-outlet></router-outlet>
+      </div>
+      <div class="col-1">
+
+      </div>
+
+    </div>
+</div>
