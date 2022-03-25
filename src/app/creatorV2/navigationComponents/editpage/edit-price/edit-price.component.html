@@ -5,10 +5,10 @@
   <div class="row " style="height: 50px">
     <ul class="nav justify-content-center">
       <li class="nav-item">
-        <a class="nav-link active" aria-current="page" >Add a price card</a>
+        <a class="nav-link active" aria-current="page" (click)="onGoToAddACommissionCard()">Add a price card</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" >See current price setups</a>
+        <a class="nav-link" (click)="onGoToPriceSetUps()">See current price setups</a>
       </li>
 
     </ul>
@@ -16,13 +16,8 @@
   <div class="row " style="height: 50px">
 
   </div>
-  <div class="row">
-    <h1>Progress:</h1>
-    <div class="progress" style="height: 20px;">
-      <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-    </div>
-  </div>
-  <div class="row " style="height: 400px">
+
+  <div *ngIf="onAddCommissionCardScreen && !onAddAProductCommissionScreen && !onAddAServiceCommissionScreen" class="row " style="height: 400px">
     <div class="row" style="height: 12px">
 
     </div>
@@ -37,13 +32,230 @@
   <div class="row justify-content-center ">
     <div class="col-6 align-self-center testBorder text-center">
 
-      <button type="button" class="btn btn-outline-secondary">Service based</button>
+      <button type="button" class="btn btn-outline-secondary" (click)="onGoToServiceCommissionScreen()">Service based</button>
       <div class="divider">
       </div>
-      <button type="button" class="btn btn-outline-secondary">Product based</button>
+      <button type="button" class="btn btn-outline-secondary" (click)="onGoToAProductCommissionScreen()">Product based</button>
 
 
     </div>
+  </div>
+
+
+  </div>
+
+  <div *ngIf="onAddCommissionCardScreen && !onAddAProductCommissionScreen && onAddAServiceCommissionScreen">
+    <div>
+        <div class="row justify-content-center" style="overflow-y: scroll; height: 600px">
+
+          <form [formGroup]="addServiceCommission" (ngSubmit)="onSubmitServiceCommission()">
+
+            <div class="mb-3">
+             <label for="formGroupExampleInput" class="form-label">Title</label>
+              <input
+                type="text"
+                class="form-control"
+                id="formGroupExampleInput"
+                placeholder="Insert title for price card"
+                formControlName="serviceTitle"
+
+              >
+            </div>
+            <div class="mb-3">
+              <label for="formGroupExampleInput2" class="form-label">Description </label>
+              <input
+                type="text"
+                class="form-control"
+                id="formGroupExampleInput2"
+                placeholder="Add a clear description!"
+                formControlName="serviceDesc"
+
+              >
+            </div>
+
+            <div class="mb-3">
+              <input type="file" class="form-control" id="inputGroupFile02" (change)="onAddServiceImage($event)">
+              <label
+                class="input-group-text"
+                for="inputGroupFile02"
+
+              >Upload a image</label>
+            </div>
+
+            <div class="mb-3">
+              <label for="formGroupExampleInput3" class="form-label">Enter price </label>
+              <input
+                type="number"
+                class="form-control"
+                id="formGroupExampleInput3"
+                placeholder="Enter price"
+                formControlName="servicePrice"
+              >
+            </div>
+
+            <div class="mb-3">
+              <label for="formGroupExampleInput4" class="form-label">Amount left</label>
+              <input
+                type="number"
+                class="form-control"
+                id="formGroupExampleInput4"
+                placeholder="Enter how many you are selling"
+                formControlName="serviceAmountLeft"
+              >
+            </div>
+
+            <div class="mb-3">
+              <label for="formGroupExampleInput5" class="form-label">Ask buyer for infomation </label>
+              <input
+                type="text"
+                class="form-control"
+                id="formGroupExampleInput5"
+                placeholder="What information do you need from a buyer?"
+                formControlName="serviceBuyInfo"
+              >
+            </div>
+
+            <div class="mb-3">
+              <label for="formGroupExampleInput6" class="form-label">Terms buyer must accept</label>
+              <input
+                type="text"
+                class="form-control"
+                id="formGroupExampleInput6"
+                placeholder="Add very explicit terms."
+                formControlName="serviceTerms"
+              >
+            </div>
+
+            <div class="mb-3">
+              <label for="formGroupExampleInput7" class="form-label">Communication methods</label>
+              <input
+                type="text"
+                class="form-control"
+                id="formGroupExampleInput7"
+                placeholder="Add infomations you would like to communicate with buyer"
+                formControlName="serviceComMethod"
+              >
+            </div>
+
+            <button type="submit">save</button>
+
+
+          </form>
+
+        </div>
+
+      <h2>service commisison</h2>
+      <button (click)="returnToAddACommissionCardScreen()">return</button>
+    </div>
+  </div>
+
+  <div *ngIf="onAddCommissionCardScreen && onAddAProductCommissionScreen && !onAddAServiceCommissionScreen">
+
+    <form [formGroup]="addProductCommission" (ngSubmit)="onSubmitProductCommission()">
+
+      <div class="mb-3">
+        <label for="pTitle" class="form-label">Title</label>
+        <input
+          type="text"
+          class="form-control"
+          id="pTitle"
+          placeholder="Insert title for price card"
+          formControlName="pTitle"
+
+        >
+      </div>
+      <div class="mb-3">
+        <label for="pDesc" class="form-label">Description </label>
+        <input
+          type="text"
+          class="form-control"
+          id="pDesc"
+          placeholder="Add a clear description!"
+          formControlName="pDesc"
+        >
+      </div>
+
+      <div class="mb-3">
+        <input type="file" class="form-control" id="pImage" (change)="onAddProductImage($event)">
+        <label
+          class="input-group-text"
+          for="pImage"
+
+        >Upload a image</label>
+      </div>
+
+      <div class="mb-3">
+        <label for="pPrice" class="form-label">Enter price </label>
+        <input
+          type="number"
+          class="form-control"
+          id="pPrice"
+          placeholder="Enter price"
+          formControlName="pPrice"
+        >
+      </div>
+
+      <div class="mb-3">
+        <label for="pAmount" class="form-label">Amount left</label>
+        <input
+          type="number"
+          class="form-control"
+          id="pAmount"
+          placeholder="Enter how many you are selling"
+          formControlName="pAmountLeft"
+        >
+      </div>
+
+      <div class="mb-3">
+        <label for="pBuyerInfo" class="form-label">Ask buyer for information </label>
+        <input
+          type="text"
+          class="form-control"
+          id="pBuyerInfo"
+          placeholder="What information do you need from a buyer?"
+          formControlName="pBuyInfo"
+        >
+      </div>
+
+      <div class="mb-3">
+        <label for="pTerms" class="form-label">Terms buyer must accept</label>
+        <input
+          type="text"
+          class="form-control"
+          id="pTerms"
+          placeholder="Add very explicit terms."
+          formControlName="pTerms"
+        >
+      </div>
+
+      <div class="mb-3">
+        <label for="pComMethods" class="form-label">Communication methods</label>
+        <input
+          type="text"
+          class="form-control"
+          id="pComMethods"
+          placeholder="Add infomations you would like to communicate with buyer"
+          formControlName="pComMethods"
+        >
+      </div>
+
+      <button type="submit" >save</button>
+
+
+    </form>
+
+    <h2>product commisison</h2>
+    <button (click)="returnToAddACommissionCardScreen()">return</button>
+  </div>
+
+
+  <div *ngIf="!onAddCommissionCardScreen" class="row " style="height: 400px">
+    <div class="row" style="height: 12px">
+
+    </div>
+    <h2>On all commiissions screen</h2>
+
+
   </div>
 
 

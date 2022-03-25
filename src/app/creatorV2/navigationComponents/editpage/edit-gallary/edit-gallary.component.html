@@ -5,10 +5,10 @@
   <div class="row " style="height: 50px">
     <ul class="nav justify-content-center">
       <li class="nav-item">
-        <a class="nav-link active" aria-current="page" >Add a new card</a>
+        <a class="nav-link active" aria-current="page" (click)="onGoToAddANewCardScreen()">Add a new card</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" >See current gallery</a>
+        <a class="nav-link" (click)="onGoToGallery()">See current gallery</a>
       </li>
 
     </ul>
@@ -16,24 +16,43 @@
   <div class="row " style="height: 50px">
 
   </div>
-  <div class="row justify-content-around">
+
+  <div class="row justify-content-around" *ngIf="onAddANewCardScreen">
     <div class="col -8">
       <div class="card shadow-sm">
         <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Add image +</text></svg>
 
         <div class="card-body">
-          <div class="mb-3">
-            <label for="exampleFormControlTextarea1" class="form-label">Add description:</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-          </div>
-          <div class="d-flex justify-content-between align-items-center">
-            <div class="btn-group">
-              <button type="button" class="btn btn-sm btn-outline-secondary">Save Card</button>
+          <input type="file" class="form-control" id="inputGroupFile02" (change)="onChooseImgForGalleryCard($event)">
+          <form [formGroup]="editAddGalleryCard" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+              <label for="exampleFormControlTextarea1" class="form-label">Add description:</label>
+              <textarea
+                class="form-control"
+                id="exampleFormControlTextarea1"
+                rows="3"
+                formControlName="description"
+
+              ></textarea>
             </div>
-          </div>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <button type="submit" class="btn btn-sm btn-outline-secondary">Save Card</button>
+              </div>
+            </div>
+          </form>
+
         </div>
       </div>
     </div>
     </div>
+
+  <div class="row" *ngIf="!onAddANewCardScreen">
+    <div class="col-10">
+      <h1>in gallery</h1>
+    </div>
+  </div>
+
+
   </div>
 

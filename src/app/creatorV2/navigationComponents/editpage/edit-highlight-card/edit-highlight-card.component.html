@@ -31,19 +31,25 @@
     </div>
   </div>
   <div class="row">
-    <form>
+    <form [formGroup]="editHighlightImageCard" (ngSubmit)="onSubmit()">
     <div class="mb-3">
       <label for="exampleInputEmail1" class="form-label">Add heading:</label>
-      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+             formControlName="heading"
+
+      >
     </div>
     <div class="mb-3">
       <label for="exampleFormControlTextarea1" class="form-label">Add description.</label>
-      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                formControlName="description"
+
+      ></textarea>
     </div>
 
     <h3>Choose image for highlight:</h3>
     <div class="input-group mb-3">
-    <input type="file" class="form-control" id="inputGroupFile02">
+    <input type="file" class="form-control" id="inputGroupFile02" (change)="onChooseImgForHighlightCard($event)">
     <label class="input-group-text" for="inputGroupFile02"></label>
 
     </div>
