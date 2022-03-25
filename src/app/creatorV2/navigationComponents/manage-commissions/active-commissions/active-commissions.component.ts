@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ManageCommissionsV2Service} from "../service/manage-commissionsV2.service";
 
 @Component({
   selector: 'app-active-commissions',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ActiveCommissionsComponent implements OnInit {
 
-  constructor() { }
+  constructor(public manageCommissions: ManageCommissionsV2Service  ) { }
 
   ngOnInit(): void {
   }
 
+  saveFakeCommissions() {
+    this.manageCommissions.saveFakeCommissionSet();
+  }
+
+  getFakeCommissions() {
+    this.manageCommissions.getFakeCommissionSet();
+  }
 }

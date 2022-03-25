@@ -7,13 +7,13 @@ import {
 import {map} from "rxjs/operators";
 import {
   CommissionObject
-} from "../../../creator/components/mainpage/NavigationComponents/manage-commisions/model/commissionObject";
+} from "../../../creatorV2/navigationComponents/manage-commissions/model/commissionObject";
 import {
   AuthenticationHandleService
 } from "../../../developmentAuthentication-component/authscreen-component/service/authentication-handle.service";
 import {
   CommissionOverviewModel
-} from "../../../creator/components/mainpage/NavigationComponents/manage-commisions/model/commissionOverview.model";
+} from "../../../creatorV2/navigationComponents/manage-commissions/model/commissionOverview.model";
 import {UserRequestsService} from "../../service/userRequests.service";
 import {RequestedCommissionMetaDataModel} from "../../model/requestedCommissionMetaDataModel";
 import {RequestedCommissionsOverviewModel} from "../../model/requestedCommissionsOverview.model";
@@ -103,71 +103,71 @@ export class LandingPageComponenentComponent implements OnInit {
 
   }
 
-  onRequestCommission(commissionDesc: string) {
-
-    let todayDate = new Date();
-    let daysToAdd = 5;
-    let result = todayDate.setDate(todayDate.getDate() + daysToAdd);
-    let fiveDaysInFuture = new Date(result);
-
-    let commissionObjectToSend: CommissionObject = {
-      commissionUniqueId: Math.floor((Math.random() * 100000000000000) + 1),
-
-      commissionAcceptedDate: new Date(),
-      commissionActive: false,
-      commissionCompleted: false,
-      commissionCompletedDate: new Date(),
-      commissionDueDate: fiveDaysInFuture,
-      commissionPending: true,
-      commissionReceivedDate: new Date(),
-      commissionRejected: false,
-      howLongForCommissionToComplete: 5,
-      imageDescription: commissionDesc,
-      priceOffering: this.currentCommsisonCardLayout.priceForCommission,
-      userIdForCommissioner: this.getIdOfCommissioner(),
-      userIdForRequest: this.authHandelService.getCurrentActiveUser.id,
-      usernameOfRequest: "NOT CONFIGED YET!"
-
-    }
-      this.http.get('https://angulartest-c5bbf-default-rtdb.firebaseio.com/'+this.getIdOfCommissioner()+'.json',
-      )
-
-        // @ts-ignore
-        .pipe( map((responceData: {[key: string]: CommissionOverviewModel} ) => {
-          //console.log( responceData);
-          // @ts-ignore
-          //this.userInfo = responceData;
-          for (const key in responceData) {
-            if (responceData.hasOwnProperty(key)) {
-              this.commissionOverviewModelFromFirebase = ({...responceData[key], key: key});
-            }
-          }
-
-          return responceData;
-        })).subscribe(responce => {
-          console.log("Found commisions")
-        console.log(this.commissionOverviewModelFromFirebase.listOfCommissions);
-        this.commissionOverviewModelFromFirebase.listOfCommissions.push(commissionObjectToSend);
-
-        this.http.patch(
-          this.getRealTimeDatabaseURL() +  this.getIdOfCommissioner()  +'/'+ this.commissionOverviewModelFromFirebase.key+'.json',
-          this.commissionOverviewModelFromFirebase
-        ).subscribe(responceData => {
-          console.log("SAVED DATA YASSS!")
-        });
-
-
-      });
-
-    let requestCommissionToAdd: RequestedCommissionMetaDataModel =  {
-      lastKnowCommissionState: commissionObjectToSend,
-      hasUserReceivedItem: false,
-      hasUserPaid: false,
-    }
-
-    this.requestService.addCommissionToListOfCommissions(requestCommissionToAdd);
-
-  }
+  // onRequestCommission(commissionDesc: string) {
+  //
+  //   let todayDate = new Date();
+  //   let daysToAdd = 5;
+  //   let result = todayDate.setDate(todayDate.getDate() + daysToAdd);
+  //   let fiveDaysInFuture = new Date(result);
+  //
+  //   let commissionObjectToSend: CommissionObject = {
+  //     commissionUniqueId: Math.floor((Math.random() * 100000000000000) + 1),
+  //
+  //     commissionAcceptedDate: new Date(),
+  //     commissionActive: false,
+  //     commissionCompleted: false,
+  //     commissionCompletedDate: new Date(),
+  //     commissionDueDate: fiveDaysInFuture,
+  //     commissionPending: true,
+  //     commissionReceivedDate: new Date(),
+  //     commissionRejected: false,
+  //     howLongForCommissionToComplete: 5,
+  //     imageDescription: commissionDesc,
+  //     priceOffering: this.currentCommsisonCardLayout.priceForCommission,
+  //     userIdForCommissioner: this.getIdOfCommissioner(),
+  //     userIdForRequest: this.authHandelService.getCurrentActiveUser.id,
+  //     usernameOfRequest: "NOT CONFIGED YET!"
+  //
+  //   }
+  //     this.http.get('https://angulartest-c5bbf-default-rtdb.firebaseio.com/'+this.getIdOfCommissioner()+'.json',
+  //     )
+  //
+  //       // @ts-ignore
+  //       .pipe( map((responceData: {[key: string]: CommissionOverviewModel} ) => {
+  //         //console.log( responceData);
+  //         // @ts-ignore
+  //         //this.userInfo = responceData;
+  //         for (const key in responceData) {
+  //           if (responceData.hasOwnProperty(key)) {
+  //             this.commissionOverviewModelFromFirebase = ({...responceData[key], key: key});
+  //           }
+  //         }
+  //
+  //         return responceData;
+  //       })).subscribe(responce => {
+  //         console.log("Found commisions")
+  //       console.log(this.commissionOverviewModelFromFirebase.listOfCommissions);
+  //       this.commissionOverviewModelFromFirebase.listOfCommissions.push(commissionObjectToSend);
+  //
+  //       this.http.patch(
+  //         this.getRealTimeDatabaseURL() +  this.getIdOfCommissioner()  +'/'+ this.commissionOverviewModelFromFirebase.key+'.json',
+  //         this.commissionOverviewModelFromFirebase
+  //       ).subscribe(responceData => {
+  //         console.log("SAVED DATA YASSS!")
+  //       });
+  //
+  //
+  //     });
+  //
+  //   let requestCommissionToAdd: RequestedCommissionMetaDataModel =  {
+  //     lastKnowCommissionState: commissionObjectToSend,
+  //     hasUserReceivedItem: false,
+  //     hasUserPaid: false,
+  //   }
+  //
+  //   this.requestService.addCommissionToListOfCommissions(requestCommissionToAdd);
+  //
+  // }
 
   commissionOverviewModelFromFirebase: CommissionOverviewModel = {
     listOfCommissions: [],
@@ -198,7 +198,7 @@ export class LandingPageComponenentComponent implements OnInit {
   }
 
   onSendFakeRequestData() {
-    this.requestService.saveFakeCommissionRequests();
+    // this.requestService.saveFakeCommissionRequests();
   }
 
   onGetAllSyncedCommissions() {

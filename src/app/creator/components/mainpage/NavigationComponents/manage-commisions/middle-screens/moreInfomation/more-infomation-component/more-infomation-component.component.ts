@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {CommissionObject} from "../../../model/commissionObject";
+import {CommissionObject} from "../../../../../../../../creatorV2/navigationComponents/manage-commissions/model/commissionObject";
 import {MiddleScreenServiceService} from "../../../service/middleScreenService.service";
 import {ChatterboxServiceService} from "../../../service/chatterboxServiceService";
 import {Router} from "@angular/router";
@@ -11,24 +11,24 @@ import {Router} from "@angular/router";
 })
 export class MoreInfomationComponentComponent implements OnInit {
 
-  @Input() commissionCardToView: CommissionObject = {
-    commissionAcceptedDate: new Date(),
-    commissionActive: false,
-    commissionCompleted: false,
-    commissionCompletedDate:  new Date(),
-    commissionDueDate:  new Date(),
-    commissionPending: false,
-    commissionReceivedDate:  new Date(),
-    commissionRejected: false,
-    commissionUniqueId: 0,
-    howLongForCommissionToComplete: 0,
-    imageDescription: "",
-    priceOffering: 0,
-    userIdForCommissioner: "",
-    userIdForRequest: "",
-    usernameOfRequest: ""
-
-  };
+  // @Input() commissionCardToView: CommissionObject = {
+  //   commissionAcceptedDate: new Date(),
+  //   commissionActive: false,
+  //   commissionCompleted: false,
+  //   commissionCompletedDate:  new Date(),
+  //   commissionDueDate:  new Date(),
+  //   commissionPending: false,
+  //   commissionReceivedDate:  new Date(),
+  //   commissionRejected: false,
+  //   commissionUniqueId: 0,
+  //   howLongForCommissionToComplete: 0,
+  //   imageDescription: "",
+  //   priceOffering: 0,
+  //   userIdForCommissioner: "",
+  //   userIdForRequest: "",
+  //   usernameOfRequest: ""
+  //
+  // };
 
   constructor(private middleScreenService: MiddleScreenServiceService,
               private chatBoxService: ChatterboxServiceService,
@@ -48,7 +48,7 @@ export class MoreInfomationComponentComponent implements OnInit {
   }
 
   onOpenChat() {
-    this.router.navigate(['commissionChat/'+ this.commissionCardToView.commissionUniqueId]);
+    // this.router.navigate(['commissionChat/'+ this.commissionCardToView.commissionUniqueId]);
 
   }
 }

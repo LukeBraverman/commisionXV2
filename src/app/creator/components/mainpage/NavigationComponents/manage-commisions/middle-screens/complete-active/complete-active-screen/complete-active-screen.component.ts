@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {CommissionObject} from "../../../model/commissionObject";
+import {CommissionObject} from "../../../../../../../../creatorV2/navigationComponents/manage-commissions/model/commissionObject";
 import {MiddleScreenServiceService} from "../../../service/middleScreenService.service";
 
 @Component({
@@ -9,24 +9,24 @@ import {MiddleScreenServiceService} from "../../../service/middleScreenService.s
 })
 export class CompleteActiveScreenComponent implements OnInit {
 
-  @Input() commissionCardToComplete: CommissionObject = {
-    commissionAcceptedDate: new Date(),
-    commissionActive: false,
-    commissionCompleted: false,
-    commissionCompletedDate:  new Date(),
-    commissionDueDate:  new Date(),
-    commissionPending: false,
-    commissionReceivedDate:  new Date(),
-    commissionRejected: false,
-    commissionUniqueId: 0,
-    howLongForCommissionToComplete: 0,
-    imageDescription: "",
-    priceOffering: 0,
-    userIdForCommissioner: "",
-    userIdForRequest: "",
-    usernameOfRequest: ""
-
-  };
+  // @Input() commissionCardToComplete: CommissionObject = {
+  //   commissionAcceptedDate: new Date(),
+  //   commissionActive: false,
+  //   commissionCompleted: false,
+  //   commissionCompletedDate:  new Date(),
+  //   commissionDueDate:  new Date(),
+  //   commissionPending: false,
+  //   commissionReceivedDate:  new Date(),
+  //   commissionRejected: false,
+  //   commissionUniqueId: 0,
+  //   howLongForCommissionToComplete: 0,
+  //   imageDescription: "",
+  //   priceOffering: 0,
+  //   userIdForCommissioner: "",
+  //   userIdForRequest: "",
+  //   usernameOfRequest: ""
+  //
+  // };
 
   constructor(private middleScreenService: MiddleScreenServiceService) { }
 

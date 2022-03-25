@@ -3,14 +3,14 @@ import {RequestedCommissionsOverviewModel} from "../model/requestedCommissionsOv
 import {map} from "rxjs/operators";
 import {
   CommissionOverviewModel
-} from "../../creator/components/mainpage/NavigationComponents/manage-commisions/model/commissionOverview.model";
+} from "../../creatorV2/navigationComponents/manage-commissions/model/commissionOverview.model";
 import {HttpClient} from "@angular/common/http";
 import {
   AuthenticationHandleService
 } from "../../developmentAuthentication-component/authscreen-component/service/authentication-handle.service";
 import {
   CommissionObject
-} from "../../creator/components/mainpage/NavigationComponents/manage-commisions/model/commissionObject";
+} from "../../creatorV2/navigationComponents/manage-commissions/model/commissionObject";
 import {RequestedCommissionMetaDataModel} from "../model/requestedCommissionMetaDataModel";
 
 
@@ -94,73 +94,73 @@ export class UserRequestsService {
     )
   }
 
-  saveFakeCommissionRequests() {
-    let fakeRequestData: RequestedCommissionsOverviewModel = {
-      listOfRequestedCommissions: [
-        {
-          lastKnowCommissionState: {
-            commissionUniqueId: 1,
-            commissionAcceptedDate: new Date(),
-            commissionActive: false,
-            commissionCompleted: false,
-            commissionCompletedDate: new Date(),
-            commissionDueDate: new Date(),
-            commissionPending: true,
-            commissionReceivedDate: new Date(),
-            commissionRejected: false,
-            howLongForCommissionToComplete: 5,
-            imageDescription: "A TEST FAKE COMMIISSONS",
-            priceOffering: 1,
-            userIdForCommissioner:"1",
-            userIdForRequest: this.authHandelService.getCurrentActiveUser.id,
-            usernameOfRequest: "NOT CONFIGED YET!"
-          },
-          hasUserPaid: false,
-          hasUserReceivedItem: false
-        }
-      ]
-
-    }
-      this.http.get('https://angulartest-c5bbf-default-rtdb.firebaseio.com/'+this.authHandelService.getCurrentActiveUser.id+'.json',
-      )
-
-        // @ts-ignore
-        .pipe( map((responceData: {[key: string]: RequestedCommissionsOverviewModel} ) => {
-          //console.log( responceData);
-          // @ts-ignore
-          //this.userInfo = responceData;
-          for (const key in responceData) {
-            if (responceData.hasOwnProperty(key)) {
-              this.requestOverviewFromFirebase = ({...responceData[key], key: key});
-            }
-          }
-
-          return responceData;
-        })).subscribe(responce => {
-        if (responce === null) {
-          this.http.post(
-            this.getRealTimeDatabaseURL() + this.authHandelService.getCurrentActiveUser.id + '.json',
-            fakeRequestData
-          ).subscribe(responceData => {
-            console.log("Posted fake request data")
-          });
-        } else {
-          this.http.patch(
-            this.getRealTimeDatabaseURL() +  this.authHandelService.getCurrentActiveUser.id  +'/'+ this.requestOverviewFromFirebase.key+'.json',
-            fakeRequestData
-          ).subscribe(responceData => {
-            console.log("Patched fake request data")
-
-          });
-        }
-
-
-        });
-
-
-
-
-  }
+  // saveFakeCommissionRequests() {
+  //   let fakeRequestData: RequestedCommissionsOverviewModel = {
+  //     listOfRequestedCommissions: [
+  //       {
+  //         lastKnowCommissionState: {
+  //           commissionUniqueId: 1,
+  //           commissionAcceptedDate: new Date(),
+  //           commissionActive: false,
+  //           commissionCompleted: false,
+  //           commissionCompletedDate: new Date(),
+  //           commissionDueDate: new Date(),
+  //           commissionPending: true,
+  //           commissionReceivedDate: new Date(),
+  //           commissionRejected: false,
+  //           howLongForCommissionToComplete: 5,
+  //           imageDescription: "A TEST FAKE COMMIISSONS",
+  //           priceOffering: 1,
+  //           userIdForCommissioner:"1",
+  //           userIdForRequest: this.authHandelService.getCurrentActiveUser.id,
+  //           usernameOfRequest: "NOT CONFIGED YET!"
+  //         },
+  //         hasUserPaid: false,
+  //         hasUserReceivedItem: false
+  //       }
+  //     ]
+  //
+  //   }
+  //     this.http.get('https://angulartest-c5bbf-default-rtdb.firebaseio.com/'+this.authHandelService.getCurrentActiveUser.id+'.json',
+  //     )
+  //
+  //       // @ts-ignore
+  //       .pipe( map((responceData: {[key: string]: RequestedCommissionsOverviewModel} ) => {
+  //         //console.log( responceData);
+  //         // @ts-ignore
+  //         //this.userInfo = responceData;
+  //         for (const key in responceData) {
+  //           if (responceData.hasOwnProperty(key)) {
+  //             this.requestOverviewFromFirebase = ({...responceData[key], key: key});
+  //           }
+  //         }
+  //
+  //         return responceData;
+  //       })).subscribe(responce => {
+  //       if (responce === null) {
+  //         this.http.post(
+  //           this.getRealTimeDatabaseURL() + this.authHandelService.getCurrentActiveUser.id + '.json',
+  //           fakeRequestData
+  //         ).subscribe(responceData => {
+  //           console.log("Posted fake request data")
+  //         });
+  //       } else {
+  //         this.http.patch(
+  //           this.getRealTimeDatabaseURL() +  this.authHandelService.getCurrentActiveUser.id  +'/'+ this.requestOverviewFromFirebase.key+'.json',
+  //           fakeRequestData
+  //         ).subscribe(responceData => {
+  //           console.log("Patched fake request data")
+  //
+  //         });
+  //       }
+  //
+  //
+  //       });
+  //
+  //
+  //
+  //
+  // }
 
 
   addCommissionToListOfCommissions(commissionToAdd: RequestedCommissionMetaDataModel) {

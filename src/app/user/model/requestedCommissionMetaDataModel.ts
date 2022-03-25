@@ -1,6 +1,6 @@
 import {
   CommissionObject
-} from "../../creator/components/mainpage/NavigationComponents/manage-commisions/model/commissionObject";
+} from "../../creatorV2/navigationComponents/manage-commissions/model/commissionObject";
 
 export interface RequestedCommissionMetaDataModel {
   lastKnowCommissionState: CommissionObject;

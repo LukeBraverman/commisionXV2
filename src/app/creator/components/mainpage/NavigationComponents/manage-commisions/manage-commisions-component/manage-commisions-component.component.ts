@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {CommissionServiceService} from "../service/commissionServiceService";
-import {CommissionObject} from "../model/commissionObject";
-import {CommissionOverviewModel} from "../model/commissionOverview.model";
+import {CommissionObject} from "../../../../../../creatorV2/navigationComponents/manage-commissions/model/commissionObject";
+import {CommissionOverviewModel} from "../../../../../../creatorV2/navigationComponents/manage-commissions/model/commissionOverview.model";
 import {map} from "rxjs/operators";
 import {CommissionCardModel} from "../../commisionTemplateScreen/model/commissionCard.model";
 import {HttpClient} from "@angular/common/http";
@@ -156,185 +156,185 @@ export class ManageCommisionsComponentComponent implements OnInit {
 
 
   onSaveFakeCommissions() {
-    this.saveFakeCommissions();
+    // this.saveFakeCommissions();
   }
 
-  saveFakeCommissions() {
-
-    let postData: CommissionOverviewModel = {
-      listOfCommissions: [
-
-        //active
-        {
-          commissionUniqueId: Math.floor((Math.random() * 100000000000000) + 1),
-
-
-          userIdForCommissioner: "!",
-
-          userIdForRequest: "2",
-          usernameOfRequest: "test2",
-          priceOffering: 20,
-          imageDescription: "I want a image of Valorant",
-          howLongForCommissionToComplete: 5,
-          commissionReceivedDate: new Date(),
-          commissionAcceptedDate: new Date(),
-          commissionDueDate: new Date(),
-          commissionCompletedDate: new Date(),
-          commissionCompleted: false,
-          commissionActive: true,
-          commissionPending: false,
-          commissionRejected: false
-        },
-
-        //pending
-        {
-          commissionUniqueId: Math.floor((Math.random() * 100000000000000) + 1),
-
-          userIdForCommissioner: "!",
-
-          userIdForRequest: "1",
-          usernameOfRequest: "test1",
-          priceOffering: 10,
-          imageDescription: "I want a image of Jett",
-          howLongForCommissionToComplete: 5,
-          commissionReceivedDate: new Date(),
-          commissionAcceptedDate: new Date(),
-          commissionDueDate: new Date(),
-          commissionCompletedDate: new Date(),
-          commissionCompleted: false,
-          commissionActive: false,
-          commissionPending: true,
-          commissionRejected: false
-        },
-        //pending
-        {
-          commissionUniqueId: Math.floor((Math.random() * 100000000000000) + 1),
-
-          userIdForCommissioner: "!",
-
-          userIdForRequest: "0",
-          usernameOfRequest: "test0",
-          priceOffering: 1000,
-          imageDescription: "I want a image of split a site",
-          howLongForCommissionToComplete: 5,
-          commissionReceivedDate: new Date(),
-          commissionAcceptedDate: new Date(),
-          commissionDueDate: new Date(),
-          commissionCompletedDate: new Date(),
-          commissionCompleted: false,
-          commissionActive: false,
-          commissionPending: true,
-          commissionRejected: false
-        },
-        {          commissionUniqueId: Math.floor((Math.random() * 100000000000000) + 1),
-
-          userIdForCommissioner: "!",
-
-          userIdForRequest: "0",
-          usernameOfRequest: "test0",
-          priceOffering: 1000,
-          imageDescription: "I want a image of split a site",
-          howLongForCommissionToComplete: 5,
-          commissionReceivedDate: new Date(),
-          commissionAcceptedDate: new Date(),
-          commissionDueDate: new Date(),
-          commissionCompletedDate: new Date(),
-          commissionCompleted: false,
-          commissionActive: false,
-          commissionPending: true,
-          commissionRejected: false
-        },
-
-        //rejected
-        {          commissionUniqueId: Math.floor((Math.random() * 100000000000000) + 1),
-
-          userIdForCommissioner: "!",
-          userIdForRequest: "3",
-          usernameOfRequest: "test3",
-          priceOffering: 30,
-          imageDescription: "I want a image of Omen",
-          howLongForCommissionToComplete: 5,
-          commissionReceivedDate: new Date(),
-          commissionAcceptedDate: new Date(),
-          commissionDueDate: new Date(),
-          commissionCompletedDate: new Date(),
-          commissionCompleted: false,
-          commissionActive: false,
-          commissionPending: false,
-          commissionRejected: true
-        },
-        {          commissionUniqueId: Math.floor((Math.random() * 100000000000000) + 1),
-
-          userIdForCommissioner: "!",
-
-          userIdForRequest: "3",
-          usernameOfRequest: "test3",
-          priceOffering: 30,
-          imageDescription: "I want a image of Omen",
-          howLongForCommissionToComplete: 5,
-          commissionReceivedDate: new Date(),
-          commissionAcceptedDate: new Date(),
-          commissionDueDate: new Date(),
-          commissionCompletedDate: new Date(),
-          commissionCompleted: false,
-          commissionActive: false,
-          commissionPending: false,
-          commissionRejected: true
-        },
-
-        //completed
-        {          commissionUniqueId: Math.floor((Math.random() * 100000000000000) + 1),
-
-          userIdForCommissioner: "!",
-
-          userIdForRequest: "4",
-          usernameOfRequest: "test4",
-          priceOffering: 40,
-          imageDescription: "I want a image of Neon",
-          howLongForCommissionToComplete: 5,
-          commissionReceivedDate: new Date(),
-          commissionAcceptedDate: new Date(),
-          commissionDueDate: new Date(),
-          commissionCompletedDate: new Date(),
-          commissionCompleted: true,
-          commissionActive: false,
-          commissionPending: false,
-          commissionRejected: false
-        }
-
-
-      ],
-    }
-
-
-    this.httpClient.get(this.getRealTimeDatabaseURL() + this.authHandelService.getCurrentActiveUser.id+'.json',
-    )
-
-      // @ts-ignore
-      .pipe( map((responceData: {[key: string]: CommissionOverviewModel} ) => {
-        for (const key in responceData) {
-          if (responceData.hasOwnProperty(key)) {
-            this.comissionCardOverviewFromFirebaseWhenSaving = ({...responceData[key], key: key});
-          }
-        }
-        return responceData;
-      })).subscribe(responce => {
-      if (responce === null) {
-        this.httpClient.post(
-          this.getRealTimeDatabaseURL() + this.authHandelService.getCurrentActiveUser.id + '.json',
-          postData
-        ).subscribe(responceData => {
-        });
-      } else {
-        this.httpClient.patch(
-          this.getRealTimeDatabaseURL() +  this.authHandelService.getCurrentActiveUser.id  +'/'+ this.comissionCardOverviewFromFirebaseWhenSaving.key+'.json',
-          postData
-        ).subscribe(responceData => {
-        });
-      }
-    });
-
-  }
+  // saveFakeCommissions() {
+  //
+  //   let postData: CommissionOverviewModel = {
+  //     listOfCommissions: [
+  //
+  //       //active
+  //       {
+  //         commissionUniqueId: Math.floor((Math.random() * 100000000000000) + 1),
+  //
+  //
+  //         userIdForCommissioner: "!",
+  //
+  //         userIdForRequest: "2",
+  //         usernameOfRequest: "test2",
+  //         priceOffering: 20,
+  //         //imageDescription: "I want a image of Valorant",
+  //         howLongForCommissionToComplete: 5,
+  //         commissionReceivedDate: new Date(),
+  //         commissionAcceptedDate: new Date(),
+  //         commissionDueDate: new Date(),
+  //         commissionCompletedDate: new Date(),
+  //         commissionCompleted: false,
+  //         commissionActive: true,
+  //         commissionPending: false,
+  //         commissionRejected: false
+  //       },
+  //
+  //       //pending
+  //       {
+  //         commissionUniqueId: Math.floor((Math.random() * 100000000000000) + 1),
+  //
+  //         userIdForCommissioner: "!",
+  //
+  //         userIdForRequest: "1",
+  //         usernameOfRequest: "test1",
+  //         priceOffering: 10,
+  //        // imageDescription: "I want a image of Jett",
+  //         howLongForCommissionToComplete: 5,
+  //         commissionReceivedDate: new Date(),
+  //         commissionAcceptedDate: new Date(),
+  //         commissionDueDate: new Date(),
+  //         commissionCompletedDate: new Date(),
+  //         commissionCompleted: false,
+  //         commissionActive: false,
+  //         commissionPending: true,
+  //         commissionRejected: false
+  //       },
+  //       //pending
+  //       {
+  //         commissionUniqueId: Math.floor((Math.random() * 100000000000000) + 1),
+  //
+  //         userIdForCommissioner: "!",
+  //
+  //         userIdForRequest: "0",
+  //         usernameOfRequest: "test0",
+  //         priceOffering: 1000,
+  //   //      imageDescription: "I want a image of split a site",
+  //         howLongForCommissionToComplete: 5,
+  //         commissionReceivedDate: new Date(),
+  //         commissionAcceptedDate: new Date(),
+  //         commissionDueDate: new Date(),
+  //         commissionCompletedDate: new Date(),
+  //         commissionCompleted: false,
+  //         commissionActive: false,
+  //         commissionPending: true,
+  //         commissionRejected: false
+  //       },
+  //       {          commissionUniqueId: Math.floor((Math.random() * 100000000000000) + 1),
+  //
+  //         userIdForCommissioner: "!",
+  //
+  //         userIdForRequest: "0",
+  //         usernameOfRequest: "test0",
+  //         priceOffering: 1000,
+  //      //   imageDescription: "I want a image of split a site",
+  //         howLongForCommissionToComplete: 5,
+  //         commissionReceivedDate: new Date(),
+  //         commissionAcceptedDate: new Date(),
+  //         commissionDueDate: new Date(),
+  //         commissionCompletedDate: new Date(),
+  //         commissionCompleted: false,
+  //         commissionActive: false,
+  //         commissionPending: true,
+  //         commissionRejected: false
+  //       },
+  //
+  //       //rejected
+  //       {          commissionUniqueId: Math.floor((Math.random() * 100000000000000) + 1),
+  //
+  //         userIdForCommissioner: "!",
+  //         userIdForRequest: "3",
+  //         usernameOfRequest: "test3",
+  //         priceOffering: 30,
+  //         imageDescription: "I want a image of Omen",
+  //         howLongForCommissionToComplete: 5,
+  //         commissionReceivedDate: new Date(),
+  //         commissionAcceptedDate: new Date(),
+  //         commissionDueDate: new Date(),
+  //         commissionCompletedDate: new Date(),
+  //         commissionCompleted: false,
+  //         commissionActive: false,
+  //         commissionPending: false,
+  //         commissionRejected: true
+  //       },
+  //       {          commissionUniqueId: Math.floor((Math.random() * 100000000000000) + 1),
+  //
+  //         userIdForCommissioner: "!",
+  //
+  //         userIdForRequest: "3",
+  //         usernameOfRequest: "test3",
+  //         priceOffering: 30,
+  //         imageDescription: "I want a image of Omen",
+  //         howLongForCommissionToComplete: 5,
+  //         commissionReceivedDate: new Date(),
+  //         commissionAcceptedDate: new Date(),
+  //         commissionDueDate: new Date(),
+  //         commissionCompletedDate: new Date(),
+  //         commissionCompleted: false,
+  //         commissionActive: false,
+  //         commissionPending: false,
+  //         commissionRejected: true
+  //       },
+  //
+  //       //completed
+  //       {          commissionUniqueId: Math.floor((Math.random() * 100000000000000) + 1),
+  //
+  //         userIdForCommissioner: "!",
+  //
+  //         userIdForRequest: "4",
+  //         usernameOfRequest: "test4",
+  //         priceOffering: 40,
+  //         imageDescription: "I want a image of Neon",
+  //         howLongForCommissionToComplete: 5,
+  //         commissionReceivedDate: new Date(),
+  //         commissionAcceptedDate: new Date(),
+  //         commissionDueDate: new Date(),
+  //         commissionCompletedDate: new Date(),
+  //         commissionCompleted: true,
+  //         commissionActive: false,
+  //         commissionPending: false,
+  //         commissionRejected: false
+  //       }
+  //
+  //
+  //     ],
+  //   }
+  //
+  //
+  //   this.httpClient.get(this.getRealTimeDatabaseURL() + this.authHandelService.getCurrentActiveUser.id+'.json',
+  //   )
+  //
+  //     // @ts-ignore
+  //     .pipe( map((responceData: {[key: string]: CommissionOverviewModel} ) => {
+  //       for (const key in responceData) {
+  //         if (responceData.hasOwnProperty(key)) {
+  //           this.comissionCardOverviewFromFirebaseWhenSaving = ({...responceData[key], key: key});
+  //         }
+  //       }
+  //       return responceData;
+  //     })).subscribe(responce => {
+  //     if (responce === null) {
+  //       this.httpClient.post(
+  //         this.getRealTimeDatabaseURL() + this.authHandelService.getCurrentActiveUser.id + '.json',
+  //         postData
+  //       ).subscribe(responceData => {
+  //       });
+  //     } else {
+  //       this.httpClient.patch(
+  //         this.getRealTimeDatabaseURL() +  this.authHandelService.getCurrentActiveUser.id  +'/'+ this.comissionCardOverviewFromFirebaseWhenSaving.key+'.json',
+  //         postData
+  //       ).subscribe(responceData => {
+  //       });
+  //     }
+  //   });
+  //
+  // }
 
   comissionCardOverviewFromFirebaseWhenSaving: CommissionOverviewModel = {
     listOfCommissions: [],

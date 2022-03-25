@@ -1,0 +1,12 @@
+.testBorder {
+  border: 3px solid green;
+}
+.testBorder3 {
+  border: 3px solid yellow;
+}
+
+.divider{
+  width:5px;
+  height:auto;
+  display:inline-block;
+}

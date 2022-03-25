@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {EditPageFirebaseService} from "../service/edit-page-firebase.service";
 
 @Component({
   selector: 'app-edit-profile',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditProfileComponent implements OnInit {
 
-  constructor() { }
+  constructor(public editPageService: EditPageFirebaseService) { }
 
   ngOnInit(): void {
   }
 
+
+  sendTestProfile() {
+    this.editPageService.saveTestProfileToFirebase();
+  }
 }

@@ -1,1 +1,42 @@
-<p>edit-profile works!</p>
+<div class="container-fluid">
+  <div class="row testBorder " >
+    <div class="col-3  align-self-start">
+      <img class="d-block mx-auto mb-4"  style="border-radius: 50%" src="https://image.shutterstock.com/z/stock-photo-insert-profile-picture-sign-absence-of-image-1294019173.jpg" alt="" width="400" height="270">
+
+    </div>
+
+
+  </div>
+  <div class="row justify-content-around">
+    <div class="col-12">
+      <h3 class="text-center">Change profile pic</h3>
+      <div class="input-group mb-3">
+        <input type="file" class="form-control" id="inputGroupFile02">
+        <label class="input-group-text" for="inputGroupFile02">Upload</label>
+      </div>
+
+    </div>
+  </div>
+  <div class="row testBorder3">
+    <form>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Profile display name</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">About me</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+      </div>
+      <select class="form-select" aria-label="Default select example">
+        <option selected>What type of commission are you selling?</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+      </select>
+      <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+    <button type="button" (click)="sendTestProfile()" class="btn btn-primary">Send Fake Data</button>
+
+    Profile Link: /ALink
+  </div>
+</div>

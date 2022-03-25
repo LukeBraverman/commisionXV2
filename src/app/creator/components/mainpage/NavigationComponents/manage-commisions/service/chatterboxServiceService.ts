@@ -5,7 +5,7 @@ import {
   AuthenticationHandleService
 } from "../../../../../../developmentAuthentication-component/authscreen-component/service/authentication-handle.service";
 import {map} from "rxjs/operators";
-import {CommissionOverviewModel} from "../model/commissionOverview.model";
+import {CommissionOverviewModel} from "../../../../../../creatorV2/navigationComponents/manage-commissions/model/commissionOverview.model";
 import {AllChatBoxesModel} from "../model/allChatBoxes.model";
 
 @Injectable({providedIn: 'root'})
