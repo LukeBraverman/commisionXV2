@@ -22,23 +22,56 @@
 <div class="cover-container  d-flex w-100 h-100 p-3 mx-auto flex-column  " >
   <div class="row    justify-content-around">
     <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
-      <div class="col">
+
+      <div class="col" *ngFor="let serviceCard of foundServicePriceCards ; let i = index">
         <div class="card mb-4 rounded-3 shadow-sm">
           <div class="card-header py-3">
-            <h4 class="my-0 fw-normal" style="color: #9143da">Jojo figure</h4>
+            <h4 class="my-0 fw-normal" style="color: #9143da">{{serviceCard.title}}</h4>
           </div>
           <div class="card-body">
-            <h1 class="card-title pricing-card-title" style="color: #9143da">$24.00</h1>
-            <ul class="list-unstyled mt-3 mb-4">
-              <li style="color: #9143da">Custom made</li>
-              <li style="color: #9143da">Safely packaged</li>
-              <li style="color: #9143da">Shipped from UK</li>
-              <li style="color: #9143da">Returns accepted</li>
-            </ul>
+            <h1 class="card-title pricing-card-title" style="color: #9143da">{{serviceCard.price}}</h1>
+            <p style="color: #9143da">{{serviceCard.description}}</p>
+            <button type="button" class="w-100 btn btn-lg btn-outline-primary" style="color: #9143da">Buy</button>
+
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="{{'#' +serviceCard.cardUID}}">
+            Launch static backdrop modal
+          </button>
+          </div>
+        </div>
+
+        <div class="modal fade"  id="2564439870" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel" style="color: #9143da">{{serviceCard.title}}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                ...
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Understood</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <hr>
+      <div class="col" *ngFor="let productCard of foundProductPriceCards ; let i = index">
+        <div class="card mb-4 rounded-3 shadow-sm">
+          <div class="card-header py-3">
+            <h4 class="my-0 fw-normal" style="color: #9143da">{{productCard.title}}</h4>
+          </div>
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title" style="color: #9143da">{{productCard.price}}</h1>
+            <p style="color: #9143da">{{productCard.description}}</p>
             <button type="button" class="w-100 btn btn-lg btn-outline-primary" style="color: #9143da">Buy</button>
           </div>
         </div>
       </div>
+
 
       <div class="col">
         <div class="card mb-4 rounded-3 shadow-sm">
@@ -57,40 +90,9 @@
           </div>
         </div>
       </div>
-      <div class="col">
-        <div class="card mb-4 rounded-3 shadow-sm">
-          <div class="card-header py-3">
-            <h4 class="my-0 fw-normal" style="color: #9143da">Jojo figure</h4>
-          </div>
-          <div class="card-body">
-            <h1 class="card-title pricing-card-title" style="color: #9143da">$24.00</h1>
-            <ul class="list-unstyled mt-3 mb-4">
-              <li style="color: #9143da">Custom made</li>
-              <li style="color: #9143da">Safely packaged</li>
-              <li style="color: #9143da">Shipped from UK</li>
-              <li style="color: #9143da">Returns accepted</li>
-            </ul>
-            <button type="button" class="w-100 btn btn-lg btn-outline-primary" style="color: #9143da">Buy</button>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card mb-4 rounded-3 shadow-sm">
-          <div class="card-header py-3">
-            <h4 class="my-0 fw-normal" style="color: #9143da">Jojo figure</h4>
-          </div>
-          <div class="card-body">
-            <h1 class="card-title pricing-card-title" style="color: #9143da">$24.00</h1>
-            <ul class="list-unstyled mt-3 mb-4">
-              <li style="color: #9143da">Custom made</li>
-              <li style="color: #9143da">Safely packaged</li>
-              <li style="color: #9143da">Shipped from UK</li>
-              <li style="color: #9143da">Returns accepted</li>
-            </ul>
-            <button type="button" class="w-100 btn btn-lg btn-outline-primary" style="color: #9143da">Buy</button>
-          </div>
-        </div>
-      </div>
+
+
+
 
 
     </div>

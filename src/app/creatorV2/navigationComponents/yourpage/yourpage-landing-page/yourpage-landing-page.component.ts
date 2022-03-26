@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {EditHighlightCardService} from "../../editpage/service/edit-highlight-card.service";
 import {YourpageLandingpageService} from "../service/yourpage-landingpage.service";
 import {HighlightCardModel} from "../../editpage/model/highlightCard/highlightCard.model";
+import {PriceCardModel} from "../../editpage/model/price/priceCard.model";
 
 @Component({
   selector: 'app-yourpage-landing-page',
@@ -24,6 +25,13 @@ export class YourpageLandingPageComponent implements OnInit {
       cardUID: 1
     },
   ];
+  foundServicePriceCards:  PriceCardModel[] = [
+
+  ]
+  foundProductPriceCards:  PriceCardModel[] = [
+
+  ]
+
 
   constructor(
     public yourpageLandingpageService: YourpageLandingpageService
@@ -32,10 +40,20 @@ export class YourpageLandingPageComponent implements OnInit {
   ngOnInit(): void {
     this.yourpageLandingpageService.emitListOfHighlightCards.subscribe( list => {
       console.log(list.length);
-      this.foundHighlightCards = list;
+      // this.foundHighlightCards = list;
+    });
+    this.yourpageLandingpageService.emitListOfServicePriceCards.subscribe( list => {
+      console.log(list[0]);
+      console.log(list[1]);
+      this.foundServicePriceCards = list;
+
+    });
+    this.yourpageLandingpageService.emitListOfProductPriceCards.subscribe(list => {
+      this.foundProductPriceCards = list;
     })
     this.yourpageLandingpageService.getHighlightCards();
-
+    this.yourpageLandingpageService.getServicePriceCards();
+    this.yourpageLandingpageService.getProductCards();
   }
 
 }
