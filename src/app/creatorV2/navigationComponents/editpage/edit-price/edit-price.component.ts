@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
+import {EditPriceCardService} from "../service/edit-price-card.service";
 
 @Component({
   selector: 'app-edit-price',
@@ -18,7 +19,7 @@ export class EditPriceComponent implements OnInit {
 
   addProductCommission!: FormGroup;
   imageEventForProductForm;
-  constructor() { }
+  constructor(public editPriceCardService: EditPriceCardService) { }
 
   ngOnInit(): void {
     this.addServiceCommission = this.returnReactiveeditServicePriceForm();
@@ -91,6 +92,17 @@ export class EditPriceComponent implements OnInit {
     console.log(comMethod);
     console.log(this.imageEventForServiceForm);
 
+    this.editPriceCardService.saveServicePriceCard(
+      title,
+      desc,
+      price,
+      amountLeft,
+      buyInfo,
+      terms,
+      comMethod,
+      Math.floor(Math.random() * 10000000000)
+    );
+
     this.addServiceCommission.reset();
   }
 
@@ -110,6 +122,17 @@ export class EditPriceComponent implements OnInit {
     console.log(terms);
     console.log(comMethod);
     console.log(this.imageEventForProductForm);
+
+    this.editPriceCardService.saveProductPriceCard(
+      title,
+      desc,
+      price,
+      amountLeft,
+      buyInfo,
+      terms,
+      comMethod,
+      Math.floor(Math.random() * 10000000000)
+    );
 
     this.addProductCommission.reset();
   }

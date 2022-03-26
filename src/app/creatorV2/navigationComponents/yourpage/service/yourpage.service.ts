@@ -43,6 +43,8 @@ export class YourpageService {
     //   })
     // })
 
+
+
     userDoc.onSnapshot(snapshot => {
       snapshot.docChanges().forEach(
         change => {

@@ -55,6 +55,7 @@ export class EditProfileComponent implements OnInit {
 
     console.log(display);
     console.log(about);
+    this.editPageService.saveProfileToFirebase(display,about,typeOfCommission);
     this.editProfileForm.reset();
   }
 
@@ -110,15 +111,19 @@ export class EditProfileComponent implements OnInit {
 
   private sendReferenceToDataBase(authId: string, urlForImage) {
 
-    return firebase.firestore().collection(authId)
+    let docRef = firebase.firestore().collection(this.authServiceV3.userData.uid)
       .doc('devMetaData')
-      .collection('currentProfileImageURL')
-      .add(
-        {
-          profileImageUrl: urlForImage
-        }).catch(function(error) {
-        console.error('Error writing new message to database', error);
-      });
+      .collection('currentProfileImageURL ')
+      .doc(this.authServiceV3.userData.uid);
+
+    docRef.set(
+      {
+        profileImageUrl: urlForImage
+      }
+    ).catch(function(error) {
+      console.error('Error writing new message to database', error);
+    })
+
   }
 
 }
