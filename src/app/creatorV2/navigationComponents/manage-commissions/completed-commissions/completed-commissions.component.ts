@@ -18,7 +18,12 @@ export class CompletedCommissionsComponent implements OnInit {
       this.completedCommissions = list;
     });
 
-    this.manageCommissions.getFakeCommissionSet();
+    this.completedCommissions = this.manageCommissions.completedCommissions;
   }
+
+
+  goToChatService(commission: CommissionObject) {
+    this.manageCommissions.goToChatService(commission);
+  };
 
 }

@@ -1,4 +1,5 @@
 export interface CommissionObject {
+    databaseID?: string;
 
     commissionUniqueId: number;
 

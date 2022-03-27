@@ -30,7 +30,7 @@
       <div class="col-12 "   style="height: 50px">
         <div class="row  justify-content-between">
           <div class="col-4">
-            <button type="button"  class="btn btn-outline-secondary">
+            <button (click)="onReturnFromChat()"  type="button"  class="btn btn-outline-secondary">
               Return:
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
@@ -62,32 +62,35 @@
             <div *ngIf="chatterboxService.toDisplay" >
 
 
-              <div  tabindex="1" #commentDiv style=""  *ngFor="let message of chatterboxService?.toDisplay ; let i = index" >
-                <div *ngIf="message['name'] === this.authServiceV3.userData.uid" class="row justify-content-end " style="height: 60px; width: 90%">
-                  <div  class="col-md-4 chatBoxUserPov">
-                    You:
-                    <br>
+              <div  tabindex="1" #commentDiv style=""  *ngFor="let message of chatterboxService?.toDisplay ; let i = index;" >
+                <div *ngIf="i != chatterboxService?.toDisplay.length-1">
+                  <div *ngIf="message['name'] === this.authServiceV3.userData.uid" class="row justify-content-end " style="height: 60px; width: 90%">
+                    <div  class="col-md-4 chatBoxUserPov">
+                      You:
+                      <br>
 
-                    Text: {{message['text'] }}
+                      Text: {{message['text'] }}
                     </div>
+                    <div class="row" style="height: 33px">
+
+                    </div>
+                  </div>
+
+                  <div *ngIf="message['name'] !== this.authServiceV3.userData.uid" class="row justify-content-start" style="height: 60px;  width: 90% ">
+
+                    <div  class="col-md-4 chatBoxOtherUser justify-content-end">
+                      NAME: {{message['name'] }}
+                      <br>
+
+                      Text: {{message['text'] }}
+                    </div>
+
+                  </div>
                   <div class="row" style="height: 33px">
 
                   </div>
                 </div>
 
-                <div *ngIf="message['name'] !== this.authServiceV3.userData.uid" class="row justify-content-start" style="height: 60px;  width: 90% ">
-
-                  <div  class="col-md-4 chatBoxOtherUser justify-content-end">
-                   NAME: {{message['name'] }}
-                    <br>
-
-                    Text: {{message['text'] }}
-                  </div>
-
-                </div>
-                <div class="row" style="height: 33px">
-
-                </div>
 
               </div>
 

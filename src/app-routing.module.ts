@@ -79,7 +79,7 @@ import {
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/headScreen', pathMatch: 'full' },
-  { path: 'chat', component: ChatV3Component },
+
   { path: 'login', component: LoginV2Component },
   { path: 'signup', component: SignUpV2Component },
   {path:'headScreen', component: MainLandingPageComponent},
@@ -106,7 +106,7 @@ const appRoutes: Routes = [
           { path: 'completed', component: CompletedCommissionsComponent, canActivate: [AuthGuardV3]},
           { path: 'rejected', component: RejectedCommissionsComponent, canActivate: [AuthGuardV3]},
           { path: 'stopped', component: StoppedCommissionsComponent, canActivate: [AuthGuardV3]},
-
+          { path: 'chat/:id', component: ChatV3Component, canActivate: [AuthGuardV3] }
 
         ] },
       { path: 'AccountDetails', component: AccountDetailsComponentComponent, canActivate: [AuthGuardV3] },

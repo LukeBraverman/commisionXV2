@@ -25,29 +25,18 @@
           <p>Commission description</p>
           <p>{{commission.description}}</p>
         </div>
-        <div class="modal-footer flex-column border-top-0">
-          <button type="button" class="btn btn-lg btn-primary w-100 mx-0 mb-2">Complete commission</button>
-          <button type="button" class="btn btn-lg btn-light w-100 mx-0" data-bs-dismiss="modal">Stop commission</button>
-          <div class="row">
+         <div class="modal-footer flex-column border-top-0">
+            <button type="button" class="btn btn-lg btn-primary w-100 mx-0 mb-2"
+            (click)="onCompleteActiveCommission(commission)"
+            >Complete commission</button>
+            <button type="button" class="btn btn-lg btn-light w-100 mx-0" data-bs-dismiss="modal"
+            (click)="onStopActiveCommission(commission)"
+            >Stop commission</button>
+            <button type="button" class="btn btn-lg btn-light w-100 mx-0" data-bs-dismiss="modal">More Information</button>
+            <button (click)="goToChatService(commission)" type="button" class="btn btn-lg btn-light w-100 mx-0" data-bs-dismiss="modal">Chat</button>
 
-            <div class="modal-content rounded-6 shadow">
-              <div class="modal-header border-bottom-0">
-                <h5 class="modal-title">Commission ID</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body py-0">
-                <p>Commission description</p>
-              </div>
-              <div class="modal-footer flex-column border-top-0">
-                <button type="button" class="btn btn-lg btn-primary w-100 mx-0 mb-2">Complete commission</button>
-                <button type="button" class="btn btn-lg btn-light w-100 mx-0" data-bs-dismiss="modal">Stop commission</button>
-                <button type="button" class="btn btn-lg btn-light w-100 mx-0" data-bs-dismiss="modal">More Information / Chat!</button>
+         </div>
 
-              </div>
-            </div>
-
-          </div>
-        </div>
       </div>
 
     </div>

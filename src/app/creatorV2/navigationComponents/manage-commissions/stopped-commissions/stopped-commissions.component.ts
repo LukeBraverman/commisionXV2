@@ -18,7 +18,12 @@ export class StoppedCommissionsComponent implements OnInit {
       this.stoppedCommissions = list;
     });
 
-    this.manageCommissions.getFakeCommissionSet();
+    this.stoppedCommissions = this.manageCommissions.stoppedCommissions;
   }
+
+  goToChatService(commission: CommissionObject) {
+    this.manageCommissions.goToChatService(commission);
+  };
+
 
 }

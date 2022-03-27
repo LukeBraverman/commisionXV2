@@ -17,7 +17,7 @@ export class ActiveCommissionsComponent implements OnInit {
       this.activeCommissions = list;
     });
 
-    this.manageCommissions.getFakeCommissionSet();
+    this.activeCommissions = this.manageCommissions.activeCommissions;
   }
 
   saveFakeCommissions() {
@@ -27,4 +27,18 @@ export class ActiveCommissionsComponent implements OnInit {
   getFakeCommissions() {
     this.manageCommissions.getFakeCommissionSet();
   }
+
+  onCompleteActiveCommission(commission: CommissionObject) {
+    this.manageCommissions.turnActiveToCompleted(commission);
+  }
+
+  onStopActiveCommission(commission: CommissionObject) {
+    this.manageCommissions.turnActiveToStopped(commission);
+  }
+
+  goToChatService(commission: CommissionObject) {
+    this.manageCommissions.goToChatService(commission);
+  }
+
+
 }

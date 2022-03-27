@@ -18,7 +18,12 @@ export class RejectedCommissionsComponent implements OnInit {
       this.rejectedCommissions = list;
     });
 
-    this.manageCommissions.getFakeCommissionSet();
+    this.rejectedCommissions = this.manageCommissions.rejectedCommissions;
   }
+
+  goToChatService(commission: CommissionObject) {
+    this.manageCommissions.goToChatService(commission);
+  };
+
 
 }

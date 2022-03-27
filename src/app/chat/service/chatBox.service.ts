@@ -26,8 +26,8 @@ export class ChatBoxService {
 
 
   saveMessage(messageText) {
+
   // Add a new message entry to the database.
-    console.log("savingRGWEQAGR")
   return firebase.firestore().collection('messages')
     .doc(this.commissionId)
     .collection('chat')
@@ -36,7 +36,13 @@ export class ChatBoxService {
     text: messageText,
     profilePicUrl: 'https://picsum.photos/200/300',
     timestamp: firebase.firestore.FieldValue.serverTimestamp()
-  }).catch(function(error) {
+  })
+    // .then(res => {
+    // console.log('refreeshing display')
+    // this.toDisplay = [];
+    // this.loadMessages();
+    // })
+    .catch(function(error) {
     console.error('Error writing new message to database', error);
   });
 }
@@ -53,23 +59,24 @@ export class ChatBoxService {
     query.onSnapshot(snapshot => {
       snapshot.docChanges().forEach(
        change => {
-        if (change.type === 'removed') {
-        //  deleteMessage(change.doc.id);
-        } else {
-          console.log('called')
-          var message:firebase.firestore.DocumentData = change.doc.data();
-          // displayMessage(change.doc.id, message.timestamp, message.name,
-          //   message.text, message.profilePicUrl, message.imageUrl);
-          console.log(message)
-          console.log(message["text"])
-          this.pushItemToArray(message);
+         if (change.type === 'removed') {
+           //  deleteMessage(change.doc.id);
+         } else {
+           console.log('called')
+           var message: firebase.firestore.DocumentData = change.doc.data();
+           // displayMessage(change.doc.id, message.timestamp, message.name,
+           //   message.text, message.profilePicUrl, message.imageUrl);
+           console.log(message)
+           console.log(message["text"])
+           // this.pushItemToArray(message);
+           if (this.toDisplay.indexOf(message) === -1 && message["timestamp"]) {
+             this.toDisplay.push(message);
 
-
-        }
-      }
+           }
+         }
+       }
 
       );
-
 
     });
   }

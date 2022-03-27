@@ -17,7 +17,11 @@ export class PendingCommissionsComponent implements OnInit {
       this.pendingCommissions = list;
     });
 
-    this.manageCommission.getFakeCommissionSet();
+    this.pendingCommissions = this.manageCommission.pendingCommissions;
+  }
+
+  onAcceptPendingCommission(commissionToAccept: CommissionObject) {
+    this.manageCommission.turnPendingToActive(commissionToAccept);
   }
 
   onTestGetCommissions() {
@@ -26,5 +30,13 @@ export class PendingCommissionsComponent implements OnInit {
 
   onSaveFake() {
     this.manageCommission.saveFakeCommissionSet();
+  }
+
+  onRejectPendingCommissions(commissionToReject: CommissionObject) {
+    this.manageCommission.turnPendingToRejected(commissionToReject);
+  }
+
+  goToPendingCommissionChat(commission: CommissionObject) {
+    this.manageCommission.goToChatService(commission)
   }
 }

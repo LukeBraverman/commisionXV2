@@ -55,6 +55,9 @@ export class ManageCommissionsV2Service {
   }
 
   getFakeCommissionSet() {
+
+    this.onRestCommissionLists();
+
     let userDoc = firebase.firestore()
       .collection(this.authServiceV3.userData.uid )
       .doc('devMetaData')
@@ -74,8 +77,10 @@ export class ManageCommissionsV2Service {
             //  deleteMessage(change.doc.id);
           } else {
             console.log('called')
+            var id = change.doc.id;
             var commission:firebase.firestore.DocumentData = change.doc.data();
            let commisisonFromFirebase: CommissionObject = {
+             databaseID: id,
              activeAndThenStopped: commission['activeAndThenStopped'],
              commissionAcceptedDate: commission['commissionAcceptedDate'],
              commissionActive: commission['commissionActive'],
@@ -98,8 +103,7 @@ export class ManageCommissionsV2Service {
              usernameOfRequest: commission['usernameOfRequest']
 
            }
-           console.log('commission form firebase objectr')
-            console.log(commisisonFromFirebase);
+
 
             this.sortCommissionInToList(commisisonFromFirebase);
 
@@ -118,6 +122,14 @@ export class ManageCommissionsV2Service {
     });
   }
 
+
+  onRestCommissionLists() {
+    this.pendingCommissions = [];
+    this.activeCommissions = [];
+    this.rejectedCommissions = [];
+    this.completedCommissions = [];
+    this.stoppedCommissions = [];
+  }
   saveFakeCommissionSet() {
 
     let commissionFakeSet: CommissionObject = {
@@ -175,6 +187,9 @@ export class ManageCommissionsV2Service {
 
       commissionReceivedDate: new Date(),
 
+     commissionAcceptedDate: new Date(),
+      commissionCompletedDate: new Date(),
+      commissionDueDate: new Date(),
 
       commissionCompleted: false,
       commissionActive: true,
@@ -206,4 +221,161 @@ export class ManageCommissionsV2Service {
   }
 
 
-}
+  turnPendingToActive(commissionToChange: CommissionObject) {
+    var someDate = new Date();
+    var numberOfDaysToAdd = commissionToChange.howLongForCommissionToComplete;
+    var result = someDate.setDate(someDate.getDate() + numberOfDaysToAdd);
+
+
+    let changedCommission: CommissionObject = commissionToChange;
+
+      changedCommission.commissionActive = true;
+      changedCommission.commissionPending = false;
+      changedCommission.commissionCompleted = false;
+      changedCommission.commissionRejected = false;
+      changedCommission.activeAndThenStopped = false;
+
+      changedCommission.commissionAcceptedDate = new Date();
+      changedCommission.commissionCompletedDate = new Date();
+      changedCommission.commissionDueDate = new Date(result);
+      changedCommission.country = 'undefined';
+      changedCommission.postalAddress = 'undefined';
+
+    firebase.firestore().collection(this.authServiceV3.userData.uid)
+      .doc('devMetaData')
+      .collection('commissions')
+      .add(changedCommission).catch(function(error) {
+      console.error('Error writing new message to database', error);
+    }).then( res => {
+      firebase.firestore().collection(this.authServiceV3.userData.uid)
+        .doc('devMetaData')
+        .collection('commissions')
+        .doc(commissionToChange.databaseID)
+        .delete()
+        .catch(function(error) {
+          console.error('Error writing new message to database', error);
+        }).then( res => {
+        this.onRestCommissionLists();
+        this.getFakeCommissionSet();
+      });
+    });
+
+
+
+
+
+  };
+
+  turnPendingToRejected(commissionToReject: CommissionObject) {
+    var someDate = new Date();
+    var numberOfDaysToAdd = -1;
+    var result = someDate.setDate(someDate.getDate() + numberOfDaysToAdd);
+
+
+    let changedCommission: CommissionObject = commissionToReject;
+
+    changedCommission.commissionActive = false;
+    changedCommission.commissionPending = false;
+    changedCommission.commissionCompleted = false;
+    changedCommission.commissionRejected = true;
+    changedCommission.activeAndThenStopped = false;
+
+    changedCommission.commissionAcceptedDate = new Date();
+    changedCommission.commissionCompletedDate = new Date();
+    changedCommission.commissionDueDate = new Date(result);
+    changedCommission.country = 'undefined';
+    changedCommission.postalAddress = 'undefined';
+
+    firebase.firestore().collection(this.authServiceV3.userData.uid)
+      .doc('devMetaData')
+      .collection('commissions')
+      .add(changedCommission).catch(function(error) {
+      console.error('Error writing new message to database', error);
+    }).then( res => {
+      firebase.firestore().collection(this.authServiceV3.userData.uid)
+        .doc('devMetaData')
+        .collection('commissions')
+        .doc(commissionToReject.databaseID)
+        .delete()
+        .catch(function(error) {
+          console.error('Error writing new message to database', error);
+        }).then( res => {
+        this.onRestCommissionLists();
+        this.getFakeCommissionSet();
+      });
+    });
+  };
+
+  turnActiveToCompleted(commisisonToComplete: CommissionObject)
+  {
+    let changedCommission: CommissionObject = commisisonToComplete;
+
+    changedCommission.commissionActive = false;
+    changedCommission.commissionPending = false;
+    changedCommission.commissionCompleted = true;
+    changedCommission.commissionRejected = false;
+    changedCommission.activeAndThenStopped = false;
+
+    changedCommission.commissionCompletedDate = new Date();
+    changedCommission.country = 'undefined';
+    changedCommission.postalAddress = 'undefined';
+
+    firebase.firestore().collection(this.authServiceV3.userData.uid)
+      .doc('devMetaData')
+      .collection('commissions')
+      .add(changedCommission).catch(function(error) {
+      console.error('Error writing new message to database', error);
+    }).then( res => {
+      firebase.firestore().collection(this.authServiceV3.userData.uid)
+        .doc('devMetaData')
+        .collection('commissions')
+        .doc(commisisonToComplete.databaseID)
+        .delete()
+        .catch(function(error) {
+          console.error('Error writing new message to database', error);
+        }).then( res => {
+        this.onRestCommissionLists();
+        this.getFakeCommissionSet();
+      });
+    });
+  };
+
+  turnActiveToStopped(commissionToStop: CommissionObject)
+  {
+    let changedCommission: CommissionObject = commissionToStop;
+
+    changedCommission.commissionActive = false;
+    changedCommission.commissionPending = false;
+    changedCommission.commissionCompleted = false;
+    changedCommission.commissionRejected = false;
+    changedCommission.activeAndThenStopped = true;
+
+    changedCommission.commissionCompletedDate = new Date();
+    changedCommission.country = 'undefined';
+    changedCommission.postalAddress = 'undefined';
+
+    firebase.firestore().collection(this.authServiceV3.userData.uid)
+      .doc('devMetaData')
+      .collection('commissions')
+      .add(changedCommission).catch(function(error) {
+      console.error('Error writing new message to database', error);
+    }).then( res => {
+      firebase.firestore().collection(this.authServiceV3.userData.uid)
+        .doc('devMetaData')
+        .collection('commissions')
+        .doc(commissionToStop.databaseID)
+        .delete()
+        .catch(function(error) {
+          console.error('Error writing new message to database', error);
+        }).then( res => {
+        this.onRestCommissionLists();
+        this.getFakeCommissionSet();
+      });
+    });
+  };
+
+  goToChatService(commissionsChatToGoTo : CommissionObject) {
+    this.router.navigate(['dashboard/ManageCommissions/chat/' + commissionsChatToGoTo.commissionUniqueId ]);
+
+  }
+ }

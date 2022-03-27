@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
+import {ManageCommissionsV2Service} from "./service/manage-commissionsV2.service";
 
 @Component({
   selector: 'app-manage-commissions',
@@ -9,9 +10,11 @@ import {Router} from "@angular/router";
 export class ManageCommissionsComponent implements OnInit {
 
   constructor(
-    public router: Router
-
-  ) { }
+    public router: Router,
+  public manageCommissions: ManageCommissionsV2Service
+) {
+    this.manageCommissions.getFakeCommissionSet();
+  }
 
   ngOnInit(): void {
   }
