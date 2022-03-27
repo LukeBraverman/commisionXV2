@@ -249,11 +249,49 @@
   </div>
 
 
-  <div *ngIf="!onAddCommissionCardScreen" class="row " style="height: 400px">
+  <div *ngIf="!onAddCommissionCardScreen" class="row " style=" ">
     <div class="row" style="height: 12px">
 
     </div>
-    <h2>On all commiissions screen</h2>
+    <div class="row">
+      <div *ngFor="let serviceCard of foundServicePriceCards ; let i = index">
+        <div class="col-10">
+
+          <div class="card">
+            <h5 class="card-header" style="color: #9143da">{{serviceCard.title}}</h5>
+            <div class="card-body">
+              <h5 class="card-title" style="color: #9143da">${{serviceCard.price}}</h5>
+              <p class="card-text" style="color: #9143da">{{serviceCard.description}}</p>
+              <button type="button" class="btn btn-outline-primary mb-2 me-2" (click)="openVerticallyServiceCentered(i)">BUY</button>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+      <hr>
+      <div *ngFor="let productCard of foundProductPriceCards ; let i = index">
+        <div class="col-10">
+
+          <div class="card">
+            <h5 class="card-header" style="color: #9143da">{{productCard.title}}</h5>
+            <div class="card-body">
+              <h5 class="card-title" style="color: #9143da">${{productCard.price}}</h5>
+              <p class="card-text" style="color: #9143da">{{productCard.description}}</p>
+              <button type="button" class="btn btn-outline-primary mb-2 me-2" (click)="openVerticallyProductCentered(i)">BUY</button>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
 
 
   </div>

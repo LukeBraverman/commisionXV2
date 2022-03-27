@@ -1,10 +1,24 @@
 <div class="container-fluid">
-  <div class="row testBorder " >
+
+  <div class="row " style="height: 50px">
+    <ul class="nav justify-content-center">
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" (click)="onGoToEditProfile()">Edit profile</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)="onGoToSeeCurrentProfile()">Current profile</a>
+      </li>
+
+    </ul>
+  </div >
+<div *ngIf="onEditProfileScreen">
+  <div>
+    <div class="row testBorder " >
     <div class="col-3  align-self-start">
       <img  class="d-block mx-auto mb-4"  style="border-radius: 50%" src="{{url}}" alt="" width="400" height="270">
 
     </div>
-
+    </div>
 
   </div>
   <div class="row justify-content-around">
@@ -35,7 +49,7 @@
           class="form-control"
           id="exampleFormControlTextarea1"
           rows="3"
-        formControlName="about"
+          formControlName="about"
         ></textarea>
       </div>
       <select formControlName="type" class="form-select" aria-label="Default select example">
@@ -51,3 +65,35 @@
     Profile Link: /ALink
   </div>
 </div>
+
+  <div *ngIf="!onEditProfileScreen">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column  " >
+      <div class="row   justify-content-around">
+
+
+        <div class="px-4 py-5 my-5 text-center bg-light">
+          <div class="row   justify-content-start ">
+            <div class="col-3  align-self-start">
+              <img class="d-block mx-auto mb-4"  style="border-radius: 50%" [src]="currentImage" alt="" width="400" height="270">
+
+            </div>
+            <div class="row  w-75 justify-content-around">
+              <div class="col-6 align-self-center">
+                <h3 style="color: #9143da">{{currentDisplayName}}</h3>
+                <br>
+                <h3 style="color: #9143da">{{currentBio}}</h3>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+
+  </div>
+
+

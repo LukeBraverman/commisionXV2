@@ -21,6 +21,8 @@ export class EditGalleryService {
     public afAuth: AngularFireAuth, // Inject Firebase auth service
   ) { }
 
+
+
   addGalleryCardToFirebase(imageURL, description, cardUID) {
 
     let galleryCard: GalleryModel = {

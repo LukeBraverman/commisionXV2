@@ -112,7 +112,7 @@ export class YourpageLandingpageService {
           } else {
             var highlightCard:firebase.firestore.DocumentData = change.doc.data();
 
-            this.currentListOfServicePriceCards.push(
+            this.currentListOfProductCards.push(
               {
                 title:highlightCard['title'],
                 terms: highlightCard['terms'],

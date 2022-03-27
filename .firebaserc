@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "angulartest-c5bbf"
+  },
+  "targets": {
+    "angulartest-c5bbf": {
+      "hosting": {
+        "MigratingAngularProject": [
+          "angulartest-c5bbf"
+        ]
+      }
+    }
   }
 }

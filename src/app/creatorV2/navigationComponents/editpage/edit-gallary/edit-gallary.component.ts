@@ -7,6 +7,8 @@ import {AngularFirestore} from "@angular/fire/compat/firestore";
 import {AngularFireAuth} from "@angular/fire/compat/auth";
 import {AngularFireStorage} from "@angular/fire/compat/storage";
 import {finalize} from "rxjs";
+import {YourpageGalleryService} from "../../yourpage/service/yourpage-gallery.service";
+import {GalleryModel} from "../model/gallery/gallery.model";
 
 @Component({
   selector: 'app-edit-gallary',
@@ -14,6 +16,7 @@ import {finalize} from "rxjs";
   styleUrls: ['./edit-gallary.component.css']
 })
 export class EditGallaryComponent implements OnInit {
+  currentListOfGalleryCards: GalleryModel[] = [];
 
   onAddANewCardScreen: boolean = true;
 
@@ -26,12 +29,17 @@ export class EditGallaryComponent implements OnInit {
     public angularFirestore: AngularFirestore, // Inject Firestore service
     public afAuth: AngularFireAuth, // Inject Firebase auth service
     private imageStorageFirebase: AngularFireStorage,
-
+    public yourpageGalleryService:YourpageGalleryService
   ) { }
 
   ngOnInit(): void {
     this.editAddGalleryCard = this.returnReactiveLogInForm();
+    this.yourpageGalleryService.emitListOfGalleryPriceCards.subscribe( list => {
+      console.log(list)
+      this.currentListOfGalleryCards = list;
+    })
 
+    this.yourpageGalleryService.getGalleryCards();
   }
 
   private returnReactiveLogInForm() {

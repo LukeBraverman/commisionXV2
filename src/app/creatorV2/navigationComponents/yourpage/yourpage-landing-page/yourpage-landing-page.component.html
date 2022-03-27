@@ -3,102 +3,162 @@
 
   <div class="row featurette justify-content-around">
 
-    <div class="col-md-12 order-md-1">
-      <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="1000x500" src="{{foundHighlightCards[0].headlineImageURL}}" data-holder-rendered="true" style="width: 1000px; height: 500px;">
-    </div>
+<!--    <div class="col-md-12 order-md-1">-->
+<!--      <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="1000x500" src="{{foundHighlightCards[0].headlineImageURL}}" data-holder-rendered="true" style="width: 1000px; height: 500px;">-->
+<!--    </div>-->
+
+
+<!--    <div class="row justify-content-around">-->
+<!--      <div class="col-md-6 order-md-2 ">-->
+<!--        <h2 class="text-center" style="color: black">{{foundHighlightCards[0].headlineTitle}}</h2>-->
+<!--        <p class="text-center" style="color: black">{{foundHighlightCards[0].headlineDescription}}</p>-->
+<!--      </div>-->
+<!--    </div>-->
+    <ngb-carousel *ngIf="foundHighlightCards.length === 1">
+      <ng-template ngbSlide>
+        <div class="picsum-img-wrapper">
+          <img [src]="foundHighlightCards[0].headlineImageURL" alt="Random first slide">
+        </div>
+        <div class="carousel-caption">
+          <h3>{{foundHighlightCards[0].headlineTitle}}</h3>
+          <p>{{foundHighlightCards[0].headlineDescription}}</p>
+        </div>
+      </ng-template>
+    </ngb-carousel>
+
+    <ngb-carousel *ngIf="foundHighlightCards.length === 2">
+      <ng-template ngbSlide>
+        <div class="picsum-img-wrapper">
+          <img [src]="foundHighlightCards[0].headlineImageURL" alt="Random first slide">
+        </div>
+        <div class="carousel-caption">
+          <h3>{{foundHighlightCards[0].headlineTitle}}</h3>
+          <p>{{foundHighlightCards[0].headlineDescription}}</p>
+        </div>
+      </ng-template>
+      <ng-template ngbSlide>
+        <div class="picsum-img-wrapper">
+          <img [src]="foundHighlightCards[1].headlineImageURL" alt="Random second slide">
+        </div>
+        <div class="carousel-caption">
+          <h3>{{foundHighlightCards[1].headlineTitle}}</h3>
+          <p>{{foundHighlightCards[1].headlineDescription}}</p>
+        </div>
+      </ng-template>
+
+    </ngb-carousel>
+
+    <ngb-carousel *ngIf="foundHighlightCards.length === 3">
+      <ng-template ngbSlide>
+        <div class="picsum-img-wrapper">
+          <img [src]="foundHighlightCards[0].headlineImageURL" alt="Random first slide">
+        </div>
+        <div class="carousel-caption">
+          <h3>{{foundHighlightCards[0].headlineTitle}}</h3>
+          <p>{{foundHighlightCards[0].headlineDescription}}</p>
+        </div>
+      </ng-template>
+      <ng-template ngbSlide>
+        <div class="picsum-img-wrapper">
+          <img [src]="foundHighlightCards[1].headlineImageURL" alt="Random second slide">
+        </div>
+        <div class="carousel-caption">
+          <h3>{{foundHighlightCards[1].headlineTitle}}</h3>
+          <p>{{foundHighlightCards[1].headlineDescription}}</p>
+        </div>
+      </ng-template>
+      <ng-template ngbSlide>
+        <div class="picsum-img-wrapper">
+          <img [src]="foundHighlightCards[2].headlineImageURL" alt="Random second slide">
+        </div>
+        <div class="carousel-caption">
+          <h3>{{foundHighlightCards[2].headlineTitle}}</h3>
+          <p>{{foundHighlightCards[2].headlineDescription}}</p>
+        </div>
+      </ng-template>
+    </ngb-carousel>
+
+
+<!--      <ng-template ngbSlide>-->
+<!--        <div class="picsum-img-wrapper">-->
+<!--          <img [src]="images[0]" alt="Random first slide">-->
+<!--        </div>-->
+<!--        <div class="carousel-caption">-->
+<!--          <h3>First slide label</h3>-->
+<!--          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>-->
+<!--        </div>-->
+<!--      </ng-template>-->
+<!--      <ng-template ngbSlide>-->
+<!--        <div class="picsum-img-wrapper">-->
+<!--          <img [src]="images[1]" alt="Random second slide">-->
+<!--        </div>-->
+<!--        <div class="carousel-caption">-->
+<!--          <h3>Second slide label</h3>-->
+<!--          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>-->
+<!--        </div>-->
+<!--      </ng-template>-->
+<!--      <ng-template ngbSlide>-->
+<!--        <div class="picsum-img-wrapper">-->
+<!--          <img [src]="images[2]" alt="Random third slide">-->
+<!--        </div>-->
+<!--        <div class="carousel-caption">-->
+<!--          <h3>Third slide label</h3>-->
+<!--          <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>-->
+<!--        </div>-->
+<!--      </ng-template>-->
+
+
+
   </div>
-  <div class="row justify-content-around">
-    <div class="col-md-6 order-md-2 ">
-      <h2 class="text-center" style="color: black">{{foundHighlightCards[0].headlineTitle}}</h2>
-      <p class="text-center" style="color: black">{{foundHighlightCards[0].headlineDescription}}</p>
-    </div>
-  </div>
+
+
+
 </div>
 
 </body>
 
 <body class="d-flex h-100 text-center bg-light text-white  " >
 
-<div class="cover-container  d-flex w-100 h-100 p-3 mx-auto flex-column  " >
-  <div class="row    justify-content-around">
-    <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column  " >
+    <div class="row">
+      <div *ngFor="let serviceCard of foundServicePriceCards ; let i = index">
+        <div class="col-10">
 
-      <div class="col" *ngFor="let serviceCard of foundServicePriceCards ; let i = index">
-        <div class="card mb-4 rounded-3 shadow-sm">
-          <div class="card-header py-3">
-            <h4 class="my-0 fw-normal" style="color: #9143da">{{serviceCard.title}}</h4>
-          </div>
-          <div class="card-body">
-            <h1 class="card-title pricing-card-title" style="color: #9143da">{{serviceCard.price}}</h1>
-            <p style="color: #9143da">{{serviceCard.description}}</p>
-            <button type="button" class="w-100 btn btn-lg btn-outline-primary" style="color: #9143da">Buy</button>
+          <div class="card">
+            <h5 class="card-header" style="color: #9143da">{{serviceCard.title}}</h5>
+            <div class="card-body">
+              <h5 class="card-title" style="color: #9143da">${{serviceCard.price}}</h5>
+              <p class="card-text" style="color: #9143da">{{serviceCard.description}}</p>
+              <button type="button" class="btn btn-outline-primary mb-2 me-2" (click)="openVerticallyServiceCentered(i)">BUY</button>
 
-              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="{{'#' +serviceCard.cardUID}}">
-            Launch static backdrop modal
-          </button>
-          </div>
-        </div>
-
-        <div class="modal fade"  id="2564439870" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel" style="color: #9143da">{{serviceCard.title}}</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                ...
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Understood</button>
-              </div>
             </div>
           </div>
+
         </div>
 
       </div>
       <hr>
-      <div class="col" *ngFor="let productCard of foundProductPriceCards ; let i = index">
-        <div class="card mb-4 rounded-3 shadow-sm">
-          <div class="card-header py-3">
-            <h4 class="my-0 fw-normal" style="color: #9143da">{{productCard.title}}</h4>
+      <div *ngFor="let productCard of foundProductPriceCards ; let i = index">
+        <div class="col-10">
+
+          <div class="card">
+            <h5 class="card-header" style="color: #9143da">{{productCard.title}}</h5>
+            <div class="card-body">
+              <h5 class="card-title" style="color: #9143da">${{productCard.price}}</h5>
+              <p class="card-text" style="color: #9143da">{{productCard.description}}</p>
+              <button type="button" class="btn btn-outline-primary mb-2 me-2" (click)="openVerticallyProductCentered(i)">BUY</button>
+
+            </div>
           </div>
-          <div class="card-body">
-            <h1 class="card-title pricing-card-title" style="color: #9143da">{{productCard.price}}</h1>
-            <p style="color: #9143da">{{productCard.description}}</p>
-            <button type="button" class="w-100 btn btn-lg btn-outline-primary" style="color: #9143da">Buy</button>
-          </div>
+
         </div>
+
       </div>
-
-
-      <div class="col">
-        <div class="card mb-4 rounded-3 shadow-sm">
-          <div class="card-header py-3">
-            <h4 class="my-0 fw-normal" style="color: #9143da">Jojo figure</h4>
-          </div>
-          <div class="card-body">
-            <h1 class="card-title pricing-card-title" style="color: #9143da">$24.00</h1>
-            <ul class="list-unstyled mt-3 mb-4">
-              <li style="color: #9143da">Custom made</li>
-              <li style="color: #9143da">Safely packaged</li>
-              <li style="color: #9143da">Shipped from UK</li>
-              <li style="color: #9143da">Returns accepted</li>
-            </ul>
-            <button type="button" class="w-100 btn btn-lg btn-outline-primary" style="color: #9143da">Buy</button>
-          </div>
-        </div>
-      </div>
-
-
-
-
 
     </div>
 
 
-  </div>
 </div>
+
 
 </body>

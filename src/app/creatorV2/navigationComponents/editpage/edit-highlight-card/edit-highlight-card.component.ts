@@ -7,6 +7,8 @@ import {AngularFirestore} from "@angular/fire/compat/firestore";
 import {AngularFireAuth} from "@angular/fire/compat/auth";
 import {AngularFireStorage} from "@angular/fire/compat/storage";
 import {EditHighlightCardService} from "../service/edit-highlight-card.service";
+import {YourpageLandingpageService} from "../../yourpage/service/yourpage-landingpage.service";
+import {HighlightCardModel} from "../model/highlightCard/highlightCard.model";
 
 @Component({
   selector: 'app-edit-highlight-card',
@@ -16,18 +18,50 @@ import {EditHighlightCardService} from "../service/edit-highlight-card.service";
 export class EditHighlightCardComponent implements OnInit {
   editHighlightImageCard!: FormGroup;
   currentImageEvent;
+  onEditHighlightCardScreen: boolean = true;
+
+  foundHighlightCards : HighlightCardModel[] = [
+    {
+      cardUID: 0,
+      headlineDescription: "go to edit screen to add more",
+      headlineImageURL: "http://img3.wikia.nocookie.net/__cb20150215130030/leagueoflegends/images/6/66/Fat_Poro_Icon.png",
+      headlineTitle: "You can add up to 3 image cards"
+    }
+  ]
   constructor(
     public router: Router,
     public authServiceV3: AuthServicev3,
     public angularFirestore: AngularFirestore, // Inject Firestore service
     public afAuth: AngularFireAuth, // Inject Firebase auth service
     private imageStorageFirebase: AngularFireStorage,
-    public editHighlightCardService:EditHighlightCardService
+    public editHighlightCardService:EditHighlightCardService,
+    public highlighCardService: YourpageLandingpageService
 
   ) { }
 
   ngOnInit(): void {
     this.editHighlightImageCard = this.returnReactiveLogInForm();
+
+      this.highlighCardService.emitListOfHighlightCards.subscribe( list => {
+
+        this.foundHighlightCards = list;
+        this.checkIfNeedToPushEditCard(this.foundHighlightCards.length);
+      });
+
+      this.highlighCardService.getHighlightCards();
+  }
+
+  checkIfNeedToPushEditCard(length: number) {
+   let card: HighlightCardModel = {
+     cardUID: 0,
+     headlineDescription: "go to edit screen to add more",
+     headlineImageURL: "http://img3.wikia.nocookie.net/__cb20150215130030/leagueoflegends/images/6/66/Fat_Poro_Icon.png",
+     headlineTitle: "You can add up to 3 image cards"
+
+   }
+
+
+     this.foundHighlightCards.push(card);
 
   }
 
@@ -110,4 +144,13 @@ export class EditHighlightCardComponent implements OnInit {
   }
 
 
+  onGoToEditAHighlightCard() {
+    this.onEditHighlightCardScreen = true;
+  }
+
+  onGoToSeeHighlightCards() {
+    // this.foundHighlightCards = [];
+    // this.highlighCardService.getHighlightCards();
+    this.onEditHighlightCardScreen = false;
+  }
 }

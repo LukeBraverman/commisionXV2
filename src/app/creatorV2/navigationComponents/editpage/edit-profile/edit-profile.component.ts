@@ -8,6 +8,7 @@ import {AuthServicev3} from "../../../../AuthV3/service/AuthServiceV3.service";
 import {finalize} from "rxjs";
 import firebase from "firebase/compat/app";
 import {EditPageEmittersService} from "../service/edit-page-emitters.service";
+import {YourpageService} from "../../yourpage/service/yourpage.service";
 
 @Component({
   selector: 'app-edit-profile',
@@ -18,17 +19,37 @@ export class EditProfileComponent implements OnInit {
   editProfileForm!: FormGroup;
     url = "https://image.shutterstock.com/z/stock-photo-insert-profile-picture-sign-absence-of-image-1294019173.jpg";
     //todo make url change when uuser uploads
+  currentEvent;
+
+
+  onEditProfileScreen = true;
+  currentDisplayName: string = "Go to edit page to add a display name";
+  currentBio: string = "Go to edit page to add a bio";
+
+  currentImage = "https://image.shutterstock.com/z/stock-photo-insert-profile-picture-sign-absence-of-image-1294019173.jpg";
+
+
+
 
   constructor(public editPageService: EditPageFirebaseService,
               private imageStorageFirebase: AngularFireStorage,
               private httpClient: HttpClient,
               public authServiceV3: AuthServicev3,
               public editPageEmittersService: EditPageEmittersService,
+              public yourProfileService: YourpageService,
  ) { }
 
   ngOnInit(): void {
     this.editProfileForm = this.returnReactiveLogInForm();
 
+    this.yourProfileService.newProfileFound.subscribe( profile =>
+    {
+      this.currentDisplayName = profile.displayName;
+      this.currentBio = profile.aboutMe;
+      this.currentImage = profile.imageUrl;
+    });
+
+    this.yourProfileService.getProfile();
   }
 
   private returnReactiveLogInForm() {
@@ -55,16 +76,19 @@ export class EditProfileComponent implements OnInit {
 
     console.log(display);
     console.log(about);
-    this.editPageService.saveProfileToFirebase(display,about,typeOfCommission);
+    this.onUploadImageToFirebaseStorageLeg(this.currentEvent,display,about,[]);
     this.editProfileForm.reset();
   }
 
+  onUploadImageToFirebaseStorage(event,  ) {
+    this.currentEvent = event;
+  }
   //---------------
   message = '';
   imagePath;
   downloadURL;
   fb;
-  onUploadImageToFirebaseStorage(event) {
+  onUploadImageToFirebaseStorageLeg(event, display, about,typeOfCommission) {
     const files = event.target.files;
     if (files.length === 0)
       return;
@@ -95,7 +119,7 @@ export class EditProfileComponent implements OnInit {
             if (url) {
               this.fb = url;
             }
-            this.sendReferenceToDataBase(this.authServiceV3.userData.uid, this.fb);
+            this.editPageService.saveProfileToFirebase(display,about,typeOfCommission,url);
 
             //this.uploaded = true;
           });
@@ -126,4 +150,11 @@ export class EditProfileComponent implements OnInit {
 
   }
 
+  onGoToEditProfile() {
+    this.onEditProfileScreen = true;
+  }
+
+  onGoToSeeCurrentProfile() {
+    this.onEditProfileScreen = false;
+  }
 }

@@ -106,6 +106,7 @@ import { ActiveCommissionsComponent } from './creatorV2/navigationComponents/man
 import { CompletedCommissionsComponent } from './creatorV2/navigationComponents/manage-commissions/completed-commissions/completed-commissions.component';
 import { RejectedCommissionsComponent } from './creatorV2/navigationComponents/manage-commissions/rejected-commissions/rejected-commissions.component';
 import { StoppedCommissionsComponent } from './creatorV2/navigationComponents/manage-commissions/stopped-commissions/stopped-commissions.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -184,6 +185,7 @@ import { StoppedCommissionsComponent } from './creatorV2/navigationComponents/ma
     HttpClientModule,
 
     FormsModule,
+      NgbModule,
 
   ],
   providers: [

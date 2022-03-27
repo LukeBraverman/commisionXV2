@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {EditPriceCardService} from "../service/edit-price-card.service";
+import {YourpageLandingpageService} from "../../yourpage/service/yourpage-landingpage.service";
+import {PriceCardModel} from "../model/price/priceCard.model";
+import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
   selector: 'app-edit-price',
@@ -8,6 +11,13 @@ import {EditPriceCardService} from "../service/edit-price-card.service";
   styleUrls: ['./edit-price.component.css']
 })
 export class EditPriceComponent implements OnInit {
+  foundServicePriceCards:  PriceCardModel[] = [
+
+  ]
+  foundProductPriceCards:  PriceCardModel[] = [
+
+  ]
+
   onAddCommissionCardScreen: boolean = true;
   onAddAServiceCommissionScreen: boolean = false;
   onAddAProductCommissionScreen: boolean = false;
@@ -19,11 +29,27 @@ export class EditPriceComponent implements OnInit {
 
   addProductCommission!: FormGroup;
   imageEventForProductForm;
-  constructor(public editPriceCardService: EditPriceCardService) { }
+  constructor(
+    public editPriceCardService: EditPriceCardService,
+    public commissionCardService: YourpageLandingpageService,
+    private modalService: NgbModal,
+
+  ) { }
 
   ngOnInit(): void {
     this.addServiceCommission = this.returnReactiveeditServicePriceForm();
     this.addProductCommission = this.returnReactiveProductPriceForm()
+
+    this.commissionCardService.emitListOfServicePriceCards.subscribe( list => {
+
+      this.foundServicePriceCards = list;
+
+    });
+    this.commissionCardService.emitListOfProductPriceCards.subscribe(list => {
+      this.foundProductPriceCards = list;
+    })
+    this.commissionCardService.getServicePriceCards();
+    this.commissionCardService.getProductCards();
   }
 
   private returnReactiveeditServicePriceForm() {
@@ -83,14 +109,6 @@ export class EditPriceComponent implements OnInit {
     const terms = this.addServiceCommission.value.serviceTerms;
     const comMethod = this.addServiceCommission.value.serviceComMethod;
 
-    console.log(title);
-    console.log(desc);
-    console.log(price);
-    console.log(amountLeft);
-    console.log(buyInfo);
-    console.log(terms);
-    console.log(comMethod);
-    console.log(this.imageEventForServiceForm);
 
     this.editPriceCardService.saveServicePriceCard(
       title,
@@ -114,14 +132,7 @@ export class EditPriceComponent implements OnInit {
     const buyInfo = this.addProductCommission.value.pBuyInfo;
     const terms = this.addProductCommission.value.pTerms;
     const comMethod = this.addProductCommission.value.pComMethods;
-    console.log(title);
-    console.log(desc);
-    console.log(price);
-    console.log(amountLeft);
-    console.log(buyInfo);
-    console.log(terms);
-    console.log(comMethod);
-    console.log(this.imageEventForProductForm);
+
 
     this.editPriceCardService.saveProductPriceCard(
       title,
@@ -144,6 +155,23 @@ export class EditPriceComponent implements OnInit {
 
   onAddProductImage(event: Event) {
     this.imageEventForProductForm = event;
+  }
+
+
+
+  openVerticallyProductCentered(index: number) {
+    let productCard = this.foundProductPriceCards[index];
+    let content = productCard.cardUID + " " + productCard.title;
+
+    this.modalService.open(content, { centered: true });
+  }
+
+
+  openVerticallyServiceCentered(index: number) {
+    let serviceCard = this.foundServicePriceCards[index];
+    let content = serviceCard.cardUID + " " + serviceCard.title;
+
+    this.modalService.open(content, { centered: true });
   }
 
 

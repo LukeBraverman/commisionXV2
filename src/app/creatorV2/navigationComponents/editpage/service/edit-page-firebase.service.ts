@@ -21,12 +21,12 @@ export class EditPageFirebaseService {
     public afAuth: AngularFireAuth, // Inject Firebase auth service
   ) { }
 
-  saveProfileToFirebase(displayNameText: string, aboutMeText: string, profileTagsList: string[]) {
+  saveProfileToFirebase(displayNameText: string, aboutMeText: string, profileTagsList: string[], imageURL: string) {
     let profile: ProfileModel = {
       aboutMe: aboutMeText,
       commissionTage: profileTagsList,
-      displayName: displayNameText
-
+      displayName: displayNameText,
+      imageUrl: imageURL
     }
 
     let docRef = firebase.firestore().collection(this.authServiceV3.userData.uid)

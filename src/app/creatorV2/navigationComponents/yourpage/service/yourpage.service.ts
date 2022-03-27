@@ -37,10 +37,12 @@ export class YourpageService {
             var profile:firebase.firestore.DocumentData = change.doc.data();
             // displayMessage(change.doc.id, message.timestamp, message.name,
             //   message.text, message.profilePicUrl, message.imageUrl);
+            console.log(profile['imageUrl']);
             this.newProfileFound.emit({
               aboutMe:profile['aboutMe'],
               displayName: profile['displayName'],
-              commissionTage: []
+              commissionTage: [],
+              imageUrl: profile['imageUrl']
             })
 
             //console.log(message["text"])
