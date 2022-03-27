@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {CommissionObject} from "../model/commissionObject";
+import {ManageCommissionsV2Service} from "../service/manage-commissionsV2.service";
 
 @Component({
   selector: 'app-completed-commissions',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CompletedCommissionsComponent implements OnInit {
 
-  constructor() { }
+  completedCommissions: CommissionObject[] = [];
+
+  constructor(public manageCommissions: ManageCommissionsV2Service  ) { }
 
   ngOnInit(): void {
+    this.manageCommissions.completedCommissionEmitter.subscribe( list => {
+      this.completedCommissions = list;
+    });
+
+    this.manageCommissions.getFakeCommissionSet();
   }
 
 }
