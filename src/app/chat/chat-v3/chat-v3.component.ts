@@ -11,6 +11,7 @@ import {Subscription} from "rxjs";
   styleUrls: ['./chat-v3.component.css']
 })
 export class ChatV3Component implements OnInit, AfterViewInit {
+  //todo try a emmitter
   routeId: string;
   @ViewChildren("commentDiv") commentDivs: QueryList<ElementRef>;
   private routeSub: Subscription;

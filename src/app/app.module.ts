@@ -107,6 +107,9 @@ import { CompletedCommissionsComponent } from './creatorV2/navigationComponents/
 import { RejectedCommissionsComponent } from './creatorV2/navigationComponents/manage-commissions/rejected-commissions/rejected-commissions.component';
 import { StoppedCommissionsComponent } from './creatorV2/navigationComponents/manage-commissions/stopped-commissions/stopped-commissions.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { userPovCommisisonPageComponent } from './userV2/commisison-page/user-pov-commisison-page.component';
+import { UserPaymentComponent } from './payment/component/user-payment/user-payment.component';
+import {AngularFireFunctionsModule} from "@angular/fire/compat/functions";
 
 @NgModule({
   declarations: [
@@ -160,7 +163,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ActiveCommissionsComponent,
     CompletedCommissionsComponent,
     RejectedCommissionsComponent,
-    StoppedCommissionsComponent
+    StoppedCommissionsComponent,
+    userPovCommisisonPageComponent,
+    UserPaymentComponent
 
   ],
   imports: [
@@ -180,6 +185,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AngularFirestoreModule, // firestore
     AngularFireAuthModule, // auth
     AngularFireStorageModule, // storage
+    AngularFireFunctionsModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,

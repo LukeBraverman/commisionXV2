@@ -75,6 +75,8 @@ import {
 import {
   StoppedCommissionsComponent
 } from "./app/creatorV2/navigationComponents/manage-commissions/stopped-commissions/stopped-commissions.component";
+import {userPovCommisisonPageComponent} from "./app/userV2/commisison-page/user-pov-commisison-page.component";
+import {UserPaymentComponent} from "./app/payment/component/user-payment/user-payment.component";
 
 
 const appRoutes: Routes = [
@@ -115,6 +117,9 @@ const appRoutes: Routes = [
 
 
     ] },
+  { path: 'userpage/:id', component: userPovCommisisonPageComponent, canActivate: [AuthGuardV3] },
+  { path: 'payment', component: UserPaymentComponent, canActivate: [AuthGuardV3] },
+
 
 
   //---------------
