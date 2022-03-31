@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ManageCommissionsV2Service} from "../service/manage-commissionsV2.service";
 import {CommissionObject} from "../model/commissionObject";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-active-commissions',
@@ -10,7 +11,11 @@ import {CommissionObject} from "../model/commissionObject";
 export class ActiveCommissionsComponent implements OnInit {
   activeCommissions: CommissionObject[] = [];
 
-  constructor(public manageCommissions: ManageCommissionsV2Service  ) { }
+  constructor(
+    public manageCommissions: ManageCommissionsV2Service,
+    public router: Router,
+
+  ) { }
 
   ngOnInit(): void {
     this.manageCommissions.activeCommissionEmitter.subscribe( list => {
@@ -29,7 +34,9 @@ export class ActiveCommissionsComponent implements OnInit {
   }
 
   onCompleteActiveCommission(commission: CommissionObject) {
-    this.manageCommissions.turnActiveToCompleted(commission);
+    this.router.navigate(['uploadtest/' + commission.commissionUniqueId]);
+    //todo move turn commission to completed to next screen
+   // this.manageCommissions.turnActiveToCompleted(commission);
   }
 
   onStopActiveCommission(commission: CommissionObject) {

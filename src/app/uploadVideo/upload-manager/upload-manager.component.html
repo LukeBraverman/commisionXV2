@@ -1,1 +1,24 @@
-<p>upload-manager works!</p>
+<div class="dropzone" appDropzone (hovered)="toggleHover($event)" (dropped)="onDrop($event)" [class.hovering]="isHovering">
+
+  <h3> Drag & Drop files here</h3>
+
+  <div>
+    <label>
+      <input type="file" (change)="onDrop($event.target.files)">
+    </label>
+  </div>
+</div>
+
+<div *ngIf="files.length > 0">
+  Uploads
+  <hr>
+</div>
+
+<div *ngFor="let file of files">
+  <app-upload-task [file]="file"></app-upload-task>
+</div>
+
+<div class="row">
+  <button>complete</button>
+  <button (click)="onReturnToCommissionScreen()">return to manage commission screen</button>
+</div>

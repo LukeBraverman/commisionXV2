@@ -120,7 +120,7 @@ const appRoutes: Routes = [
     ] },
   { path: 'userpage/:id', component: userPovCommisisonPageComponent, canActivate: [AuthGuardV3] },
   { path: 'payment', component: UserPaymentComponent, canActivate: [AuthGuardV3] },
-  { path: 'uploadtest', component: HomeForUploadComponent, canActivate: [AuthGuardV3] },
+  { path: 'uploadtest/:commission', component: HomeForUploadComponent, canActivate: [AuthGuardV3] },
 
 
 

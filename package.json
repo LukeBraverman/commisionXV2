@@ -11,12 +11,14 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "~13.2.0",
+    "@angular/cdk": "^13.3.2",
     "@angular/common": "~13.2.0",
     "@angular/compiler": "~13.2.0",
     "@angular/core": "~13.2.0",
     "@angular/fire": "^7.2.1",
     "@angular/forms": "~13.2.0",
     "@angular/localize": "~13.2.0",
+    "@angular/material": "^13.3.2",
     "@angular/platform-browser": "~13.2.0",
     "@angular/platform-browser-dynamic": "~13.2.0",
     "@angular/router": "~13.2.0",
@@ -27,10 +29,10 @@
     "firebase": "^9.6.9",
     "jquery": "^3.6.0",
     "popper.js": "^1.16.1",
+    "rxfire": "^6.0.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
-    "zone.js": "~0.11.4",
-    "rxfire": "^6.0.0"
+    "zone.js": "~0.11.4"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~13.2.0",
