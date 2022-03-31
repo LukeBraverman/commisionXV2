@@ -110,6 +110,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { userPovCommisisonPageComponent } from './userV2/commisison-page/user-pov-commisison-page.component';
 import { UserPaymentComponent } from './payment/component/user-payment/user-payment.component';
 import {AngularFireFunctionsModule} from "@angular/fire/compat/functions";
+import { UploadTaskComponent } from './uploadVideo/upload-task/upload-task.component';
+import { UploadManagerComponent } from './uploadVideo/upload-manager/upload-manager.component';
+import { HomeForUploadComponent } from './uploadVideo/home/home-for-upload/home-for-upload.component';
+import { DropzoneDirective } from './uploadVideo/directives/dropzone.directive';
 
 @NgModule({
   declarations: [
@@ -165,7 +169,11 @@ import {AngularFireFunctionsModule} from "@angular/fire/compat/functions";
     RejectedCommissionsComponent,
     StoppedCommissionsComponent,
     userPovCommisisonPageComponent,
-    UserPaymentComponent
+    UserPaymentComponent,
+    UploadTaskComponent,
+    UploadManagerComponent,
+    HomeForUploadComponent,
+    DropzoneDirective
 
   ],
   imports: [
