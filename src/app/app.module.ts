@@ -114,6 +114,7 @@ import { UploadTaskComponent } from './uploadVideo/upload-task/upload-task.compo
 import { UploadManagerComponent } from './uploadVideo/upload-manager/upload-manager.component';
 import { HomeForUploadComponent } from './uploadVideo/home/home-for-upload/home-for-upload.component';
 import { DropzoneDirective } from './uploadVideo/directives/dropzone.directive';
+import { GetCommissionComponent } from './getCommission/get-commission/get-commission.component';
 
 @NgModule({
   declarations: [
@@ -173,7 +174,8 @@ import { DropzoneDirective } from './uploadVideo/directives/dropzone.directive';
     UploadTaskComponent,
     UploadManagerComponent,
     HomeForUploadComponent,
-    DropzoneDirective
+    DropzoneDirective,
+    GetCommissionComponent
 
   ],
   imports: [
