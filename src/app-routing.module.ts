@@ -78,6 +78,7 @@ import {
 import {userPovCommisisonPageComponent} from "./app/userV2/commisison-page/user-pov-commisison-page.component";
 import {UserPaymentComponent} from "./app/payment/component/user-payment/user-payment.component";
 import {HomeForUploadComponent} from "./app/uploadVideo/home/home-for-upload/home-for-upload.component";
+import {GetCommissionComponent} from "./app/getCommission/get-commission/get-commission.component";
 
 
 const appRoutes: Routes = [
@@ -121,6 +122,7 @@ const appRoutes: Routes = [
   { path: 'userpage/:id', component: userPovCommisisonPageComponent, canActivate: [AuthGuardV3] },
   { path: 'payment', component: UserPaymentComponent, canActivate: [AuthGuardV3] },
   { path: 'uploadtest/:commission', component: HomeForUploadComponent, canActivate: [AuthGuardV3] },
+  { path: 'getacommission', component: GetCommissionComponent, canActivate: [AuthGuardV3] },
 
 
 
