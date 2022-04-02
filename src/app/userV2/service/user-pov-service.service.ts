@@ -10,14 +10,16 @@ import firebase from "firebase/compat/app";
   providedIn: 'root'
 })
 export class UserPovServiceService {
-
+  fakeCommissionAmount = 500;
 
   constructor(
     public router: Router,
     public authServiceV3: AuthServicev3,
     public angularFirestore: AngularFirestore, // Inject Firestore service
     public afAuth: AngularFireAuth, // Inject Firebase auth service
-  ) { }
+  ) {
+
+  }
 
   postAFakeCommission(idOfCommissioner: string) {
     var someDate = new Date();

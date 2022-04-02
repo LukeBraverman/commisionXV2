@@ -29,7 +29,8 @@ export class PaymentsService implements OnInit{
   processPayments(token: any, amount) {
     console.log(this.userId)
     const payment = {token, amount};
-    return this.db.list(`/payments/${this.authServiceV3.userData.uid}`).push(payment);
+    this.db.list(`/payments/${this.authServiceV3.userData.uid}`).push(payment);
+    return true;
   }
 
 }

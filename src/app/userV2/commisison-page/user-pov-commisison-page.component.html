@@ -1,3 +1,20 @@
 <p>commisison-page works!</p>
 
 <button (click)="onAddCommission()">add commission</button>
+
+
+<div *ngIf="calculatedADeposit">
+  <div class="row">
+    <h3>The deposit is 10% of the original amount: {{this.amountForDeposit}}</h3>
+  </div>
+  <div class="row">
+    <button (click)="onPayDeposit(this.amountForDeposit)">pay</button>
+  </div>
+</div>
+
+<div *ngIf="finishedPayingDSeposit">
+  <h3>Deposit payed!</h3>
+  <button (click)="onAddCommissionAndReset()">Add commission and reset</button>
+</div>
+
+

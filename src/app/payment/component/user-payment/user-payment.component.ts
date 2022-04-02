@@ -15,6 +15,7 @@ export class UserPaymentComponent implements OnInit {
   createStripeCheckout;
    // @ts-ignore
   stripe = Stripe('pk_test_51KEge0B91VNRDDqleEkrTYBO4ZG6J5nXl3DP0iSCbqgejgGxMl1hDruK44nqz1iq5kBEMvYeO7l7YKB1hWVt17rR00qTzy9q63');
+
   constructor(
     private paymentService: PaymentsService,
   ) { }
